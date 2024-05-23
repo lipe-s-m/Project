@@ -65,7 +65,7 @@ app.post("/agendar", (req, res) => {
       }
       //se ja tiver agendamento ativo
       if (result.length > 0) {
-        return console.log("este usuario ja possui um agendamento ativo");
+        return console.log("Este usuario ja possui um agendamento ativo, nao foi possivel criar outro agendamento");
       }
       //se poder fazer
       db.query(insertAgend, [senha, data, hora, email, ativo], (err, result) => {

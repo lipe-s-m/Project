@@ -23,10 +23,11 @@
     width: 460px;
     opacity: 0.9;
     position: absolute;
-    top: 5%; /* Posiciona o texto no final do quadrado */
+    top: 3%; /* Posiciona o texto no final do quadrado */
     left: 50%; /* Posiciona o texto no meio horizontalmente */
     transform: translateX(-50%); /* Centraliza horizontalmente */
     margin: 0; /* Remove margens padrão */
+    text-align: center;
 
   }
   
@@ -130,13 +131,14 @@
     color: rgba(00, 00, 00, 0.7);
     font-weight: normal;
     height: 30px;
-    width: 300px;
+    width: 390px;
     font-size: 17px;
     position: absolute;
     bottom: 0; /* Posiciona o texto no final do quadrado */
     left: 50%; /* Posiciona o texto no meio horizontalmente */
     transform: translateX(-50%); /* Centraliza horizontalmente */
     margin: 0; /* Remove margens padrão */
+    text-align: center;
 
     padding: 10px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
 
@@ -206,4 +208,10 @@
     opacity: 0.9;
   
     color: rgba(28, 76, 46, 1);
+  }
+  #lowText .bold:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0.85;
+  
   }

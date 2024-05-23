@@ -2,10 +2,12 @@
   padding: 0;
   margin: 0;
 }
+
 #icon {
   width: 150px;
-  margin-left: 5px;
+  margin-left: 17px;
   margin-bottom: 20px;
+  
 }
 .Login {
   position: absolute;
@@ -184,9 +186,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 63%;
+  top: 61%;
 }
 .bold {
   font-weight: bold;
   color: rgba(28, 76, 46, 0.7);
+}
+.lowText .bold:hover{
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.85;
+
 }

@@ -15,7 +15,7 @@ function AppRoutes() {
           element={<AgendarHorario />}
         />
         <Route
-          path="/VisualizarSenha/:nomeUsuario/:emailUsuario/:data/:hora/:senha"
+          path="/VisualizarSenha/:nomeUsuario/:emailUsuario/:hora/:senha"
           element={<VisualizarSenha />}
         />
         <Route path="/Cardapio" element={<Cardapio />} />

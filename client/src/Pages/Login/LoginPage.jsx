@@ -112,7 +112,7 @@ function Login() {
         {/* Botao de Log Out */}
         {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && (
           <button id="Desconect" onClick={(e) => handleSignOut(e)}>
-            DESCONECTAR
+            Desconectar
           </button>
         )}
         {/* Email nao é da UFRRJ */}
@@ -124,7 +124,7 @@ function Login() {
             </div>
 
             <button id="limparEmail" onClick={(e) => handleSignOut(e)}>
-              VOLTAR
+              Voltar
             </button>
           </div>
         )}
@@ -139,7 +139,7 @@ function Login() {
             </div>
 
             <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
-              PROSSEGUIR
+              Prosseguir
             </button>
           </div>
         )}

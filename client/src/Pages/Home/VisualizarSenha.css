@@ -1,0 +1,14 @@
+#registro {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+    
+
+#test {
+  text-align: center;
+
+  font-size: 64px;
+}

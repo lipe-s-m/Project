@@ -1,11 +1,13 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import "./AgendarHorario.css";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AgendarHorario() {
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
+  const navigate = useNavigate();
 
   // Valor inicial da lotação, pode ser alterado conforme necessário
   const [lotacaoBotao1, setLotacaoBotao1] = useState(0);
@@ -45,17 +47,22 @@ function AgendarHorario() {
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "11:40";
+      const senha = lotacaoBotao1 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
         senha: lotacaoBotao1 + 1,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -69,21 +76,26 @@ function AgendarHorario() {
       setLotacaoBotao2((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao2 + 1);
 
-      //pega data atual
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "12:00";
+      const senha = lotacaoBotao2 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -95,21 +107,27 @@ function AgendarHorario() {
     if (lotacaoBotao3 < 50) {
       setLotacaoBotao3((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao3 + 1);
-      //pega data atual
+
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "12:20";
+      const senha = lotacaoBotao3 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -120,21 +138,27 @@ function AgendarHorario() {
     if (lotacaoBotao4 < 50) {
       setLotacaoBotao4((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao4 + 1);
-      //pega data atual
+
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "12:40";
+      const senha = lotacaoBotao4 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -145,21 +169,27 @@ function AgendarHorario() {
     if (lotacaoBotao5 < 50) {
       setLotacaoBotao5((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao5 + 1);
-      //pega data atual
+
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "11:50";
+      const senha = lotacaoBotao5 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -170,21 +200,27 @@ function AgendarHorario() {
     if (lotacaoBotao6 < 50) {
       setLotacaoBotao6((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao6 + 1);
-      //pega data atual
+
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "12:10";
+      const senha = lotacaoBotao5 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -195,21 +231,27 @@ function AgendarHorario() {
     if (lotacaoBotao7 < 50) {
       setLotacaoBotao7((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao7 + 1);
-      //pega data atual
+
+       //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "12:30";
+      const senha = lotacaoBotao5 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -221,71 +263,88 @@ function AgendarHorario() {
     if (lotacaoBotao8 < 50) {
       setLotacaoBotao8((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao8 + 1);
-      //pega data atual
-      const dataAtual = new Date();
-      const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
-      console.log(dataFormatada);
 
-      //agendando no banco
-      Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
-        data: dataFormatada,
-        hora: "11:40",
-        email: emailUsuario,
-        ativo: true,
-      })
-        .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-        })
-        .catch((error) => {
-          console.error("Erro na requisição:", error);
-        });
+       //pega data atual hora  e SENHA
+       const dataAtual = new Date();
+       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
+       console.log(dataFormatada);
+       const hora = "12:50";
+       const senha = lotacaoBotao5 + 1;
+ 
+       //agendando no banco
+       Axios.post("http://localhost:3001/agendar", {
+         senha: senha,
+         data: dataFormatada,
+         hora: hora,
+         email: emailUsuario,
+         ativo: true,
+       })
+         .then((response) => {
+           console.log(response.data); // Mostrar a resposta do servidor
+           navigate(
+             `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+           );
+         })
+         .catch((error) => {
+           console.error("Erro na requisição:", error);
+         });
     }
   };
   const handleIncreaseLotacaoBotao9 = () => {
     if (lotacaoBotao9 < 50) {
       setLotacaoBotao9((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao9 + 1);
-      //pega data atual
-      const dataAtual = new Date();
-      const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
-      console.log(dataFormatada);
 
-      //agendando no banco
-      Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
-        data: dataFormatada,
-        hora: "11:40",
-        email: emailUsuario,
-        ativo: true,
-      })
-        .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-        })
-        .catch((error) => {
-          console.error("Erro na requisição:", error);
-        });
+       //pega data atual hora  e SENHA
+       const dataAtual = new Date();
+       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
+       console.log(dataFormatada);
+       const hora = "13:10";
+       const senha = lotacaoBotao5 + 1;
+ 
+       //agendando no banco
+       Axios.post("http://localhost:3001/agendar", {
+         senha: senha,
+         data: dataFormatada,
+         hora: hora,
+         email: emailUsuario,
+         ativo: true,
+       })
+         .then((response) => {
+           console.log(response.data); // Mostrar a resposta do servidor
+           navigate(
+             `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+           );
+         })
+         .catch((error) => {
+           console.error("Erro na requisição:", error);
+         });
     }
   };
   const handleIncreaseLotacaoBotao10 = () => {
     if (lotacaoBotao10 < 50) {
       setLotacaoBotao10((prevLotacao) => prevLotacao + 1);
       console.log(lotacaoBotao10 + 1);
-      //pega data atual
+      //pega data atual hora  e SENHA
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
       console.log(dataFormatada);
+      const hora = "13:00";
+      const senha = lotacaoBotao5 + 1;
 
       //agendando no banco
       Axios.post("http://localhost:3001/agendar", {
-        senha: lotacaoBotao1 + 1,
+        senha: senha,
         data: dataFormatada,
-        hora: "11:40",
+        hora: hora,
         email: emailUsuario,
         ativo: true,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          navigate(
+            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${dataAtual.toLocaleDateString}/${hora}/${senha}`
+          );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
@@ -293,7 +352,7 @@ function AgendarHorario() {
     }
   };
 
-  function handleIncreaseCardapio(emailUser){
+  function handleIncreaseCardapio(emailUser) {
     //apagando agendamento no banco
     Axios.post("http://localhost:3001/cancelarAgendamento", {
       email: emailUsuario,
@@ -304,7 +363,7 @@ function AgendarHorario() {
       .catch((error) => {
         console.error("Erro na requisição:", error);
       });
-      console.log("apagando");
+    console.log("apagando");
   }
 
   return (
@@ -386,8 +445,12 @@ function AgendarHorario() {
 
         {/* Cardapio */}
         {/* Rodapé */}
-        <button id="cardapio" onClick={() => handleIncreaseCardapio(emailUsuario)}>Ver Cardápio</button>
-        
+        <button
+          id="cardapio"
+          onClick={() => handleIncreaseCardapio(emailUsuario)}
+        >
+          Ver Cardápio
+        </button>
 
         <p id="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>

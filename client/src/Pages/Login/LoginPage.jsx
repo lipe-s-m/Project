@@ -10,7 +10,8 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
-
+  const navigate = useNavigate();
+  
   function handleCallbackResponse(response) {
     //imprime o id do email
     // console.log("Encoded JWT ID token: " + response.credential);
@@ -49,7 +50,6 @@ function Login() {
     //reaparecer botao
     document.getElementById("signInDiv").hidden = false;
   }
-  const navigate = useNavigate();
 
   //usuario logado com sucesso, prosseguir pra proxima pagina
   function nextPage(event) {

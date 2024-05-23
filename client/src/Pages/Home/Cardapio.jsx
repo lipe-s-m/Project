@@ -1,7 +1,7 @@
 function Cardapio(){
     return(
         <>
-            <h1>cardapio</h1>
+            <h1>hehe finge que tem umas parada aq KKK</h1>
         </>
     )
 

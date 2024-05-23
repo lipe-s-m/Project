@@ -181,12 +181,17 @@
   font-family: "Montserrat";
   color: rgba(00, 00, 00, 0.7);
   font-weight: normal;
+  height: 30px;
+  width: 390px;
   font-size: 17px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 61%;
+  position: absolute;
+  bottom: 0; /* Posiciona o texto no final do quadrado */
+  left: 50%; /* Posiciona o texto no meio horizontalmente */
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  margin: 0; /* Remove margens padrão */
+  text-align: center;
+
+  padding: 10px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
 }
 .bold {
   font-weight: bold;

@@ -11,7 +11,7 @@ function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
   const navigate = useNavigate();
-  
+
   function handleCallbackResponse(response) {
     //imprime o id do email
     // console.log("Encoded JWT ID token: " + response.credential);
@@ -58,18 +58,26 @@ function Login() {
     const emailUsuario = user.email;
     console.log("ir para próxima página, %s", nomeUsuario);
 
-
     //cadastro provisorio
     Axios.post("http://localhost:3001/register", {
       email: emailUsuario,
       name: nomeUsuario,
     }).then((response) => {
-      console.log(response)
+      console.log(response);
     });
-  
 
     //carrega pagina de agendamento
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+  }
+  function nextPageCardapio(event) {
+    //cria atributos com os valores do objeto
+    const nomeUsuario = user.name;
+    console.log("ir para próxima página, %s", nomeUsuario);
+
+    
+
+    //carrega pagina de agendamento
+    navigate(`/Cardapio`);
   }
 
   useEffect(() => {
@@ -130,7 +138,7 @@ function Login() {
         )}
 
         {/* Usuario logado com sucesso */}
-        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && (
+        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && user.email !== "novaesduda4@gmail.com" && (
           <div className="loginResponse">
             <div className="saudacao">
               <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
@@ -139,6 +147,19 @@ function Login() {
             </div>
 
             <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
+              Prosseguir
+            </button>
+          </div>
+        )}
+        {Object.keys(user).length !== 0 && user.email === "novaesduda4@gmail.com" && (
+          <div className="loginResponse">
+            <div className="saudacao">
+              <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
+              <br></br>
+              Ola, Admin {user.name}!
+            </div>
+
+            <button id="prosseguirLog" onClick={(e) => nextPageCardapio(e)}>
               Prosseguir
             </button>
           </div>

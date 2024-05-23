@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import "./AgendarHorario.css";
-import Axios from "axios";
 import Modal from "./Modal";
 
 function AgendarHorario() {
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
-
+  const { ativo } = useParams();
+  const { setAtivo } = useParams();
   // Valor inicial da lotação, pode ser alterado conforme necessário
   const [lotacaoBotao1, setLotacaoBotao1] = useState(50);
   const [lotacaoBotao2, setLotacaoBotao2] = useState(47);
@@ -53,6 +53,8 @@ function AgendarHorario() {
     <>
       {/* chamar os pop ups de cada botao */}
       <Modal
+        ativo={ativo}
+        setAtivo={setAtivo}
         hora={"11:40"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}

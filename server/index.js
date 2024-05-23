@@ -102,7 +102,31 @@ app.post("/cancelarAgendamento", (req, res) => {
         return console.log("Agendamento cancelado com sucesso, %s!", email);
       });
     }
+
+    
   );
+
+app.get("/verificarAgendamento", (req, res) => {
+    res.send("Requisição recebida com sucesso");
+    const { email } = req.body;
+    db.query("SELECT COUNT(ativo) FROM agendamento WHERE email = ? AND ativo = true", [email],    (err, result) => {
+      //se der erro
+      if (err) {
+        console.error(err);
+        return console.log("po o mano fez besteiraKKK");
+      }
+      //se ja tiver agendamento ativo
+      if (result.length > 0) {
+        return console.log("Este usuario ja possui um agendamento ativo, aa");
+      }
+      return 1;
+    }
+)
+
+
+
+  }
+) 
 
 app.listen(3001, () => {
   console.log("Rodando servidor");

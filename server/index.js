@@ -122,11 +122,41 @@ app.get("/verificarAgendamento", (req, res) => {
       return 1;
     }
 )
-
-
-
   }
 ) 
+
+app.post("/trocarAgendamento", (req, res) => {
+  res.send("Requisição recebida com sucesso");
+
+ 
+  //pegando parâmetros
+  const { senha, data, hora, email , ativo } = req.body;
+  let deleteAgend = "UPDATE agendamento SET ativo = FALSE WHERE email = ?"; // string para cancelar agendamento
+  let insertAgend = "INSERT INTO agendamento (senha, data, horario, email, ativo) VALUES (?, ?,  ?, ?, ?)"; // string para agendar novo horário
+
+  // cancela o agendamento do aluno
+  db.query(deleteAgend, [email], (err, deleteResult) => {
+      // se der erro
+      if (err) {
+          console.error(err);
+          return console.log("Erro ao cancelar o agendamento:", err);
+      }
+      // se o cancelamento for bem-sucedido
+      console.log("Agendamento cancelado com sucesso para o email:", email);
+
+      // agora, agendar o novo horário
+      db.query(insertAgend, [senha, data, hora, email, ativo], (err, insertResult) => {
+          // se der erro
+          if (err) {
+              console.error(err);
+              return console.log("Erro ao agendar novo horário:", err);
+          }
+          // se o agendamento for bem-sucedido
+          console.log("Novo agendamento feito com sucesso para o email:", email);
+      });
+  });
+
+})
 
 app.listen(3001, () => {
   console.log("Rodando servidor");

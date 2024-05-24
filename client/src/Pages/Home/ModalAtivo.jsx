@@ -1,9 +1,9 @@
-import "./Modal.css";
+import "./ModalAtivo.css";
 
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Podal({
+export default function ModalAtivo({
   hora,
   nomeUsuario,
   emailUsuario,
@@ -18,7 +18,6 @@ export default function Podal({
   const handleIncreaseLotacaoBotao = () => {
     if (integer < 50) {
       setLotacaoBotao((prevLotacao) => prevLotacao + 1);
-      console.log("cheguei na funcao");
       //pega data atual
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
@@ -26,7 +25,7 @@ export default function Podal({
       const senha = integer + 1;
 
       //agendando no banco
-      Axios.post("http://localhost:3001/agendar", {
+      Axios.post("http://localhost:3001/trocarAgendamento", {
         senha: integer + 1,
         data: dataFormatada,
         hora: hora,
@@ -52,28 +51,30 @@ export default function Podal({
     if(integer < 50){
     return (
       <>
+
         <div id="BACKGROUND_id">
-          <div id="MODAL_id">
-            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>
-              Cancelar
+          <div id="MODAL_id_ATIVO">
+            <button id="BLOCO_CANCELAR_ATIVO" onClick={setModalOpen}>
+              Voltar
             </button>
 
-            <button id="BLOCO_CONFIRMAR" onClick={handleIncreaseLotacaoBotao}>
-              Confirmar
+            <button id="BLOCO_CONFIRMAR_ATIVO" onClick={handleIncreaseLotacaoBotao}>
+              Trocar Agendamento
             </button>
 
             <div id="CONTEUDO_MODAL">
-              <p id="TITULO_DISPONIVEL">Disponível</p>
+              <p id="TITULO_ATIVO">Atenção</p>
 
-              <p id="IMAGEM_DISPONIVEL"></p>
+              <p id="IMAGEM_ATIVO"></p>
 
-              <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
+              <p id="VAGAS_MODAL_ATIVO">Vagas Preenchidas / Total</p>
 
-              <p id="IMAGEM_USUARIO"></p>
+              <p id="IMAGEM_USUARIO_ATIVO"></p>
 
-              <p id="PESSOAS_MODAL">{integer} / 50</p>
+              <p id="PESSOAS_MODAL_ATIVO">{integer} / 50</p>
+              <p id="AVISO_MODAL_ATIVO">Você já possui um outro agendamento, deseja trocá-lo por este?</p>
 
-              <p id="LINHA_MODAL">
+              <p id="LINHA_MODAL_ATIVO">
                 ________________________________________________
               </p>
             </div>

@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../Pages/Login/LoginPage";
-import Cardapio from "../Pages/Home/Cardapio";
+import Cardapio from "../Pages/Admin/Cardapio";
 import AgendarHorario from "../Pages/Home/AgendarHorario";
 import VisualizarSenha from "../Pages/Home/VisualizarSenha";
+import AgendarHorarioAtivo from "../Pages/Home/AgendarHorarioAtivo";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,10 @@ function AppRoutes() {
         <Route
           path="/AgendarHorario/:nomeUsuario/:emailUsuario"
           element={<AgendarHorario />}
+        />
+         <Route
+          path="/AgendarHorarioAtivo/:nomeUsuario/:emailUsuario"
+          element={<AgendarHorarioAtivo />}
         />
         <Route
           path="/VisualizarSenha/:nomeUsuario/:emailUsuario/:hora/:senha"

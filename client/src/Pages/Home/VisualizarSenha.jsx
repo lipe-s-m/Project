@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import "./VisualizarSenha.css";
 import Iconagend from "../../UI/Icons/agend3.png";
 import IconUser from "../../UI/Icons/homem-usuario.png";
@@ -27,7 +27,7 @@ function VisualizarSenha() {
 
   //carrega pagina de agendamento
   function handleIncreaseHorarios() {
-    navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+    navigate(`/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}`);
   }
   function handleIncreaseDesagendar(emailUsuario) {
     //apagando agendamento no banco

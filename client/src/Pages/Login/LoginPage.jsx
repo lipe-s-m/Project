@@ -138,7 +138,7 @@ function Login() {
         )}
 
         {/* Usuario logado com sucesso */}
-        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && user.email !== "novaesduda4@gmail.com" && (
+        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && user.email !== "bandejaoadm@gmail.com" && (
           <div className="loginResponse">
             <div className="saudacao">
               <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
@@ -151,7 +151,7 @@ function Login() {
             </button>
           </div>
         )}
-        {Object.keys(user).length !== 0 && user.email === "novaesduda4@gmail.com" && (
+        {Object.keys(user).length !== 0 && user.email === "bandejaoadm@gmail.com" && (
           <div className="loginResponse">
             <div className="saudacao">
               <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}

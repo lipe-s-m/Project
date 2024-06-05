@@ -1,27 +1,27 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import "./AgendarHorario.css";
-import Modal from "./Modal";
 import ModalAtivo from "./ModalAtivo";
+
 
 function AgendarHorarioAtivo() {
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
-  const { usuarioAtivo } = useParams();
 
   
   // Valor inicial da lotação, pode ser alterado conforme necessário
-  const [lotacaoBotao1, setLotacaoBotao1] = useState(50);
-  const [lotacaoBotao2, setLotacaoBotao2] = useState(47);
-  const [lotacaoBotao3, setLotacaoBotao3] = useState(36);
-  const [lotacaoBotao4, setLotacaoBotao4] = useState(28);
-  const [lotacaoBotao5, setLotacaoBotao5] = useState(31);
-  const [lotacaoBotao6, setLotacaoBotao6] = useState(35);
-  const [lotacaoBotao7, setLotacaoBotao7] = useState(12);
-  const [lotacaoBotao8, setLotacaoBotao8] = useState(17);
-  const [lotacaoBotao9, setLotacaoBotao9] = useState(5);
-  const [lotacaoBotao10, setLotacaoBotao10] = useState(1);
+  const [lotacaoBotao1, setLotacaoBotao1] = useState(null);
+  const [lotacaoBotao2, setLotacaoBotao2] = useState(null);
+  const [lotacaoBotao3, setLotacaoBotao3] = useState(null);
+  const [lotacaoBotao4, setLotacaoBotao4] = useState(null);
+  const [lotacaoBotao5, setLotacaoBotao5] = useState(null);
+  const [lotacaoBotao6, setLotacaoBotao6] = useState(null);
+  const [lotacaoBotao7, setLotacaoBotao7] = useState(null);
+  const [lotacaoBotao8, setLotacaoBotao8] = useState(null);
+  const [lotacaoBotao9, setLotacaoBotao9] = useState(null);
+  const [lotacaoBotao10, setLotacaoBotao10] = useState(null);
 
+  
   //alterar valor lotacao dos popups
   const [openModal1140, setOpenModal1140] = useState(false);
   const [openModal1150, setOpenModal1150] = useState(false);

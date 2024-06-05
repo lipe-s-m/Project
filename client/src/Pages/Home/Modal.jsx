@@ -1,6 +1,7 @@
 import "./Modal.css";
 
 import Axios from "axios";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Podal({
@@ -14,6 +15,27 @@ export default function Podal({
   children,
 }) {
   const navigate = useNavigate();
+
+  // eslint-disable-next-line
+  useEffect(() => {
+    if (isOpen) {
+      obterLotacao();
+    }
+  }, [isOpen]);
+  
+  //obter lotacao
+  const obterLotacao = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: hora } // Note que o horário é passado como parâmetro
+    })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error)
+    })
+  }
 
   const handleIncreaseLotacaoBotao = () => {
     if (integer < 50) {

@@ -14,3 +14,307 @@ body {
     background-size: cover;
 
 }
+
+#CAIXA_PRINCIPAL{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    width: 460px;
+    height: 1400px;
+    border-radius: 30px;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    background-color: #e8e8e8;
+}
+
+#BLOCO_VOLTAR_CARDAPIO{
+    font-size: 28px;
+    font-weight: bold;
+    color: #e8e8e8;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 389px;
+    height: 69px;
+    background-color: rgba(28, 76, 46, 1);
+    top: 89%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    display: block;
+}
+#TEXTO_CARDAPIO{
+    width: 300px;
+    font-size: 62px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    top: 50px;
+    left: 79px;
+}
+#TEXTO_BANDEJAO{
+    width: 120px;
+    font-size: 25px;
+    font-weight: medium;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    top: 50px;
+    left: 160px;
+}
+#IMAGEM_CARDAPIO{
+    width: 135px;
+    height: 135px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248089231558184960/cardapio.png?ex=6662652d&is=666113ad&hm=48588b713108ef317fd6e0b98505f434f0e646a089448d4a33a47677efe8cfa3&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    left: 35%;
+    top: 40px;
+}
+#OPCAO_PRINCIPAL{
+    width: 200px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 29%;
+    top: 70px;
+}
+#RESPOSTA_PRINCIPAL{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 50px;
+    left:80px
+}
+#LINHA_PRINCIPAL_OPCAO{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 50px;
+    left: 9%;
+}
+#IMAGEM_GARFO_FACA{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 100px;
+    left: 40px;
+}
+#OPCAO_SECUNDARIA{
+    width: 90px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 38%;
+    top: 80px;
+}
+#RESPOSTA_SECUNDARIA{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 100px;
+    left:80px
+}
+#LINHA_SECUNDARIA_OPCAO{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 100px;
+    left: 9%;
+}
+#IMAGEM_OPCAO{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+#OPCAO_VEGETARIANA{
+    width: 255px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 20%;
+    top: 110px;
+}
+#RESPOSTA_VEGETARIANA{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 130px;
+    left:80px
+}
+#LINHA_VEGETARIANA_OPCAO{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 135px;
+    left: 9%;
+}
+#IMAGEM_VEGETARIANA{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 85px;
+    left: 40px;
+}
+#ACOMPANHAMENTOS{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 20%;
+    top: 135px;
+}
+#RESPOSTA_ACOMPANHAMENTOS{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 150px;
+    left:80px
+}
+#LINHA_ACOMPANHAMENTOS_OPCAO{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 155px;
+    left: 9%;
+}
+#IMAGEM_ACOMPANHAMENTOS{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 100px;
+    left: 40px;
+}
+#GUARNICAO{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 32%;
+    top: 150px;
+}
+#RESPOSTA_GUARNICOES{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 160px;
+    left:80px
+}
+#LINHA_GUARNICAO{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 165px;
+    left: 9%;
+}
+#IMAGEM_GUARNICAO{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 115px;
+    left: 40px;
+}
+#SALADA{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 37%;
+    top: 150px;
+}
+#RESPOSTA_SALADA{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 160px;
+    left:80px
+}
+#LINHA_SALADA{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 165px;
+    left: 9%;
+}
+#IMAGEM_SALADA{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 115px;
+    left: 40px;
+}
+#SOBREMESA{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 31%;
+    top: 150px;
+}
+#RESPOSTA_SOBREMESA{
+    width: 365px;
+    height: 45px;
+    position: relative; 
+    top: 160px;
+    left:80px
+}
+#LINHA_SOBREMESA{
+    color: black;
+    opacity: 25%;
+    position: relative;
+    top: 160px;
+    left: 9%;
+}
+#IMAGEM_SOBREMESA{
+    opacity: 30%;
+    width: 30px;
+    height: 30px;
+    background-image:url(https://cdn.discordapp.com/attachments/1227799159159914569/1248094472357810266/colher-e-garfo-cruzados.png?ex=66626a0e&is=6661188e&hm=0d052f504b2d36db6bf91c4c7060ab9a25b5e5d9554a48cc5549a081bf757bb0&);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 115px;
+    left: 40px;
+}
+#BLOCO_CREDITOS{
+    font-family: "Montserrat";
+    color: rgba(00, 00, 00, 0.7);
+    font-weight: normal;
+    font-size: 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 250px;
+}

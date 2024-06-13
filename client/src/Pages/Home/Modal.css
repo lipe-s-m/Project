@@ -104,7 +104,7 @@
 #IMAGEM_DISPONIVEL {
   width: 135px;
   height: 135px;
-  background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243044201038479493/check-mark_1.png?ex=66500aa0&is=664eb920&hm=04726b568c86f0ae799a014ad09879b9b25a8fe6704a9ed2727b1590557b6c6a&);
+  background-image: url(./../../UI/Icons/check-mark_1.png);
   background-size: cover;
   background-position: center;
   position: relative;

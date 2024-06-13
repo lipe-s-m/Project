@@ -1,5 +1,12 @@
-import "./Cardapio.css";
-function Cardapio() {
+import { useNavigate } from "react-router-dom";
+import "./CardapioAdmin.css";
+function CardapioAdmin() {
+  const navigate = useNavigate();
+
+  const voltarLoginPage = () => {
+    navigate(`/`);
+  };
+
   return (
     <>
       <div id="CAIXA_PRINCIPAL">
@@ -11,34 +18,34 @@ function Cardapio() {
         <div id="IMAGEM_GARFO_FACA"></div>
         <div id="RESPOSTA_PRINCIPAL"></div>
         <div id="LINHA_PRINCIPAL_OPCAO">
-          _____________________________________________
+          _________________________________________________________________
         </div>
 
         <div id="OPCAO_SECUNDARIA">Opção</div>
         <div id="RESPOSTA_SECUNDARIA"></div>
         <div id="LINHA_SECUNDARIA_OPCAO">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_OPCAO"></div>
 
         <div id="OPCAO_VEGETARIANA">Opção Vegetariana</div>
         <div id="RESPOSTA_VEGETARIANA"></div>
         <div id="LINHA_VEGETARIANA_OPCAO">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_VEGETARIANA"></div>
 
         <div id="ACOMPANHAMENTOS">Acompanhamentos</div>
         <div id="RESPOSTA_ACOMPANHAMENTOS"></div>
         <div id="LINHA_ACOMPANHAMENTOS_OPCAO">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_ACOMPANHAMENTOS"></div>
 
         <div id="GUARNICAO">Guarnição</div>
         <div id="RESPOSTA_GUARNICOES"></div>
         <div id="LINHA_GUARNICAO">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_GUARNICAO"></div>
 
@@ -46,18 +53,20 @@ function Cardapio() {
         <div id="RESPOSTA_SALADA"></div>
 
         <div id="LINHA_SALADA">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_SALADA"></div>
 
         <div id="SOBREMESA">Sobremesa</div>
         <div id="RESPOSTA_SOBREMESA"></div>
         <div id="LINHA_SOBREMESA">
-          _____________________________________________
+          _________________________________________________________________
         </div>
         <div id="IMAGEM_SOBREMESA"></div>
 
-        <button id="BLOCO_VOLTAR_CARDAPIO">Voltar</button>
+        <button id="BLOCO_VOLTAR_CARDAPIO" onClick={voltarLoginPage}>
+          Voltar
+        </button>
         <div id="BLOCO_CREDITOS">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
@@ -65,4 +74,4 @@ function Cardapio() {
     </>
   );
 }
-export default Cardapio;
+export default CardapioAdmin;

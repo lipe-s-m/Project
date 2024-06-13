@@ -1,14 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import "./AgendarHorario.css";
 import ModalAtivo from "./ModalAtivo";
 
-
 function AgendarHorarioAtivo() {
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
+  const { hora } = useParams();
+  const { senha } = useParams();
 
-  
+  const navigate = useNavigate();
+
   // Valor inicial da lotação, pode ser alterado conforme necessário
   const [lotacaoBotao1, setLotacaoBotao1] = useState(null);
   const [lotacaoBotao2, setLotacaoBotao2] = useState(null);
@@ -21,7 +23,6 @@ function AgendarHorarioAtivo() {
   const [lotacaoBotao9, setLotacaoBotao9] = useState(null);
   const [lotacaoBotao10, setLotacaoBotao10] = useState(null);
 
-  
   //alterar valor lotacao dos popups
   const [openModal1140, setOpenModal1140] = useState(false);
   const [openModal1150, setOpenModal1150] = useState(false);
@@ -33,6 +34,16 @@ function AgendarHorarioAtivo() {
   const [openModal1250, setOpenModal1250] = useState(false);
   const [openModal1300, setOpenModal1300] = useState(false);
   const [openModal1310, setOpenModal1310] = useState(false);
+  const [openModal1700, setOpenModal1700] = useState(false);
+  const [openModal1710, setOpenModal1710] = useState(false);
+  const [openModal1720, setOpenModal1720] = useState(false);
+  const [openModal1730, setOpenModal1730] = useState(false);
+  const [openModal1740, setOpenModal1740] = useState(false);
+  const [openModal1750, setOpenModal1750] = useState(false);
+  const [openModal1800, setOpenModal1800] = useState(false);
+  const [openModal1810, setOpenModal1810] = useState(false);
+  const [openModal1820, setOpenModal1820] = useState(false);
+  const [openModal1830, setOpenModal1830] = useState(false);
 
   //define cor do botao conforme lotacao
   function definirCorBotao(lotacao) {
@@ -51,11 +62,19 @@ function AgendarHorarioAtivo() {
     }
   }
 
+  const agora = new Date();
+  const horaAtual = agora.getHours();
+
+  const visualizarSenha = () => {
+    navigate(
+      `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+    );
+  };
+
   return (
     <>
       {/* chamar os pop ups de cada botao */}
       <ModalAtivo
-
         hora={"11:40"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
@@ -165,95 +184,301 @@ function AgendarHorarioAtivo() {
       >
         {/* children*/}
       </ModalAtivo>
-      {/* corpo do html */}
-      <div id="registro">
-        {/* titulo da pagina */}
-        <div>
-          <h3>
-            <div id="title">Agendar Horário</div>
-          </h3>
+      <ModalAtivo
+        hora={"17:00"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao1}
+        setLotacaoBotao={setLotacaoBotao1}
+        isOpen={openModal1700}
+        setModalOpen={() => setOpenModal1700(!openModal1700)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"17:10"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao5}
+        setLotacaoBotao={setLotacaoBotao5}
+        isOpen={openModal1710}
+        setModalOpen={() => setOpenModal1710(!openModal1710)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"17:20"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao2}
+        setLotacaoBotao={setLotacaoBotao2}
+        isOpen={openModal1720}
+        setModalOpen={() => setOpenModal1720(!openModal1720)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"17:30"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao6}
+        setLotacaoBotao={setLotacaoBotao6}
+        isOpen={openModal1730}
+        setModalOpen={() => setOpenModal1730(!openModal1730)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"17:40"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao3}
+        setLotacaoBotao={setLotacaoBotao3}
+        isOpen={openModal1740}
+        setModalOpen={() => setOpenModal1740(!openModal1740)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"17:50"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao7}
+        setLotacaoBotao={setLotacaoBotao7}
+        isOpen={openModal1750}
+        setModalOpen={() => setOpenModal1750(!openModal1750)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"18:00"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao4}
+        setLotacaoBotao={setLotacaoBotao4}
+        isOpen={openModal1800}
+        setModalOpen={() => setOpenModal1800(!openModal1800)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"18:10"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao8}
+        setLotacaoBotao={setLotacaoBotao8}
+        isOpen={openModal1810}
+        setModalOpen={() => setOpenModal1810(!openModal1810)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"18:20"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao9}
+        setLotacaoBotao={setLotacaoBotao9}
+        isOpen={openModal1820}
+        setModalOpen={() => setOpenModal1820(!openModal1820)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      <ModalAtivo
+        hora={"18:30"}
+        nomeUsuario={nomeUsuario}
+        emailUsuario={emailUsuario}
+        integer={lotacaoBotao10}
+        setLotacaoBotao={setLotacaoBotao10}
+        isOpen={openModal1830}
+        setModalOpen={() => setOpenModal1830(!openModal1830)}
+      >
+        {/* children*/}
+      </ModalAtivo>
+      {horaAtual >= 10 && horaAtual < 16 && (
+        <div id="registro-ativo">
+          {/* titulo da pagina */}
+          <div>
+            <h3>
+              <div id="title">Agendar Horário</div>
+            </h3>
 
-          {/* mostrar botoes */}
-          <div id="botoes">
-            <div className="coluna">
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao1)}`}
-                onClick={() => setOpenModal1140(true)}
-              >
-                11:40
-              </button>
+            {/* mostrar botoes */}
+            <div id="botoes">
+              <div className="coluna">
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao1)}`}
+                  onClick={() => setOpenModal1140(true)}
+                >
+                  11:40
+                </button>
 
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao2)}`}
-                onClick={() => setOpenModal1200(true)}
-              >
-                12:00
-              </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao2)}`}
+                  onClick={() => setOpenModal1200(true)}
+                >
+                  12:00
+                </button>
 
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao3)}`}
-                onClick={() => setOpenModal1220(true)}
-              >
-                12:20
-              </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao3)}`}
+                  onClick={() => setOpenModal1220(true)}
+                >
+                  12:20
+                </button>
 
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao4)}`}
-                onClick={() => setOpenModal1240(true)}
-              >
-                12:40
-              </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao4)}`}
+                  onClick={() => setOpenModal1240(true)}
+                >
+                  12:40
+                </button>
 
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao10)}`}
-                onClick={() => setOpenModal1300(true)}
-              >
-                13:00
-              </button>
-            </div>
-            <div className="coluna">
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao5)}`}
-                onClick={() => setOpenModal1150(true)}
-              >
-                11:50
-              </button>
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao6)}`}
-                onClick={() => setOpenModal1210(true)}
-              >
-                12:10
-              </button>
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao7)}`}
-                onClick={() => setOpenModal1230(true)}
-              >
-                12:30
-              </button>
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao8)}`}
-                onClick={() => setOpenModal1250(true)}
-              >
-                12:50
-              </button>
-              <button
-                className={`button ${definirCorBotao(lotacaoBotao9)}`}
-                onClick={() => setOpenModal1310(true)}
-              >
-                13:10
-              </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao10)}`}
+                  onClick={() => setOpenModal1300(true)}
+                >
+                  13:00
+                </button>
+              </div>
+              <div className="coluna">
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao5)}`}
+                  onClick={() => setOpenModal1150(true)}
+                >
+                  11:50
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao6)}`}
+                  onClick={() => setOpenModal1210(true)}
+                >
+                  12:10
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao7)}`}
+                  onClick={() => setOpenModal1230(true)}
+                >
+                  12:30
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao8)}`}
+                  onClick={() => setOpenModal1250(true)}
+                >
+                  12:50
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao9)}`}
+                  onClick={() => setOpenModal1310(true)}
+                >
+                  13:10
+                </button>
+              </div>
             </div>
           </div>
+
+          {/* Cardapio */}
+          {/* Rodapé */}
+          <button id="voltar-agendamento"  onClick={visualizarSenha}>Voltar ao Agendamento</button>
+          <button id="cardapio">Ver Cardápio</button>
+
+          <p id="lowText">
+            Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
+          </p>
         </div>
+      )}
+      {/* Se esta no turno do almoço */}
+      {horaAtual >= 16 && horaAtual < 19 && (
+        <div id="registro-ativo">
+          {/* titulo da pagina */}
+          <div>
+            <h3>
+              <div id="title">Agendar Horário</div>
+            </h3>
 
-        {/* Cardapio */}
-        {/* Rodapé */}
-        <button id="cardapio">Ver Cardápio</button>
+            {/* mostrar botoes */}
+            <div id="botoes">
+              <div className="coluna">
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao1)}`}
+                  onClick={() => setOpenModal1700(true)}
+                >
+                  17:00
+                </button>
 
-        <p id="lowText">
-          Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
-        </p>
-      </div>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao2)}`}
+                  onClick={() => setOpenModal1720(true)}
+                >
+                  17:20
+                </button>
+
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao3)}`}
+                  onClick={() => setOpenModal1740(true)}
+                >
+                  17:40
+                </button>
+
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao4)}`}
+                  onClick={() => setOpenModal1800(true)}
+                >
+                  18:00
+                </button>
+
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao10)}`}
+                  onClick={() => setOpenModal1820(true)}
+                >
+                  18:20
+                </button>
+              </div>
+              <div className="coluna">
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao5)}`}
+                  onClick={() => setOpenModal1710(true)}
+                >
+                  17:10
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao6)}`}
+                  onClick={() => setOpenModal1730(true)}
+                >
+                  17:30
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao7)}`}
+                  onClick={() => setOpenModal1750(true)}
+                >
+                  17:50
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao8)}`}
+                  onClick={() => setOpenModal1810(true)}
+                >
+                  18:10
+                </button>
+                <button
+                  className={`button ${definirCorBotao(lotacaoBotao9)}`}
+                  onClick={() => setOpenModal1830(true)}
+                >
+                  18:30
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Cardapio */}
+          {/* Rodapé */}
+          <button id="voltar-agendamento" onClick={visualizarSenha}>
+            Voltar ao Agendamento
+          </button>
+          <button id="cardapio">Ver Cardápio</button>
+
+          <p id="lowText">
+            Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
+          </p>
+        </div>
+      )}
       {/* verifica parametros */}
       {console.log("email: %s \n nome: %s", emailUsuario, nomeUsuario)};
     </>

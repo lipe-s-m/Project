@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import "./AgendarHorario.css";
 import Modal from "./Modal";
@@ -61,14 +61,13 @@ function AgendarHorario() {
   }
 
   const agora = new Date();
-  const hora = agora.getHours();
+  const horaAtual = agora.getHours();
+  const navigate = useNavigate();
 
   return (
     <>
       {/* chamar os pop ups de cada botao */}
       <Modal
-        ativo={ativo}
-        setAtivo={setAtivo}
         hora={"11:40"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
@@ -291,7 +290,7 @@ function AgendarHorario() {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
-      {hora >= 11 && hora < 13 && hora === 13 && agora.getMinutes() <= 10 && (
+      {horaAtual < 16 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -374,15 +373,16 @@ function AgendarHorario() {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio">Ver Cardápio</button>
+          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno`)}>Ver Cardápio</button>
 
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>
       )}
+      
       {/* Se esta no turno do almoço */}
-      {hora >= 17 && hora < 19 && hora === 19 && agora.getMinutes() <= 10 && (
+      {horaAtual >= 16  && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -465,7 +465,7 @@ function AgendarHorario() {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio">Ver Cardápio</button>
+          <button id="cardapio" onClick={navigate(`/CardapioAluno`)}>Ver Cardápio</button>
 
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>

@@ -95,7 +95,7 @@ app.post("/agendar", (req, res) => {
       //se ja tiver agendamento ativo
       if (result.length > 0) {
         return console.log(
-          "Este usuario ja possui um agendamento ativo, nao foi possivel criar outro agendamento"
+          "Este usuario ja possui um agendamento ativo, nao foi possível criar outro agendamento"
         );
       }
       //se poder fazer

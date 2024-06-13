@@ -38,7 +38,7 @@ function Login() {
     //esconder botao
     document.getElementById("signInDiv").hidden = true;
     //Guardar info do usuario
-    localStorage.setItem("_usuario_logado", JSON.stringify(userObject));
+    // localStorage.setItem("_usuario_logado", JSON.stringify(userObject));
     console.log(userObject.name);
   }
 
@@ -77,7 +77,7 @@ function Login() {
     
 
     //carrega pagina de agendamento
-    navigate(`/Cardapio`);
+    navigate(`/CardapioAdmin`);
   }
 
   useEffect(() => {

@@ -135,7 +135,7 @@
     position: relative;
     top: 63px;
     left: 30%;
-    background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243216980337758270/user.png?ex=6650ab89&is=664f5a09&hm=f826ec1d9001135e19dd10e0217cd1d91334bb839bbe831ed752dc8ef29b3240&);
+    background-image: url(./../../UI/Icons/user.png);
   }
   #LINHA_MODAL_ATIVO {
     position: relative;
@@ -203,17 +203,7 @@
     left: 42%;
     top: -40px;  
   }
-  #PESSOAS_IMAG_INDISPONIVEL{
-    width: 20px;
-    height: 20px;
-    opacity: 0.4;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    top: -66px;
-    left: 31%;
-    background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243216980337758270/user.png?ex=6650ab89&is=664f5a09&hm=f826ec1d9001135e19dd10e0217cd1d91334bb839bbe831ed752dc8ef29b3240&);
-  }
+  
   #LINHA_INDISPONIVEL{
     position: relative;
     top: -55px;

@@ -124,7 +124,7 @@ export default function ModalAtivo({
               
               <p id = "PESSOAS_INDISPONIVEL">{integer} / 50</p>
 
-              <p id = "PESSOAS_IMAG_INDISPONIVEL"></p>
+              <p id = "img-indisponivel"></p>
 
               <p id = "LINHA_INDISPONIVEL">________________________________________________</p>
 

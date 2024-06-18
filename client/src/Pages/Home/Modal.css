@@ -118,9 +118,9 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  top: -75px;
+  top: -74px;
   left: 30%;
-  background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243216980337758270/user.png?ex=6650ab89&is=664f5a09&hm=f826ec1d9001135e19dd10e0217cd1d91334bb839bbe831ed752dc8ef29b3240&);
+  background-image: url(./../../UI/Icons/user.png);
 }
 #LINHA_MODAL {
   position: relative;
@@ -186,7 +186,7 @@ display: block;
 #IMAGEM_INDISPONIVEL{
 width: 130px;
 height: 130px;
-background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243246280797589544/delete.png?ex=6650c6d3&is=664f7553&hm=fbc1587a6ee629dcdb9ae26c9e8778781232f275aeda5ea6991a73b58a67db23&);
+background-image: url(./../../UI/Icons/delete.png);
 background-size: cover;
 background-position: center;
 position: relative;
@@ -212,7 +212,7 @@ top: -65px;
   left: 42%;
   top: -40px;  
 }
-#PESSOAS_IMAG_INDISPONIVEL{
+#img-indisponivel{
   width: 20px;
   height: 20px;
   opacity: 0.4;
@@ -220,8 +220,8 @@ top: -65px;
   background-position: center;
   position: relative;
   top: -66px;
-  left: 31%;
-  background-image: url(https://cdn.discordapp.com/attachments/1227799159159914569/1243216980337758270/user.png?ex=6650ab89&is=664f5a09&hm=f826ec1d9001135e19dd10e0217cd1d91334bb839bbe831ed752dc8ef29b3240&);
+  left: 30%;
+  background-image: url(./../../UI/Icons/user.png);
 }
 #LINHA_INDISPONIVEL{
   position: relative;

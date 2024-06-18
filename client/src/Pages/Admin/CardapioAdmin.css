@@ -7,21 +7,7 @@
   border-radius: 30px;
 }
 
-#BLOCO_VOLTAR_CARDAPIO {
-  font-size: 28px;
-  font-weight: bold;
-  color: #e8e8e8;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  border-radius: 30px;
-  width: 389px;
-  height: 69px;
-  background-color: rgba(28, 76, 46, 1);
-  margin-top: 40%;
-   margin-bottom: 5%; 
-   margin-left: 20%;
 
-}  
 #TEXTO_CARDAPIO {
   width: 300px;
   font-size: 62px;
@@ -63,12 +49,32 @@
   top: 50px;
   left: 80px;
 }
+input{
+  width: 120%;
+  height: 100%;
+  margin-left: 3%;
+  margin-top: 2%;
+  background-color: #e8e8e8;
+  border-style: none;
+  text-align: center;
+  font-weight: normal;
+  font-size: 19px;
+}
+
+input::placeholder{
+  opacity: 0.7;
+  font-size: 18px;
+  text-align: center;
+  font-weight: lighter;
+}
+
 #LINHA_PRINCIPAL_OPCAO {
   color: black;
   opacity: 25%;
   position: relative;
   top: 50px;
   left: 9%;
+  margin-bottom: 3%;
 }
 #IMAGEM_GARFO_FACA {
   opacity: 30%;
@@ -103,18 +109,16 @@
   position: relative;
   top: 100px;
   left: 9%;
+  margin-bottom: 3%;
 }
 #IMAGEM_OPCAO {
   opacity: 30%;
   width: 30px;
   height: 30px;
   background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
-
   background-size: cover;
   background-position: center;
-  position: relative;
-  top: 50px;
-  left: 40px;
+  margin-top: -3.2%;
 }
 #OPCAO_VEGETARIANA {
   width: 255px;
@@ -291,6 +295,34 @@
   top: 115px;
   left: 40px;
 }
+#botao-voltar {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e8e8e8;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 389px;
+  height: 69px;
+  background-color: #a60808;
+   margin-bottom: 5%; 
+   margin-left: 20%;
+   margin-top: 5%;
+}  
+#botao-enviar {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e8e8e8;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 389px;
+  height: 69px;
+  background-color: rgba(28, 76, 46, 1);
+  margin-top: 30%;
+   margin-left: 20%;
+
+}  
 #BLOCO_CREDITOS {
   font-family: "Montserrat";
   color: rgba(00, 00, 00, 0.7);
@@ -303,4 +335,12 @@
   margin-bottom: 10%;
   margin-top: -1%;
   top: -10px;
+}
+
+button:hover,
+ #BLOCO_CREDITOS .bold:hover{
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.7;
+
 }

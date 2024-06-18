@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AgendarHorario.css";
 import ModalAtivo from "./ModalAtivo";
+import Axios from "axios";
 
 function AgendarHorarioAtivo() {
   const { nomeUsuario } = useParams();
@@ -22,6 +23,16 @@ function AgendarHorarioAtivo() {
   const [lotacaoBotao8, setLotacaoBotao8] = useState(null);
   const [lotacaoBotao9, setLotacaoBotao9] = useState(null);
   const [lotacaoBotao10, setLotacaoBotao10] = useState(null);
+  const [lotacaoBotao11, setLotacaoBotao11] = useState(null);
+  const [lotacaoBotao12, setLotacaoBotao12] = useState(null);
+  const [lotacaoBotao13, setLotacaoBotao13] = useState(null);
+  const [lotacaoBotao14, setLotacaoBotao14] = useState(null);
+  const [lotacaoBotao15, setLotacaoBotao15] = useState(null);
+  const [lotacaoBotao16, setLotacaoBotao16] = useState(null);
+  const [lotacaoBotao17, setLotacaoBotao17] = useState(null);
+  const [lotacaoBotao18, setLotacaoBotao18] = useState(null);
+  const [lotacaoBotao19, setLotacaoBotao19] = useState(null);
+  const [lotacaoBotao20, setLotacaoBotao20] = useState(null);
 
   //alterar valor lotacao dos popups
   const [openModal1140, setOpenModal1140] = useState(false);
@@ -71,6 +82,300 @@ function AgendarHorarioAtivo() {
     );
   };
 
+  //obter as lotacoes
+  useEffect(() => {
+    obterLotacao1140();
+    obterLotacao1150();
+    obterLotacao1200();
+    obterLotacao1210();
+    obterLotacao1220();
+    obterLotacao1230();
+    obterLotacao1240();
+    obterLotacao1250();
+    obterLotacao1300();
+    obterLotacao1310();
+    obterLotacao1700();
+    obterLotacao1710();
+    obterLotacao1720();
+    obterLotacao1730();
+    obterLotacao1740();
+    obterLotacao1750();
+    obterLotacao1800();
+    obterLotacao1810();
+    obterLotacao1820();
+    obterLotacao1830();
+  }, []);
+
+  //obter lotacao
+  const obterLotacao1140 = () => {
+    console.log("to aq");
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "11:40" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao1(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1150 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "11:50" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao5(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1200 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "12:00" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao2(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1210 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "12:10" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao6(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  ///obter lotacao
+  const obterLotacao1220 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "12:20" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log( response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao3(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1230 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "12:30" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao7(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
+
+    //obter lotacao
+    const obterLotacao1240 = () => {
+      Axios.get("http://localhost:3001/contarVagas", {
+        params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
+      })
+        .then((response) => {
+          console.log(response.data); // Mostrar a resposta do servidor
+          setLotacaoBotao4(response.data.count);
+        })
+        .catch((error) => {
+          console.log("erro na requisicao: ", error);
+        });
+    };
+
+//obter lotacao
+const obterLotacao1250 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao8(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+
+//obter lotacao
+const obterLotacao1300 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao9(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+
+//obter lotacao
+const obterLotacao1310 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao10(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+
+  const obterLotacao1700 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:00" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao11(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1710 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:10" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao15(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1720 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:20" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao12(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1730 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:30" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao16(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  ///obter lotacao
+  const obterLotacao1740 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:40" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao13(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  }; 
+  //obter lotacao
+  const obterLotacao1750 = () => {
+    Axios.get("http://localhost:3001/contarVagas", {
+      params: { horario: "17:50" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao17(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
+
+    //obter lotacao
+    const obterLotacao1800 = () => {
+      Axios.get("http://localhost:3001/contarVagas", {
+        params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
+      })
+        .then((response) => {
+          console.log(response.data); // Mostrar a resposta do servidor
+          setLotacaoBotao14(response.data.count);
+        })
+        .catch((error) => {
+          console.log("erro na requisicao: ", error);
+        });
+    };
+
+//obter lotacao
+const obterLotacao1810 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao18(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+
+//obter lotacao
+const obterLotacao1820 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao19(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+
+//obter lotacao
+const obterLotacao1830 = () => {
+  Axios.get("http://localhost:3001/contarVagas", {
+    params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
+  })
+    .then((response) => {
+      console.log(response.data); // Mostrar a resposta do servidor
+      setLotacaoBotao20(response.data.count);
+    })
+    .catch((error) => {
+      console.log("erro na requisicao: ", error);
+    });
+};
+  
   return (
     <>
       {/* chamar os pop ups de cada botao */}
@@ -188,7 +493,7 @@ function AgendarHorarioAtivo() {
         hora={"17:00"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao1}
+        integer={lotacaoBotao11}
         setLotacaoBotao={setLotacaoBotao1}
         isOpen={openModal1700}
         setModalOpen={() => setOpenModal1700(!openModal1700)}
@@ -199,7 +504,7 @@ function AgendarHorarioAtivo() {
         hora={"17:10"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao5}
+        integer={lotacaoBotao15}
         setLotacaoBotao={setLotacaoBotao5}
         isOpen={openModal1710}
         setModalOpen={() => setOpenModal1710(!openModal1710)}
@@ -210,7 +515,7 @@ function AgendarHorarioAtivo() {
         hora={"17:20"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao2}
+        integer={lotacaoBotao12}
         setLotacaoBotao={setLotacaoBotao2}
         isOpen={openModal1720}
         setModalOpen={() => setOpenModal1720(!openModal1720)}
@@ -221,7 +526,7 @@ function AgendarHorarioAtivo() {
         hora={"17:30"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao6}
+        integer={lotacaoBotao16}
         setLotacaoBotao={setLotacaoBotao6}
         isOpen={openModal1730}
         setModalOpen={() => setOpenModal1730(!openModal1730)}
@@ -232,7 +537,7 @@ function AgendarHorarioAtivo() {
         hora={"17:40"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao3}
+        integer={lotacaoBotao13}
         setLotacaoBotao={setLotacaoBotao3}
         isOpen={openModal1740}
         setModalOpen={() => setOpenModal1740(!openModal1740)}
@@ -243,7 +548,7 @@ function AgendarHorarioAtivo() {
         hora={"17:50"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao7}
+        integer={lotacaoBotao17}
         setLotacaoBotao={setLotacaoBotao7}
         isOpen={openModal1750}
         setModalOpen={() => setOpenModal1750(!openModal1750)}
@@ -254,7 +559,7 @@ function AgendarHorarioAtivo() {
         hora={"18:00"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao4}
+        integer={lotacaoBotao14}
         setLotacaoBotao={setLotacaoBotao4}
         isOpen={openModal1800}
         setModalOpen={() => setOpenModal1800(!openModal1800)}
@@ -265,7 +570,7 @@ function AgendarHorarioAtivo() {
         hora={"18:10"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao8}
+        integer={lotacaoBotao18}
         setLotacaoBotao={setLotacaoBotao8}
         isOpen={openModal1810}
         setModalOpen={() => setOpenModal1810(!openModal1810)}
@@ -276,7 +581,7 @@ function AgendarHorarioAtivo() {
         hora={"18:20"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao9}
+        integer={lotacaoBotao19}
         setLotacaoBotao={setLotacaoBotao9}
         isOpen={openModal1820}
         setModalOpen={() => setOpenModal1820(!openModal1820)}
@@ -287,14 +592,14 @@ function AgendarHorarioAtivo() {
         hora={"18:30"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
-        integer={lotacaoBotao10}
+        integer={lotacaoBotao20}
         setLotacaoBotao={setLotacaoBotao10}
         isOpen={openModal1830}
         setModalOpen={() => setOpenModal1830(!openModal1830)}
       >
         {/* children*/}
       </ModalAtivo>
-      {horaAtual >= 10 && horaAtual < 16 && (
+      {horaAtual < 16 && (
         <div id="registro-ativo">
           {/* titulo da pagina */}
           <div>
@@ -377,7 +682,9 @@ function AgendarHorarioAtivo() {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="voltar-agendamento"  onClick={visualizarSenha}>Voltar ao Agendamento</button>
+          <button id="voltar-agendamento" onClick={visualizarSenha}>
+            Voltar ao Agendamento
+          </button>
           <button id="cardapio">Ver Cardápio</button>
 
           <p id="lowText">
@@ -386,7 +693,7 @@ function AgendarHorarioAtivo() {
         </div>
       )}
       {/* Se esta no turno do almoço */}
-      {horaAtual >= 16 && horaAtual < 19 && (
+      {horaAtual >= 16 && (
         <div id="registro-ativo">
           {/* titulo da pagina */}
           <div>
@@ -479,8 +786,7 @@ function AgendarHorarioAtivo() {
           </p>
         </div>
       )}
-      {/* verifica parametros */}
-      {console.log("email: %s \n nome: %s", emailUsuario, nomeUsuario)};
+
     </>
   );
 }

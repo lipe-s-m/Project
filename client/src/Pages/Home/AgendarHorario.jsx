@@ -597,7 +597,7 @@ const obterLotacao1830 = () => {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
-      {horaAtual < 16 && (
+      {horaAtual < 20 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -691,7 +691,7 @@ const obterLotacao1830 = () => {
         </div>
       )}
       {/* Se esta no turno do almoço */}
-      {horaAtual >= 16 && (
+      {horaAtual >= 20 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -703,35 +703,35 @@ const obterLotacao1830 = () => {
             <div id="botoes">
               <div className="coluna">
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao1)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao11)}`}
                   onClick={() => setOpenModal1700(true)}
                 >
                   17:00
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao2)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao12)}`}
                   onClick={() => setOpenModal1720(true)}
                 >
                   17:20
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao3)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao13)}`}
                   onClick={() => setOpenModal1740(true)}
                 >
                   17:40
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao4)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao14)}`}
                   onClick={() => setOpenModal1800(true)}
                 >
                   18:00
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao10)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao20)}`}
                   onClick={() => setOpenModal1820(true)}
                 >
                   18:20
@@ -739,31 +739,31 @@ const obterLotacao1830 = () => {
               </div>
               <div className="coluna">
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao5)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao15)}`}
                   onClick={() => setOpenModal1710(true)}
                 >
                   17:10
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao6)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao16)}`}
                   onClick={() => setOpenModal1730(true)}
                 >
                   17:30
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao7)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao17)}`}
                   onClick={() => setOpenModal1750(true)}
                 >
                   17:50
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao8)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao18)}`}
                   onClick={() => setOpenModal1810(true)}
                 >
                   18:10
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao9)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao19)}`}
                   onClick={() => setOpenModal1830(true)}
                 >
                   18:30

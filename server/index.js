@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql2");
 const cors = require("cors");
+const e = require("cors");
 
 //conectando banco
 const db = mysql.createPool({
@@ -187,26 +188,40 @@ app.post("/trocarAgendamento", (req, res) => {
   });
 });
 
-// ver qnts vagas tem
-// app.get("/contarVagas", (req, res) => {
-//   const { email } = req.body;
-//   db.query(
-//     "SELECT COUNT(ativo) FROM agendamento WHERE email = ? AND ativo = true",
-//     [email],
-//     (err, result) => {
-//       //se der erro
-//       if (err) {
-//         console.error(err);
-//         return console.log("po o mano fez besteiraKKK");
-//       }
-//       //se ja tiver agendamento ativo
-//       if (result.length > 0) {
-//         return console.log("Este usuario ja possui um agendamento ativo, aa");
-//       }
-//       return 1;
-//     }
-//   );
-// });
+app.get("/obterCardapio", (req, res) => {
+  res.send("Requisição obter cardapio recebida com Sucesso");
+  const { data } = req.query;
+  const SELECT = "SELECT principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno FROM cardapio WHERE data = ?";
+
+  db.query(SELECT, [data], (err, result) => {
+    if(err){
+      console.error(err);
+      return res.status(500).send('Erro ao buscar o cardapio');
+    }
+    if (result.length === 0) {
+      return res.status(404).send('Cardapio desse dia ainda nao foi feito');
+    }
+    res.json(result[0]);
+  })
+
+})
+
+app.post("/criarCardapio", (req, res) => {
+  res.send("Requisição criar cardapio recebida com Sucesso");
+
+  //pegando os parametros
+  const {principal, opcao,  vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno} = req.body;
+  
+  db.query('INSERT INTO cardapio (principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [principal, opcao,  vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno], (err, result) => {
+    //se der erro
+    if(err){
+      console.error(err)
+      return console.log("Erro ao criar o cardapio:", err);
+    }
+    // se a criação for bem-sucedido
+    console.log("Cardapio Criado com Sucesso");
+  })
+})
 
 app.listen(3001, () => {
   console.log("Rodando servidor");

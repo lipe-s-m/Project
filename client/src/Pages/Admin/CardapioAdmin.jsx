@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import "./CardapioAdmin.css";
 import { useState } from "react";
+import Axios from "axios";
 function CardapioAdmin() {
   const navigate = useNavigate();
-
-  const voltarLoginPage = () => {
-    navigate(`/`);
-  };
 
   const [principal, setPrincipal] = useState("");
   const [opcao, setOpcao] = useState("");
@@ -42,9 +39,52 @@ function CardapioAdmin() {
   const handleChangeData = (valor) => {
     setData(valor);
   };
+
   const handleChangeTurno = (valor) => {
     setTurno(valor);
   };
+
+  const voltarLoginPage = () => {
+    navigate(`/`);
+  };
+
+  const handlChangeEnviar = (event) => {
+    if (
+      data.length > 0 &&
+      turno.length > 0 &&
+      principal.length > 0 &&
+      opcao.length > 0 &&
+      vegetariana.length > 0 &&
+      acompanhamento.length > 0 &&
+      guarnicao.length > 0 &&
+      salada.length > 0 &&
+      sobremesa.length > 0
+    ) 
+    {
+      alert(
+        `Refeição do dia ${data}: \n${turno} \n${principal} \n${opcao} \n${vegetariana} \n${acompanhamento} \n${guarnicao} \n${salada} \n${sobremesa}`
+      );
+      Axios.post("http://localhost:3001/criarCardapio", {
+        principal: principal,
+        opcao: opcao,
+        vegetariana: vegetariana,
+        acompanhamentos: acompanhamento,
+        guarnicao: guarnicao,
+        salada: salada,
+        sobremesa: sobremesa,
+        data: data,
+        turno: turno,
+      })
+        .then((response) => {
+          console.log(response.data); // Mostrar a resposta do servidor
+        })
+        .catch((error) => {
+          console.error("Erro na requisição:", error);
+        });
+    }
+    else alert("Preencha todos Os campos");
+  };
+
   return (
     <>
       <div id="CAIXA_PRINCIPAL">
@@ -53,6 +93,44 @@ function CardapioAdmin() {
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <form>
+          <div id="data">Data</div>
+          <div id="imagem-data"></div>
+          <div id="RESPOSTA_PRINCIPAL">
+            {" "}
+            <label htmlFor="date">
+              <input
+                type="date"
+                value={data}
+                onChange={(e) => handleChangeData(e.target.value)}
+                placeholder="Insira a Data aqui..."
+              />
+            </label>
+          </div>
+
+          <div id="LINHA_PRINCIPAL_OPCAO">
+            _________________________________________________________________
+          </div>
+
+          <div id="turno">Turno</div>
+          <div id="imagem-data"></div>
+          <div id="resposta-turno">
+            {" "}
+            <label htmlFor="turn">
+              <select
+                value={turno}
+                onChange={(e) => handleChangeTurno(e.target.value)}
+              >
+                <option value="">Selecione um Turno</option>
+                <option value="Almoco">Almoço</option>
+                <option value="Janta">Janta</option>
+              </select>{" "}
+            </label>
+          </div>
+
+          <div id="LINHA_PRINCIPAL_OPCAO">
+            _________________________________________________________________
+          </div>
+
           <div id="OPCAO_PRINCIPAL">Prato Principal</div>
           <div id="IMAGEM_GARFO_FACA"></div>
           <div id="RESPOSTA_PRINCIPAL">
@@ -182,7 +260,7 @@ function CardapioAdmin() {
         </form>
 
         {/* Enviar Cardapio */}
-        <button id="botao-enviar" onClick={voltarLoginPage}>
+        <button id="botao-enviar" onClick={handlChangeEnviar}>
           Enviar
         </button>
 

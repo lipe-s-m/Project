@@ -7,6 +7,21 @@
   border-radius: 30px;
 }
 
+#BLOCO_VOLTAR_CARDAPIO {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e8e8e8;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 389px;
+  height: 69px;
+  background-color: rgba(28, 76, 46, 1);
+  margin-top: 40%;
+   margin-bottom: 5%; 
+   margin-left: 20%;
+
+}  
 #TEXTO_CARDAPIO {
   width: 300px;
   font-size: 62px;
@@ -304,18 +319,4 @@
   margin-bottom: 10%;
   margin-top: -1%;
   top: -10px;
-}
-
-#visualizar-cardapio{
-  font-size: 28px;
-  font-weight: bold;
-  color: #e8e8e8;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  border-radius: 30px;
-  width: 389px;
-  height: 69px;
-  background-color: rgba(28, 76, 46, 1);
-  margin-top: 30%;
-  margin-left: 20%;
 }

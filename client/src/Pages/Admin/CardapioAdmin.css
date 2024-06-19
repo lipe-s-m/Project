@@ -102,9 +102,10 @@ input::placeholder{
 }
 
 #OPCAO_PRINCIPAL {
-  width: 200px;
+  width: 100%;
   font-size: 25px;
   font-weight: 600;
+  text-align: center;
   font-family: "Montserrat", sans-serif;
   position: relative;
   margin: 0 auto;
@@ -180,7 +181,12 @@ input::placeholder{
   background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
   background-size: cover;
   background-position: center;
-  margin-top: 5.2%;
+  
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 30px;
+  left: 40px;
 }
 #OPCAO_VEGETARIANA {
   width: 255px;

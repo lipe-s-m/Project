@@ -1,7 +1,7 @@
 #CAIXA_PRINCIPAL {
   margin: 0 auto;
   margin-top: 5%;
-    padding-top: 5%;
+  padding-top: 5%;
   width: 650px;
   background-color: #e8e8e8;
   border-radius: 30px;
@@ -16,12 +16,11 @@
   border-radius: 30px;
   width: 389px;
   height: 69px;
-  background-color: rgba(28, 76, 46, 1);
-  margin-top: 40%;
-   margin-bottom: 5%; 
-   margin-left: 20%;
-
-}  
+  background-color: #a60808;
+  margin-top: 30%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+}
 #TEXTO_CARDAPIO {
   width: 300px;
   font-size: 62px;
@@ -29,14 +28,15 @@
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
-#TEXTO_BANDEJAO {
-  width: 120px;
-  font-size: 25px;
+#subtitulo {
+  width: 320px;
+  font-size: 26px;
   font-weight: medium;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  top: 20px;
+  top: 25px;
   margin: 0 auto;
+  text-align: center;
 }
 #IMAGEM_CARDAPIO {
   width: 135px;
@@ -47,24 +47,31 @@
   margin: 0 auto;
   margin-bottom: 15px;
 }
-#OPCAO_PRINCIPAL {
-  width: 200px;
-  font-size: 25px;
+#PRINCIPAL {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  margin: 0 auto;
   top: 70px;
+  
 }
 #resposta_PRINCIPAL {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   position: relative;
   top: 50px;
   left: 80px;
   width: 70%;
   height: 45px;
   margin-top: 1.5%;
-  background-color: aquamarine;
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
+
 #LINHA_PRINCIPAL {
   color: black;
   opacity: 25%;
@@ -83,9 +90,10 @@
   top: 100px;
   left: 40px;
 }
-#OPCAO_SECUNDARIA {
-  width: 90px;
-  font-size: 25px;
+#OPCAO {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
@@ -93,14 +101,17 @@
   top: 80px;
 }
 #resposta_SECUNDARIA {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
   height: 45px;
-  background-color: aquamarine;
   position: relative;
   top: 100px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_OPCAO {
   color: black;
@@ -121,9 +132,10 @@
   top: 43px;
   left: 40px;
 }
-#OPCAO_VEGETARIANA {
-  width: 255px;
-  font-size: 25px;
+#VEGETARIANA {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
@@ -131,13 +143,17 @@
   top: 110px;
 }
 #resposta_VEGETARIANA {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
   height: 45px;
   position: relative;
   top: 135px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_VEGETARIANA_OPCAO {
   color: black;
@@ -158,23 +174,30 @@
   top: 77px;
   left: 40px;
 }
-#ACOMPANHAMENTOS {
-  font-size: 25px;
+#modal-acompanhamento {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  margin: 0 auto;  
+  margin: 0 auto;
   text-align: center;
-  top: 135px;
+  top: 125px;
+  margin-bottom: -1.5%;
 }
 #resposta_ACOMPANHAMENTOS {
+  font-size: 19px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
-  height: 45px;
+  height: 66px;
   position: relative;
   top: 156px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_ACOMPANHAMENTOS_OPCAO {
   color: black;
@@ -192,26 +215,34 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  top: 97px;
+  top: 78px;
   left: 40px;
 }
-#GUARNICAO {
-  font-size: 25px;
+#modal-guarnicao {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
   top: 150px;
-  margin: 0 auto;  
+  margin: 0 auto;
   text-align: center;
+  margin-top: 2%;
+
 }
 #resposta_GUARNICOES {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
   height: 45px;
   position: relative;
-  top: 166px; 
+  top: 166px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_GUARNICAO {
   color: black;
@@ -232,23 +263,30 @@
   top: 109px;
   left: 40px;
 }
-#SALADA {
-  font-size: 25px;
+#modal-salada {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  margin: 0 auto;  
+  margin: 0 auto;
   text-align: center;
   top: 150px;
+  margin-top: 2.5%;
 }
 #resposta_SALADA {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
   height: 45px;
   position: relative;
   top: 166px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_SALADA {
   color: black;
@@ -269,24 +307,30 @@
   top: 109px;
   left: 40px;
 }
-#SOBREMESA {
-  font-size: 25px;
+#modal-sobremesa {
+  width: 100%;
+  font-size: 27px;
+  text-align: center;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  margin: 0 auto;  
+  margin: 0 auto;
   text-align: center;
-    top: 150px;
-    
+  top: 150px;
+  margin-top: 1.9%;
 }
 #resposta_SOBREMESA {
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.6;
   width: 70%;
   height: 45px;
   position: relative;
   top: 163px;
   left: 80px;
-  background-color: aquamarine;
-
+  margin-left: 2%;
+  text-align: center;
+  line-height: 45px; /* Alinha verticalmente */
 }
 #LINHA_SOBREMESA {
   color: black;

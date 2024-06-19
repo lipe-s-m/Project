@@ -147,7 +147,6 @@ app.get("/contarVagas", (req, res) => {
       res.status(500).send("Erro ao realizar a consulta");
       return console.error("Erro ao realizar a consulta:", err);
     }
-    console.log(horario)
     res.send({ count: results[0].count });
   });
 });
@@ -189,39 +188,65 @@ app.post("/trocarAgendamento", (req, res) => {
 });
 
 app.get("/obterCardapio", (req, res) => {
-  res.send("Requisição obter cardapio recebida com Sucesso");
-  const { data } = req.query;
-  const SELECT = "SELECT principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno FROM cardapio WHERE data = ?";
+  console.log("Requisição obter cardapio recebida com Sucesso...");
+  const { data, turno } = req.query;
+  const SELECT =
+    "SELECT principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno FROM cardapio WHERE data = ? AND turno = ?";
 
-  db.query(SELECT, [data], (err, result) => {
-    if(err){
+  db.query(SELECT, [data, turno], (err, result) => {
+    if (err) {
       console.error(err);
-      return res.status(500).send('Erro ao buscar o cardapio');
+      return res.status(404).send("Erro ao buscar o cardapio");
     }
     if (result.length === 0) {
-      return res.status(404).send('Cardapio desse dia ainda nao foi feito');
+      console.log("Cardapio desse dia ainda nao foi feito");
+      return res.status(500).send("Cardapio desse dia ainda nao foi feito!");
     }
+    console.log(result)
     res.json(result[0]);
-  })
-
-})
+  });
+});
 
 app.post("/criarCardapio", (req, res) => {
   res.send("Requisição criar cardapio recebida com Sucesso");
 
   //pegando os parametros
-  const {principal, opcao,  vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno} = req.body;
-  
-  db.query('INSERT INTO cardapio (principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [principal, opcao,  vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno], (err, result) => {
-    //se der erro
-    if(err){
-      console.error(err)
-      return console.log("Erro ao criar o cardapio:", err);
+  const {
+    principal,
+    opcao,
+    vegetariana,
+    acompanhamentos,
+    guarnicao,
+    salada,
+    sobremesa,
+    data,
+    turno,
+  } = req.body;
+
+  db.query(
+    "INSERT INTO cardapio (principal, opcao, vegetariana, acompanhamentos, guarnicao, salada, sobremesa, data, turno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [
+      principal,
+      opcao,
+      vegetariana,
+      acompanhamentos,
+      guarnicao,
+      salada,
+      sobremesa,
+      data,
+      turno,
+    ],
+    (err, result) => {
+      //se der erro
+      if (err) {
+        console.error(err);
+        return console.log("Erro ao criar o cardapio:", err);
+      }
+      // se a criação for bem-sucedido
+      console.log("Cardapio Criado com Sucesso");
     }
-    // se a criação for bem-sucedido
-    console.log("Cardapio Criado com Sucesso");
-  })
-})
+  );
+});
 
 app.listen(3001, () => {
   console.log("Rodando servidor");

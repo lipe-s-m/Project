@@ -5,7 +5,7 @@
 
 #BACKGROUND_id {
   position: fixed;
-  top: 0;
+  top: 20px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -15,6 +15,7 @@
   backdrop-filter: blur(
     4.5px
   ); /* valor ajustável para mais ou menos desfoque */
+  overflow-y: auto; /* Habilita a rolagem vertical quando necessário */
 }
 
 #MODAL_id {

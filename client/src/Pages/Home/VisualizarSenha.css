@@ -19,7 +19,7 @@
   width: 460px;
   opacity: 0.9;
   position: absolute;
-  top: 18%; /* Posiciona o texto no final do quadrado */
+  top: 20.5%; /* Posiciona o texto no final do quadrado */
   left: 50%; /* Posiciona o texto no meio horizontalmente */
   transform: translateX(-50%); /* Centraliza horizontalmente */
   margin: 0; /* Remove margens padrão */
@@ -31,7 +31,7 @@
   background-position: center; /* Centraliza a imagem dentro do elemento */
   vertical-align: top; /* Alinha a imagem na parte superior */
   position: absolute;
-  top: -2%;
+  top: 0%;
   width: 250px;
 }
 #iconUser {
@@ -41,7 +41,7 @@
 }
 
 #informacoes {
-  top: -5%;
+  top: -3%;
   margin-top: 10%;
   width: 320px;
   height: 300px;
@@ -91,7 +91,7 @@ hr {
   font-size: 25px;
   font-weight: medium;
   opacity: 100%;
-  margin-top: -10px;
+  margin-top: 0px;
 }
 #numSenha {
   text-align: center;
@@ -110,7 +110,7 @@ hr {
   width: 380px;
   height: 70px;
   position: relative;
-  top: 9%;
+  top: 14%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -126,7 +126,7 @@ hr {
   width: 380px;
   height: 70px;
   position: relative;
-  top: 13%;
+  top: 19%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -148,8 +148,8 @@ hr {
   transform: translateX(-50%); /* Centraliza horizontalmente */
   margin: 0; /* Remove margens padrão */
   text-align: center;
-
-  padding: 10px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
+  margin-bottom: -6px;
+  padding: 7px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
 }
 
  button:hover,

@@ -5,6 +5,7 @@ import AgendarHorario from "../Pages/Home/AgendarHorario";
 import VisualizarSenha from "../Pages/Home/VisualizarSenha";
 import AgendarHorarioAtivo from "../Pages/Home/AgendarHorarioAtivo";
 import CardapioAluno from "../Pages/Cardapio/CardapioAluno";
+import CardapioAlunoAtivo from "../Pages/Cardapio/CardapioAlunoAtivo";
 
 function AppRoutes() {
   return (
@@ -26,7 +27,8 @@ function AppRoutes() {
         />
         <Route path="/CardapioAdmin" element={<CardapioAdmin />} />
 
-        <Route path="/CardapioAluno" element={<CardapioAluno />} />
+        <Route path="/CardapioAluno/:nomeUsuario/:emailUsuario" element={<CardapioAluno />} />
+        <Route path="/CardapioAlunoAtivo/:nomeUsuario/:emailUsuario/:hora/:senha" element={<CardapioAlunoAtivo />} />
 
       </Routes>
     </BrowserRouter>

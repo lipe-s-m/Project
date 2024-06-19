@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./CardapioAdmin.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Axios from "axios";
 function CardapioAdmin() {
   const navigate = useNavigate();
@@ -14,6 +14,8 @@ function CardapioAdmin() {
   const [sobremesa, setSobremesa] = useState("");
   const [data, setData] = useState("");
   const [turno, setTurno] = useState("");
+  const [enviou, setEnviou] = useState(false);
+
 
   const handleChangePrincipal = (valor) => {
     setPrincipal(valor);
@@ -47,18 +49,13 @@ function CardapioAdmin() {
   const voltarLoginPage = () => {
     navigate(`/`);
   };
-
-  const handlChangeEnviar = (event) => {
+  
+  const handleChangeEnviar = (event) => {
     if (
       data.length > 0 &&
       turno.length > 0 &&
       principal.length > 0 &&
-      opcao.length > 0 &&
-      vegetariana.length > 0 &&
-      acompanhamento.length > 0 &&
-      guarnicao.length > 0 &&
-      salada.length > 0 &&
-      sobremesa.length > 0
+      acompanhamento.length > 0 
     ) 
     {
       alert(
@@ -82,7 +79,7 @@ function CardapioAdmin() {
           console.error("Erro na requisição:", error);
         });
     }
-    else alert("Preencha todos Os campos");
+    else alert("Preencha todos os campos Obrigatórios *");
   };
 
   return (
@@ -93,7 +90,7 @@ function CardapioAdmin() {
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <form>
-          <div id="data">Data</div>
+          <div id="data">Data *</div>
           <div id="imagem-data"></div>
           <div id="RESPOSTA_PRINCIPAL">
             {" "}
@@ -111,7 +108,7 @@ function CardapioAdmin() {
             _________________________________________________________________
           </div>
 
-          <div id="turno">Turno</div>
+          <div id="turno">Turno *</div>
           <div id="imagem-data"></div>
           <div id="resposta-turno">
             {" "}
@@ -131,7 +128,7 @@ function CardapioAdmin() {
             _________________________________________________________________
           </div>
 
-          <div id="OPCAO_PRINCIPAL">Prato Principal</div>
+          <div id="OPCAO_PRINCIPAL">Prato Principal *</div>
           <div id="IMAGEM_GARFO_FACA"></div>
           <div id="RESPOSTA_PRINCIPAL">
             {" "}
@@ -186,7 +183,7 @@ function CardapioAdmin() {
           </div>
           <div id="IMAGEM_VEGETARIANA"></div>
 
-          <div id="ACOMPANHAMENTOS">Acompanhamentos</div>
+          <div id="ACOMPANHAMENTOS">Acompanhamentos *</div>
           <div id="RESPOSTA_ACOMPANHAMENTOS">
             {" "}
             <label htmlFor="acompanhamento">
@@ -260,7 +257,7 @@ function CardapioAdmin() {
         </form>
 
         {/* Enviar Cardapio */}
-        <button id="botao-enviar" onClick={handlChangeEnviar}>
+        <button id="botao-enviar" onClick={handleChangeEnviar}>
           Enviar
         </button>
 

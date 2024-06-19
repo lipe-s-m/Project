@@ -685,8 +685,9 @@ const obterLotacao1830 = () => {
           <button id="voltar-agendamento" onClick={visualizarSenha}>
             Voltar ao Agendamento
           </button>
-          <button id="cardapio">Ver Cardápio</button>
-
+          <button id="cardapio" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
+            Ver Cardápio
+          </button>
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
@@ -779,8 +780,9 @@ const obterLotacao1830 = () => {
           <button id="voltar-agendamento" onClick={visualizarSenha}>
             Voltar ao Agendamento
           </button>
-          <button id="cardapio">Ver Cardápio</button>
-
+          <button id="cardapio" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
+            Ver Cardápio
+          </button>
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>

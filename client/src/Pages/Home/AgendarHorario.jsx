@@ -106,8 +106,7 @@ function AgendarHorario() {
       params: { horario: "11:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao1(response.data.count);
+          setLotacaoBotao1(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -119,8 +118,7 @@ function AgendarHorario() {
       params: { horario: "11:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao5(response.data.count);
+          setLotacaoBotao5(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -132,8 +130,7 @@ function AgendarHorario() {
       params: { horario: "12:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao2(response.data.count);
+          setLotacaoBotao2(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -145,8 +142,7 @@ function AgendarHorario() {
       params: { horario: "12:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao6(response.data.count);
+          setLotacaoBotao6(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -158,8 +154,7 @@ function AgendarHorario() {
       params: { horario: "12:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao3(response.data.count);
+          setLotacaoBotao3(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -171,8 +166,7 @@ function AgendarHorario() {
       params: { horario: "12:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao7(response.data.count);
+          setLotacaoBotao7(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -185,8 +179,7 @@ function AgendarHorario() {
         params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
       })
         .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-          setLotacaoBotao4(response.data.count);
+              setLotacaoBotao4(response.data.count);
         })
         .catch((error) => {
           console.log("erro na requisicao: ", error);
@@ -199,7 +192,6 @@ const obterLotacao1250 = () => {
     params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao8(response.data.count);
     })
     .catch((error) => {
@@ -213,7 +205,6 @@ const obterLotacao1300 = () => {
     params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao9(response.data.count);
     })
     .catch((error) => {
@@ -227,7 +218,6 @@ const obterLotacao1310 = () => {
     params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao10(response.data.count);
     })
     .catch((error) => {
@@ -241,8 +231,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao11(response.data.count);
+          setLotacaoBotao11(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -254,8 +243,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao15(response.data.count);
+          setLotacaoBotao15(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -267,8 +255,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao12(response.data.count);
+          setLotacaoBotao12(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -280,8 +267,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao16(response.data.count);
+          setLotacaoBotao16(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -293,8 +279,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao13(response.data.count);
+          setLotacaoBotao13(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -306,8 +291,7 @@ const obterLotacao1310 = () => {
       params: { horario: "17:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log(response.data); // Mostrar a resposta do servidor
-        setLotacaoBotao17(response.data.count);
+          setLotacaoBotao17(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
@@ -320,8 +304,7 @@ const obterLotacao1310 = () => {
         params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
       })
         .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-          setLotacaoBotao14(response.data.count);
+              setLotacaoBotao14(response.data.count);
         })
         .catch((error) => {
           console.log("erro na requisicao: ", error);
@@ -334,7 +317,6 @@ const obterLotacao1810 = () => {
     params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao18(response.data.count);
     })
     .catch((error) => {
@@ -348,7 +330,6 @@ const obterLotacao1820 = () => {
     params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao19(response.data.count);
     })
     .catch((error) => {
@@ -362,7 +343,6 @@ const obterLotacao1830 = () => {
     params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
   })
     .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
       setLotacaoBotao20(response.data.count);
     })
     .catch((error) => {
@@ -681,8 +661,12 @@ const obterLotacao1830 = () => {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno`)}>
+          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
+          </button>
+
+          <button id="botao-desconectar" onClick={(e) => navigate(`/`)}>
+            Desconectar
           </button>
 
           <p id="lowText">
@@ -774,7 +758,7 @@ const obterLotacao1830 = () => {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno`)}>
+          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
           </button>
 

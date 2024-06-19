@@ -3,6 +3,14 @@
   margin: 0;
 }
 
+#admin-pic{
+  margin-top: 25%;
+}
+
+#admin-desconectar{
+  margin-top: 20%;
+}
+
 #icon {
   width: 150px;
   margin-left: 17px;
@@ -63,6 +71,24 @@
   z-index: 1;
   cursor: pointer;
 }
+
+#desconect-admin {
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #e8e8e8;
+  width: 330px;
+  height: 70px;
+  position: relative;
+  top: 90%;
+  left: 27.55%;
+  transform: translate(-50%, -50%);
+  background-color: #a60808;
+  border-radius: 30px;
+  z-index: 1;
+  cursor: pointer;
+}
+
 #limparEmail {
   font-size: 28px;
   font-family: "Montserrat";
@@ -95,6 +121,25 @@
   border-radius: 30px;
   cursor: pointer;
 }
+
+#admin-prosseguirLog {
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #e8e8e8;
+  width: 330px;
+  height: 70px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: #1a4d2e;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#admin-prosseguirLog:hover,
 #prosseguirLog:hover,
 #limparEmail:hover,
 #Desconect:hover {

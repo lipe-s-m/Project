@@ -4,7 +4,7 @@ import { useState } from "react";
 import Axios from "axios";
 import ModalCardapioAluno from "./ModalCardapioAluno";
 
-function CardapioAluno() {
+function CardapioAlunoAtivo() {
   const [principal, setPrincipal] = useState("");
   const [opcao, setOpcao] = useState("");
   const [vegetariana, setVegetariana] = useState("");
@@ -17,6 +17,8 @@ function CardapioAluno() {
 
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
+  const { hora } = useParams();
+  const { senha } = useParams();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -31,7 +33,7 @@ function CardapioAluno() {
   const navigate = useNavigate();
 
   const voltarLoginPage = () => {
-    navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+    navigate(`/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
   };
 
   const handleChangeVisualizar = () => {
@@ -130,4 +132,4 @@ function CardapioAluno() {
     </>
   );
 }
-export default CardapioAluno;
+export default CardapioAlunoAtivo;

@@ -7,10 +7,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 780px;
-  width: 500px;
+  height: 860px;
+  width: 530px;
   background-color: #e8e8e8;
   border-radius: 30px;
+  margin-top: 2%;
+
 }
 #registro-ativo {
   position: absolute;
@@ -18,7 +20,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 900px;
-  width: 500px;
+  width: 530px;
   background-color: #e8e8e8;
   border-radius: 30px;
 }
@@ -117,10 +119,25 @@
   font-weight: bold;
   font-size: 40px;
   position: absolute;
-  bottom: 6%;
+  bottom: 15%;
   left: 50%;
   transform: translateX(-50%); /* Centraliza horizontalmente */
 }
+
+#botao-desconectar {
+  font-size: 40px;
+  font-weight: bold;
+  color: #e8e8e8;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 389px;
+  height: 69px;
+  background-color: #a60808;
+  margin-top: 140%;
+  margin-bottom: 5%;
+}
+
 #voltar-agendamento {
   height: 69px;
   width: 389px;
@@ -131,7 +148,7 @@
   font-weight: bold;
   font-size: 28px;
   position: absolute;
-  bottom: 16%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%); /* Centraliza horizontalmente */
 }
@@ -166,7 +183,7 @@
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1a4d2e;
+  background-color: #a60808;
   border-radius: 30px;
   z-index: 1;
 }
@@ -201,12 +218,17 @@
   border-radius: 30px;
 }
 #prosseguir:hover,
-#limparEmail:hover,
-#Desconect:hover {
+#limparEmail:hover{
   background-color: #dad5d5;
   transition: 0.5s;
   opacity: 0.9;
   color: rgba(28, 76, 46, 1);
+}
+#Desconect:hover {
+  background-color: rgb(231, 194, 194);
+  transition: 0.5s;
+  opacity: 0.9;
+  color: #a60808;
 }
 #lowText .bold:hover {
   transition: 0.5s;

@@ -118,13 +118,13 @@ function Login() {
         {/* carrega o botao de login google*/}
         <div id="signInDiv"></div>
         {/* Botao de Log Out */}
-        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && (
+        {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && (
           <button id="Desconect" onClick={(e) => handleSignOut(e)}>
             Desconectar
           </button>
         )}
         {/* Email nao é da UFRRJ */}
-        {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && (
+        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" &&  user.email !== "bandejaoadm@gmail.com" &&(
           <div className="loginResponse">
             <div className="loginNegado">
               <img src={erro} alt="erroImage"></img> <br></br>
@@ -138,7 +138,7 @@ function Login() {
         )}
 
         {/* Usuario logado com sucesso */}
-        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" && user.email !== "bandejaoadm@gmail.com" && (
+        {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && user.email !== "bandejaoadm@gmail.com" && (
           <div className="loginResponse">
             <div className="saudacao">
               <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
@@ -154,14 +154,17 @@ function Login() {
         {Object.keys(user).length !== 0 && user.email === "bandejaoadm@gmail.com" && (
           <div className="loginResponse">
             <div className="saudacao">
-              <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
+              <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
               <br></br>
               Ola, Admin {user.name}!
             </div>
 
-            <button id="prosseguirLog" onClick={(e) => nextPageCardapio(e)}>
+            <button id="admin-prosseguirLog" onClick={(e) => nextPageCardapio(e)}>
               Prosseguir
             </button>
+            <button id="desconect-admin" onClick={(e) => handleSignOut(e)}>
+            Desconectar
+          </button>
           </div>
         )}
         <p className="lowText">

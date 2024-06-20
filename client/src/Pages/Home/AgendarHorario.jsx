@@ -577,7 +577,7 @@ const obterLotacao1830 = () => {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
-      {horaAtual < 20 && (
+      {horaAtual < 13 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -674,7 +674,7 @@ const obterLotacao1830 = () => {
         </div>
       )}
       {/* Se esta no turno do almoço */}
-      {horaAtual >= 20 && (
+      {horaAtual >= 13 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>

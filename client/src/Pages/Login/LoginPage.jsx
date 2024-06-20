@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
+  const [senha, setSenha] = useState("");
+  const [hora, setHora] = useState("");
+
   const navigate = useNavigate();
 
   function handleCallbackResponse(response) {
@@ -66,7 +69,20 @@ function Login() {
       console.log(response);
     });
 
-    //carrega pagina de agendamento
+    //verifica se possui agendamento ativo
+    // Axios.get("http://localhost:3001/verificarAgendamento", {
+    //   params: {emailUsuario: emailUsuario}
+    // }).then((response) => {
+    //   console.log(response.data)
+    //   const dados = response.data;
+    //   setSenha(dados.senha);
+    //   setHora(dados.horario);
+    //   navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
+    // }).catch((error) => {
+    //   console.log("erro na requisicao: ", error)
+    // });
+
+    // se não possui agendamento ativo, carrega pagina de agendamento
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
   }
   function nextPageCardapio(event) {

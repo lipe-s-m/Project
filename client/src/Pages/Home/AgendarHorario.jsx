@@ -588,7 +588,6 @@ const obterLotacao1830 = () => {
             {/* mostrar botoes */}
             <div id="botoes">
               <div className="coluna">
-                {console.log(lotacaoBotao1)}
                 <button
                   className={`button ${definirCorBotao(lotacaoBotao1)}`}
                   onClick={() => setOpenModal1140(true)}
@@ -760,6 +759,10 @@ const obterLotacao1830 = () => {
           {/* Rodapé */}
           <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
+          </button>
+
+          <button id="botao-desconectar" onClick={(e) => navigate(`/`)}>
+            Desconectar
           </button>
 
           <p id="lowText">

@@ -15,35 +15,6 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 
-// const nodemailer = require('nodemailer');
-
-// // Email
-// const transporter = nodemailer.createTransport({
-//   service: 'Gmail', // ou outro serviço de email
-//   auth: {
-//     user: 'filadobandejao@gmail.com',
-//     pass: 'ccomp2024',
-//   }
-// });
-
-// //enviar email
-// app.post('/enviarEmail', (req, res) =>{
-//   res.send("Requisição do email recebida com sucesso");
-//   const {email, nome, hora} = req.body;
-
-//   const emailOptions = {
-//     from: 'filadobandejao@gmail.com',
-//     to: email,
-//     subject: 'Hora de ir pro RU',
-//     text: `ola, ${nome}! Voce agendou para as ${hora} um horário no RU, se apresente em até 5 minutos ou seu agendamento será cancelado!`
-//   }
-//   transporter.sendMail(emailOptions, (error, info) => {
-//     if (error) {
-//       return res.status(500).send(error.toString());
-//     }
-//   })
-// });
-
 //BANCO
 // criando instancias no banco
 app.post("/register", (req, res) => {
@@ -137,6 +108,29 @@ app.post("/cancelarAgendamento", (req, res) => {
   });
 });
 
+//verifica se aluno ja possui agendamento
+app.get("/verificarAgendamento", (req, res) => {
+  console.log("Verificando se possui agendamento Ativo");
+  const { emailUsuario } = req.query;
+  const query =
+    "SELECT senha, data, horario, email FROM agendamento WHERE email = ? AND ativo = true;";
+
+  db.query(query, [emailUsuario], (err, result) => {
+    if (err) {
+      res.status(500).send("Erro ao realizar a consulta");
+      return console.error("Erro ao realizar a consulta:", err);
+    }
+    if (result.length === 0) {
+      console.log("Este Usuário não possui Agendamento ativo!");
+      return res.status(500).send("Este Usuário não possui nenhum Agendamento ativo!");
+    }
+    if (result.length > 0) {
+      console.log("Este Usuário possui Agendamento ativo!");
+      res.json(result[0]);
+    }
+  });
+});
+
 app.get("/contarVagas", (req, res) => {
   const { horario } = req.query;
   const query =
@@ -202,7 +196,7 @@ app.get("/obterCardapio", (req, res) => {
       console.log("Cardapio desse dia ainda nao foi feito");
       return res.status(500).send("Cardapio desse dia ainda nao foi feito!");
     }
-    console.log(result)
+    console.log(result);
     res.json(result[0]);
   });
 });

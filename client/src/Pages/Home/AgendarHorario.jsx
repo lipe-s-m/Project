@@ -465,8 +465,7 @@ const obterLotacao1830 = () => {
         {/* children*/}
       </Modal>
       <Modal
-        ativo={ativo}
-        setAtivo={setAtivo}
+
         hora={"17:00"}
         nomeUsuario={nomeUsuario}
         emailUsuario={emailUsuario}
@@ -577,7 +576,7 @@ const obterLotacao1830 = () => {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
-      {horaAtual < 13 && (
+      {horaAtual < 20 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>
@@ -674,7 +673,7 @@ const obterLotacao1830 = () => {
         </div>
       )}
       {/* Se esta no turno do almoço */}
-      {horaAtual >= 13 && (
+      {horaAtual >= 20 && (
         <div id="registro">
           {/* titulo da pagina */}
           <div>

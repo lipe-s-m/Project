@@ -248,3 +248,10 @@
   opacity: 0.85;
 
 }
+
+@media (max-width:570px) {
+.Login{
+  width: 90vw;
+  min-width: 25rem;
+}
+}

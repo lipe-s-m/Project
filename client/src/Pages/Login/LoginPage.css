@@ -2,51 +2,36 @@
   padding: 0;
   margin: 0;
 }
-
-#admin-pic{
-  margin-top: 25%;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#admin-desconectar{
-  margin-top: 20%;
-}
-
-#icon {
-  width: 150px;
-  margin-left: 17px;
-  margin-bottom: 20px;
-  
-}
 .Login {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  height: 780px;
-  width: 500px;
+  /* max-height: 780px; */
+  box-sizing: border-box;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
   background-color: #e8e8e8;
-
   border-radius: 30px;
 }
-#signInDiv {
-  width: 300px;
-  height: 200px;
-
-  position: absolute;
-  top: 64%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 #Login {
   display: flex;
-  position: relative;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  justify-content: center;
+  align-items: center;
   padding-bottom: 15px;
+  text-align: center;
+  margin-top: 2rem;
+}
+#Login img {
+  width: 150px;
 }
 .title {
   font-family: "Montserrat";
@@ -55,21 +40,88 @@
   opacity: 0.9;
 }
 
-#Desconect {
+.S9gUrf-YoZ4jf {
+  justify-content: center;
+  margin: 8rem 0 8rem;
+}
+.loginResponse {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: -1rem 0 4rem;
+}
+.loginNegado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat";
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
+.loginNegado img {
+  width: 200px;
+  height: 200px;
+}
+button {
   font-size: 28px;
   font-family: "Montserrat";
   font-weight: bold;
   color: #e8e8e8;
+  border-radius: 30px;
+  cursor: pointer;
   width: 330px;
   height: 70px;
-  position: relative;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+#desconect {
+  background-color: #a60808;
+  margin: 3rem 0 -3rem;
+}
+#prosseguirLog {
   background-color: #1a4d2e;
-  border-radius: 30px;
-  z-index: 1;
+  margin: 2rem 0 -2rem;
+}
+.saudacao {
+  font-family: "Montserrat";
+  font-size: 42px;
+  font-weight: bold;
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.saudacao img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.lowText {
+  font-family: "Montserrat";
+  color: rgba(00, 00, 00, 0.7);
+  font-weight: normal;
+  font-size: 17px;
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+  color: rgba(28, 76, 46, 0.7);
+}
+.lowText .bold:hover {
+  transition: 0.5s;
   cursor: pointer;
+  opacity: 0.85;
+}
+
+#admin-pic {
+  margin-top: 25%;
+}
+
+#admin-desconectar {
+  margin-top: 20%;
 }
 
 #desconect-admin {
@@ -79,10 +131,6 @@
   color: #e8e8e8;
   width: 330px;
   height: 70px;
-  position: relative;
-  top: 90%;
-  left: 27.55%;
-  transform: translate(-50%, -50%);
   background-color: #a60808;
   border-radius: 30px;
   z-index: 1;
@@ -96,29 +144,9 @@
   color: #e8e8e8;
   width: 330px;
   height: 70px;
-  position: relative;
-  top: 80%;
-  left: 27.5%;
-  transform: translate(-50%, -50%);
   background-color: #1a4d2e;
   border-radius: 30px;
   z-index: 1;
-  cursor: pointer;
-}
-#prosseguirLog {
-  font-size: 28px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #e8e8e8;
-  width: 330px;
-  height: 70px;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  background-color: #1a4d2e;
-  border-radius: 30px;
   cursor: pointer;
 }
 
@@ -129,10 +157,6 @@
   color: #e8e8e8;
   width: 330px;
   height: 70px;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
   background-color: #1a4d2e;
   border-radius: 30px;
@@ -142,9 +166,8 @@
 #admin-prosseguirLog:hover,
 #prosseguirLog:hover,
 #limparEmail:hover,
-#Desconect:hover {
+#desconect:hover {
   background-color: #dad5d5;
-
   transition: 0.5s;
 
   opacity: 0.9;
@@ -152,106 +175,20 @@
   color: rgba(28, 76, 46, 1);
 }
 
-.loginResponse {
-  width: 600px;
-  height: 500px;
-
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  display: flex;
-  text-align: center;
-  justify-content: center;
-
-  flex-flow: row wrap;
+@media (max-width: 570px) {
+  .Login {
+    width: 94vw;
+    min-width: 21rem;
+    margin: 0 auto;
+  }
 }
-
-.saudacao img {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  align-items: center;
-  margin-left: 5px;
-  margin-bottom: 30px;
-  top: 20%;
-}
-
-.saudacao {
-  font-family: "Montserrat";
-  font-size: 42px;
-  font-weight: bold;
-  width: 500px;
-  position: absolute;
-  top: 9%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  justify-content: center;
-  padding-bottom: 15px;
-}
-
-.loginNegado img {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  align-items: center;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  top: 20%;
-  left: -1.8%;
-}
-
-.loginNegado {
-  font-family: "Montserrat";
-  font-size: 42px;
-  font-weight: bold;
-  width: 500px;
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  justify-content: center;
-  padding-bottom: 15px;
-}
-
-.S9gUrf-YoZ4jf {
-  width: 300px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.lowText {
-  font-family: "Montserrat";
-  color: rgba(00, 00, 00, 0.7);
-  font-weight: normal;
-  height: 30px;
-  width: 390px;
-  font-size: 17px;
-  position: absolute;
-  bottom: 0; /* Posiciona o texto no final do quadrado */
-  left: 50%; /* Posiciona o texto no meio horizontalmente */
-  transform: translateX(-50%); /* Centraliza horizontalmente */
-  margin: 0; /* Remove margens padrão */
-  text-align: center;
-
-  padding: 10px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
-}
-.bold {
-  font-weight: bold;
-  color: rgba(28, 76, 46, 0.7);
-}
-.lowText .bold:hover{
-  transition: 0.5s;
-  cursor: pointer;
-  opacity: 0.85;
-
-}
-
-@media (max-width:570px) {
-.Login{
-  width: 90vw;
-  min-width: 25rem;
-}
+@media (max-width: 470px) {
+  .saudacao {
+    width: 21rem;
+    font-size: 32px;
+  }
+  button{
+    width: 270px;
+    height: 60px;
+  }
 }

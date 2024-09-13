@@ -90,8 +90,6 @@ function Login() {
     const nomeUsuario = user.name;
     console.log("ir para próxima página, %s", nomeUsuario);
 
-    
-
     //carrega pagina de agendamento
     navigate(`/CardapioAdmin`);
   }
@@ -125,7 +123,7 @@ function Login() {
         <div id="Login">
           {Object.keys(user).length === 0 && (
             <h3>
-              <img id="icon" src={Icon} alt="Icon"></img> <br></br>{" "}
+              <img src={Icon} alt="Icon"></img> <br></br>{" "}
               <div className="title">Login</div>
             </h3>
           )}
@@ -134,55 +132,66 @@ function Login() {
         {/* carrega o botao de login google*/}
         <div id="signInDiv"></div>
         {/* Botao de Log Out */}
-        {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && (
-          <button id="Desconect" onClick={(e) => handleSignOut(e)}>
+        {/* {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && (
+          <button id="desconect" onClick={(e) => handleSignOut(e)}>
             Desconectar
           </button>
-        )}
+        )} */}
         {/* Email nao é da UFRRJ */}
-        {Object.keys(user).length !== 0 && user.hd !== "ufrrj.br" &&  user.email !== "bandejaoadm@gmail.com" &&(
-          <div className="loginResponse">
-            <div className="loginNegado">
-              <img src={erro} alt="erroImage"></img> <br></br>
-              Este Email não pertence à UFRRJ
-            </div>
+        {Object.keys(user).length !== 0 &&
+          user.hd !== "ufrrj.br" &&
+          user.email !== "bandejaoadm@gmail.com" && (
+            <div className="loginResponse">
+              <div className="loginNegado">
+                <img src={erro} alt="erroImage"></img> <br></br>
+                Este Email não pertence à UFRRJ
+              </div>
 
-            <button id="limparEmail" onClick={(e) => handleSignOut(e)}>
-              Voltar
-            </button>
-          </div>
-        )}
+              <button id="desconect" onClick={(e) => handleSignOut(e)}>
+                Voltar
+              </button>
+            </div>
+          )}
 
         {/* Usuario logado com sucesso */}
-        {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && user.email !== "bandejaoadm@gmail.com" && (
-          <div className="loginResponse">
-            <div className="saudacao">
-              <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
-              <br></br>
-              Ola, {user.name}!
-            </div>
+        {Object.keys(user).length !== 0 &&
+          user.hd === "ufrrj.br" &&
+          user.email !== "bandejaoadm@gmail.com" && (
+            <div className="loginResponse">
+              <div className="saudacao">
+                <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
+                <br></br>
+                Ola, {user.name}!
+              </div>
 
-            <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
-              Prosseguir
-            </button>
-          </div>
-        )}
-        {Object.keys(user).length !== 0 && user.email === "bandejaoadm@gmail.com" && (
-          <div className="loginResponse">
-            <div className="saudacao">
-              <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
-              <br></br>
-              Ola, Admin {user.name}!
-            </div>
-
-            <button id="admin-prosseguirLog" onClick={(e) => nextPageCardapio(e)}>
-              Prosseguir
-            </button>
-            <button id="desconect-admin" onClick={(e) => handleSignOut(e)}>
+              <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
+                Prosseguir
+              </button>
+              <button id="desconect" onClick={(e) => handleSignOut(e)}>
             Desconectar
           </button>
-          </div>
-        )}
+            </div>
+          )}
+        {Object.keys(user).length !== 0 &&
+          user.email === "bandejaoadm@gmail.com" && (
+            <div className="loginResponse">
+              <div className="saudacao">
+                <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
+                <br></br>
+                Ola, Admin {user.name}!
+              </div>
+
+              <button
+                id="admin-prosseguirLog"
+                onClick={(e) => nextPageCardapio(e)}
+              >
+                Prosseguir
+              </button>
+              <button id="desconect-admin" onClick={(e) => handleSignOut(e)}>
+                Desconectar
+              </button>
+            </div>
+          )}
         <p className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </p>

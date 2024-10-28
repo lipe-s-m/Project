@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../Pages/Login/LoginPage";
 import CardapioAdmin from "../Pages/Admin/CardapioAdmin";
 import AgendarHorario from "../Pages/Home/AgendarHorario";
@@ -9,7 +9,7 @@ import CardapioAlunoAtivo from "../Pages/Cardapio/CardapioAlunoAtivo";
 
 function AppRoutes() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         {/* As Rotas do Sistema */}
         <Route path="/" element={<Login />} />
@@ -31,7 +31,7 @@ function AppRoutes() {
         <Route path="/CardapioAlunoAtivo/:nomeUsuario/:emailUsuario/:hora/:senha" element={<CardapioAlunoAtivo />} />
 
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 export default AppRoutes;

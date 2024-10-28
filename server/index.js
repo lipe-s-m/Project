@@ -7,8 +7,8 @@ const e = require("cors");
 //conectando banco
 const db = mysql.createPool({
   host: "localhost",
-  user: "root",
-  password: "root",
+  user: "filaruuser",
+  password: "password",
   database: "artefatobandejao",
 });
 

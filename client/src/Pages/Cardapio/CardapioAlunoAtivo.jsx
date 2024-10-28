@@ -37,7 +37,7 @@ function CardapioAlunoAtivo() {
   };
 
   const handleChangeVisualizar = () => {
-    Axios.get("http://localhost:3001/obterCardapio", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
       params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {

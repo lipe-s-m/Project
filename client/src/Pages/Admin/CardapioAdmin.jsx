@@ -61,7 +61,7 @@ function CardapioAdmin() {
       alert(
         `Refeição do dia ${data}: \n${turno} \n${principal} \n${opcao} \n${vegetariana} \n${acompanhamento} \n${guarnicao} \n${salada} \n${sobremesa}`
       );
-      Axios.post("http://localhost:3001/criarCardapio", {
+      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//criarCardapio", {
         principal: principal,
         opcao: opcao,
         vegetariana: vegetariana,

@@ -33,7 +33,7 @@ function VisualizarSenha() {
   }
   function handleIncreaseDesagendar(emailUsuario) {
     //apagando agendamento no banco
-    Axios.post("http://localhost:3001/cancelarAgendamento", {
+    Axios.post("https://www.dcc.ufrrj.br/filaruservicos//cancelarAgendamento", {
       email: emailUsuario,
     })
       .then((response) => {

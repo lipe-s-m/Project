@@ -25,7 +25,7 @@ export default function ModalAtivo({
   
   //obter lotacao
   const obterLotacao = () => {
-    Axios.get("http://localhost:3001/contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: hora } // Note que o horário é passado como parâmetro
     })
     .then((response) => {
@@ -47,7 +47,7 @@ export default function ModalAtivo({
       const senha = integer + 1;
 
       //agendando no banco
-      Axios.post("http://localhost:3001/trocarAgendamento", {
+      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//trocarAgendamento", {
         senha: integer + 1,
         data: dataFormatada,
         hora: hora,

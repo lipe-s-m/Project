@@ -62,7 +62,7 @@ function Login() {
     console.log("ir para próxima página, %s", nomeUsuario);
 
     //cadastro provisorio
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("https://www.dcc.ufrrj.br/filaruservicos//register", {
       email: emailUsuario,
       name: nomeUsuario,
     }).then((response) => {
@@ -70,7 +70,7 @@ function Login() {
     });
 
     //verifica se possui agendamento ativo
-    // Axios.get("http://localhost:3001/verificarAgendamento", {
+    // Axios.get("https://www.dcc.ufrrj.br/filaruservicos//verificarAgendamento", {
     //   params: {emailUsuario: emailUsuario}
     // }).then((response) => {
     //   console.log(response.data)

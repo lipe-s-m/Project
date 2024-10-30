@@ -106,124 +106,124 @@ function AgendarHorario() {
       params: { horario: "11:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao1(response.data.count);
+        setLotacaoBotao1(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1150 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "11:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao5(response.data.count);
+        setLotacaoBotao5(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1200 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "12:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao2(response.data.count);
+        setLotacaoBotao2(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1210 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "12:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao6(response.data.count);
+        setLotacaoBotao6(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   ///obter lotacao
   const obterLotacao1220 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "12:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao3(response.data.count);
+        setLotacaoBotao3(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1230 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "12:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao7(response.data.count);
+        setLotacaoBotao7(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
   };
 
-    //obter lotacao
-    const obterLotacao1240 = () => {
-      Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-        params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
+  //obter lotacao
+  const obterLotacao1240 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        setLotacaoBotao4(response.data.count);
       })
-        .then((response) => {
-              setLotacaoBotao4(response.data.count);
-        })
-        .catch((error) => {
-          console.log("erro na requisicao: ", error);
-        });
-    };
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1250 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao8(response.data.count);
+  //obter lotacao
+  const obterLotacao1250 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao8(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1300 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao9(response.data.count);
+  //obter lotacao
+  const obterLotacao1300 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao9(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1310 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao10(response.data.count);
+  //obter lotacao
+  const obterLotacao1310 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao10(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
   //obter lotacao
   const obterLotacao1700 = () => {
@@ -231,124 +231,124 @@ const obterLotacao1310 = () => {
       params: { horario: "17:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao11(response.data.count);
+        setLotacaoBotao11(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1710 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "17:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao15(response.data.count);
+        setLotacaoBotao15(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1720 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "17:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao12(response.data.count);
+        setLotacaoBotao12(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1730 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "17:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao16(response.data.count);
+        setLotacaoBotao16(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   ///obter lotacao
   const obterLotacao1740 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "17:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao13(response.data.count);
+        setLotacaoBotao13(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1750 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: "17:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-          setLotacaoBotao17(response.data.count);
+        setLotacaoBotao17(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
   };
 
-    //obter lotacao
-    const obterLotacao1800 = () => {
-      Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-        params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
+  //obter lotacao
+  const obterLotacao1800 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        setLotacaoBotao14(response.data.count);
       })
-        .then((response) => {
-              setLotacaoBotao14(response.data.count);
-        })
-        .catch((error) => {
-          console.log("erro na requisicao: ", error);
-        });
-    };
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1810 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao18(response.data.count);
+  //obter lotacao
+  const obterLotacao1810 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao18(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1820 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao19(response.data.count);
+  //obter lotacao
+  const obterLotacao1820 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao19(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1830 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
-    params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      setLotacaoBotao20(response.data.count);
+  //obter lotacao
+  const obterLotacao1830 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+      params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        setLotacaoBotao20(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
 
   return (
@@ -577,11 +577,11 @@ const obterLotacao1830 = () => {
       </Modal>
       {/* Se esta no turno do almoço */}
       {horaAtual < 20 && (
-        <div id="registro">
+        <div id="box-agendar">
           {/* titulo da pagina */}
-          <div>
-            <h3>
-              <div id="title">Agendar Horário</div>
+          
+            <h3 id="title">
+              Agendar Horário
             </h3>
 
             {/* mostrar botoes */}
@@ -655,19 +655,19 @@ const obterLotacao1830 = () => {
                 </button>
               </div>
             </div>
-          </div>
+          
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
+          <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
           </button>
 
-          <button id="botao-desconectar" onClick={(e) => navigate(`/`)}>
+          <button className="botao-navegacao vermelho" onClick={(e) => navigate(`/`)}>
             Desconectar
           </button>
 
-          <p id="lowText">
+          <p className="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>

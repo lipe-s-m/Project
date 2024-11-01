@@ -7,8 +7,6 @@ import Axios from "axios";
 function AgendarHorario() {
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
-  const { ativo } = useParams();
-  const { setAtivo } = useParams();
 
   // Valor inicial da lotação, pode ser alterado conforme necessário
   const [lotacaoBotao1, setLotacaoBotao1] = useState(null);
@@ -577,7 +575,7 @@ function AgendarHorario() {
       </Modal>
       {/* Se esta no turno do almoço */}
       {horaAtual < 20 && (
-        <div id="box-agendar">
+        <div className="box-agendar">
           {/* titulo da pagina */}
           
             <h3 id="title">
@@ -663,7 +661,7 @@ function AgendarHorario() {
             Ver Cardápio
           </button>
 
-          <button className="botao-navegacao vermelho" onClick={(e) => navigate(`/`)}>
+          <button className="botao-navegacao ativo vermelho" onClick={(e) => navigate(`/`)}>
             Desconectar
           </button>
 
@@ -674,9 +672,8 @@ function AgendarHorario() {
       )}
       {/* Se esta no turno do almoço */}
       {horaAtual >= 20 && (
-        <div id="registro">
+        <div className="box-agendar">
           {/* titulo da pagina */}
-          <div>
             <h3>
               <div id="title">Agendar Horário</div>
             </h3>
@@ -752,19 +749,18 @@ function AgendarHorario() {
                 </button>
               </div>
             </div>
-          </div>
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="cardapio" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
+          <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
           </button>
 
-          <button id="botao-desconectar" onClick={(e) => navigate(`/`)}>
+          <button className="botao-navegacao ativo vermelho" onClick={(e) => navigate(`/`)}>
             Desconectar
           </button>
 
-          <p id="lowText">
+          <p className="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>

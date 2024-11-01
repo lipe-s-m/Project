@@ -600,7 +600,7 @@ const obterLotacao1830 = () => {
         {/* children*/}
       </ModalAtivo>
       {horaAtual < 20 && (
-        <div id="box-agendar">
+        <div className="box-agendar">
           
 
 
@@ -685,22 +685,25 @@ const obterLotacao1830 = () => {
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button id="voltar-agendamento" onClick={visualizarSenha}>
-            Voltar ao Agendamento
-          </button>
-          <button id="cardapio" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
+          
+          <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
             Ver Cardápio
+          </button>
+          <button className="botao-navegacao vermelho ativo" onClick={visualizarSenha}>
+            Voltar ao Agendamento
           </button>
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>
       )}
+
       {/* Se esta no turno do almoço */}
+
       {horaAtual >= 20 && (
-        <div id="registro-ativo">
+        <div className="box-agendar">
           {/* titulo da pagina */}
-          <div>
+          
             <h3>
               <div id="title">Agendar Horário</div>
             </h3>
@@ -776,16 +779,18 @@ const obterLotacao1830 = () => {
                 </button>
               </div>
             </div>
-          </div>
+          
 
           {/* Cardapio */}
           {/* Rodapé */}
-          <button className="botao-navegacao vermelho" onClick={visualizarSenha}>
-            Voltar ao Agendamento
-          </button>
           <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
             Ver Cardápio
           </button>
+
+          <button className="botao-navegacao vermelho ativo" onClick={visualizarSenha}>
+            Voltar ao Agendamento
+          </button>
+         
           <p id="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>

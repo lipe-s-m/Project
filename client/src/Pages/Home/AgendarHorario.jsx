@@ -102,7 +102,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1140 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "11:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -114,7 +114,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1150 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "11:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -126,7 +126,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1200 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -138,7 +138,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1210 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -150,7 +150,7 @@ function AgendarHorario() {
   };
   ///obter lotacao
   const obterLotacao1220 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -162,7 +162,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1230 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -175,7 +175,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1240 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -188,7 +188,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1250 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -201,7 +201,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1300 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -214,7 +214,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1310 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -227,7 +227,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1700 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -239,7 +239,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1710 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -251,7 +251,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1720 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -263,7 +263,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1730 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -275,7 +275,7 @@ function AgendarHorario() {
   };
   ///obter lotacao
   const obterLotacao1740 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:40" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -287,7 +287,7 @@ function AgendarHorario() {
   };
   //obter lotacao
   const obterLotacao1750 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "17:50" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -300,7 +300,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1800 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -313,7 +313,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1810 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -326,7 +326,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1820 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
@@ -339,7 +339,7 @@ function AgendarHorario() {
 
   //obter lotacao
   const obterLotacao1830 = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {

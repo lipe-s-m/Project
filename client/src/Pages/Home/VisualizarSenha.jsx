@@ -48,7 +48,7 @@ function VisualizarSenha() {
 
   return (
     <>
-      <div id="registro">
+      <div id="box-visualizar-senha">
         <img id="iconAgend" src={Iconagend} alt="IconeAgendamento"></img>
         <div id="titulo">Agendamento</div>
 
@@ -89,7 +89,7 @@ function VisualizarSenha() {
             Cancelar Agendamento
           </button>
         </div>
-        <p id="rodape">
+        <p id="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </p>
       </div>

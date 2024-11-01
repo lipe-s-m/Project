@@ -4,12 +4,15 @@
   margin: 0;
 }
 
-#registro {
-  position: absolute;
+#box-visualizar-senha {
+  width: 530px;
+  background-color: #e8e8e8;
+  border-radius: 30px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-align: center; /* Centraliza horizontalmente */
+  padding: 2% 0;
+  box-sizing: border-box;
 }
 
 #titulo {
@@ -18,10 +21,6 @@
   font-weight: bold;
   width: 460px;
   opacity: 0.9;
-  position: absolute;
-  top: 20.5%; /* Posiciona o texto no final do quadrado */
-  left: 50%; /* Posiciona o texto no meio horizontalmente */
-  transform: translateX(-50%); /* Centraliza horizontalmente */
   margin: 0; /* Remove margens padrão */
   text-align: center;
   color: #0f3a20;
@@ -30,8 +29,6 @@
   background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área */
   background-position: center; /* Centraliza a imagem dentro do elemento */
   vertical-align: top; /* Alinha a imagem na parte superior */
-  position: absolute;
-  top: 0%;
   width: 250px;
 }
 #iconUser {
@@ -41,11 +38,11 @@
 }
 
 #informacoes {
-  top: -3%;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 320px;
-  height: 300px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .text {
   text-align: left;
@@ -57,13 +54,12 @@
   background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área */
   background-position: left center; /* Cola a imagem à esquerda */
   width: 31px;
-  height: 24;
 }
 .infoUser {
   width: 100%;
   text-align: left;
   padding-top: 3px;
-  margin-left: 15px;
+  margin-left: 1rem;
   font-size: 24px;
   font-weight: 600;
   opacity: 70%;
@@ -71,9 +67,8 @@
 }
 .textLight {
   display: flex;
-
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 hr {
   width: 100%; /* Ajusta a largura para preencher toda a largura do contêiner pai */
@@ -95,7 +90,7 @@ hr {
 }
 #numSenha {
   text-align: center;
-  font-size: 120px;
+  font-size: 100px;
   font-weight: bold;
   color: #0f3a20;
   opacity: 100%;
@@ -109,14 +104,11 @@ hr {
   color: #e8e8e8;
   width: 380px;
   height: 70px;
-  position: relative;
-  top: 14%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
   background-color: #1a4d2e;
   border-radius: 30px;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 #cancelarAgend {
   font-size: 28px;
@@ -125,32 +117,14 @@ hr {
   color: #e8e8e8;
   width: 380px;
   height: 70px;
-  position: relative;
-  top: 19%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
   background-color: #a60808;
   border-radius: 30px;
   cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 
-#rodape {
-  font-family: "Montserrat";
-  color: rgba(00, 00, 00, 0.7);
-  font-weight: normal;
-  height: 30px;
-  width: 390px;
-  font-size: 17px;
-  position: absolute;
-  bottom: 0; /* Posiciona o texto no final do quadrado */
-  left: 50%; /* Posiciona o texto no meio horizontalmente */
-  transform: translateX(-50%); /* Centraliza horizontalmente */
-  margin: 0; /* Remove margens padrão */
-  text-align: center;
-  margin-bottom: -6px;
-  padding: 7px; /* Adiciona um preenchimento para separar o texto das bordas do quadrado */
-}
+
 
  button:hover,
  #rodape .bold:hover{

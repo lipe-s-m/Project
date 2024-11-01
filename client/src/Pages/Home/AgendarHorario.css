@@ -120,20 +120,6 @@ body {
   margin-top: 1rem;
 }
 
-#voltar-agendamento {
-  height: 69px;
-  width: 389px;
-  border-radius: 30px;
-  font-family: "Montserrat";
-  color: #ffffff;
-  background-color: #c43131;
-  font-weight: bold;
-  font-size: 28px;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%); /* Centraliza horizontalmente */
-}
 
 
 .bold {

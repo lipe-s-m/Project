@@ -175,7 +175,7 @@
   }
 
   
-  #TITULO_INDISPONIVEL{
+  /* #TITULO_INDISPONIVEL{
     font-size: 62px;
       font-weight: bold;
       font-family: 'Montserrat';
@@ -183,7 +183,7 @@
       position: relative;
       top: -75px;
   }
-  
+   */
   #VAGAS_INDISPONIVEL{
     font-family: 'Montserrat';
     font-weight: medium;

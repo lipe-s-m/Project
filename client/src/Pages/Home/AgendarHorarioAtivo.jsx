@@ -599,7 +599,7 @@ const obterLotacao1830 = () => {
       >
         {/* children*/}
       </ModalAtivo>
-      {horaAtual < 20 && (
+      {horaAtual < 15 && (
         <div className="box-agendar">
           
 
@@ -692,7 +692,7 @@ const obterLotacao1830 = () => {
           <button className="botao-navegacao vermelho ativo" onClick={visualizarSenha}>
             Voltar ao Agendamento
           </button>
-          <p id="lowText">
+          <p className="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>
@@ -700,7 +700,7 @@ const obterLotacao1830 = () => {
 
       {/* Se esta no turno do almoço */}
 
-      {horaAtual >= 20 && (
+      {horaAtual >= 15 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
           
@@ -791,7 +791,7 @@ const obterLotacao1830 = () => {
             Voltar ao Agendamento
           </button>
          
-          <p id="lowText">
+          <p className="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>
         </div>

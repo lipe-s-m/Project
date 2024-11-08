@@ -574,7 +574,7 @@ function AgendarHorario() {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
-      {horaAtual < 20 && (
+      {horaAtual < 15 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
           
@@ -671,7 +671,7 @@ function AgendarHorario() {
         </div>
       )}
       {/* Se esta no turno do almoço */}
-      {horaAtual >= 20 && (
+      {horaAtual >= 15 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
             <h3>

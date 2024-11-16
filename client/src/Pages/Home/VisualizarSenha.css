@@ -15,15 +15,9 @@
   box-sizing: border-box;
 }
 
-#titulo {
-  font-family: "Montserrat";
-  font-size: 62px;
-  font-weight: bold;
-  width: 460px;
-  opacity: 0.9;
-  margin: 0; /* Remove margens padrão */
-  text-align: center;
+#title.titulo-agendamento{
   color: #0f3a20;
+  opacity: 0.8;
 }
 #iconAgend {
   background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área */
@@ -49,6 +43,10 @@
   font-size: 25px;
   font-weight: medium;
   opacity: 100%;
+}
+.agendamento{
+  font-size: 32px;
+  line-height: 1.6rem;
 }
 #iconUser {
   background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área */
@@ -132,4 +130,69 @@ hr {
   cursor: pointer;
   opacity: 0.85;
 
+}
+
+
+@media(max-width: 580px){
+  #title.titulo-agendamento{
+    font-size: 50px;
+  }
+  #box-visualizar-senha{
+    width: 90vw;
+  }
+  .agendamento{
+    font-size: 30px;
+    line-height: 1.6rem;
+  }
+}
+
+@media(max-width: 525px){
+  #title{
+    font-size: 52px;
+    margin-bottom: -1rem;
+    padding: 0 1.5rem;
+  }
+  .agendamento{
+    font-size: 24px;
+    line-height: 1.4rem;
+  }
+
+}
+@media(max-width: 450px){
+  #title.titulo-agendamento{
+    font-size: 48px;
+  }
+  #box-visualizar-senha{
+    width: 95vw;
+  }
+  .agendamento{
+    font-size: 24px;
+  }
+}
+@media(max-width: 400px){
+  #title.titulo-agendamento{
+    font-size: 44px;
+  }
+  .agendamento{
+    font-size: 20px;
+    line-height: 1.2rem;
+  }
+}
+@media(max-width: 375px){
+  #title.titulo-agendamento{
+    font-size: 40px;
+  }
+  .agendamento{
+    font-size: 16px;
+    line-height: 1.2rem;
+  }
+}
+@media(max-width: 335px){
+  #title.titulo-agendamento{
+    font-size: 34px;
+  }
+  .agendamento{
+    font-size: 14px;
+    line-height: 1.2rem;
+  }
 }

@@ -50,7 +50,7 @@ function VisualizarSenha() {
     <>
       <div id="box-visualizar-senha">
         <img id="iconAgend" src={Iconagend} alt="IconeAgendamento"></img>
-        <div id="titulo">Agendamento</div>
+        <div id="title" className="titulo-agendamento">Agendamento</div>
 
         {/* informacoes do agendamento */}
         <div id="informacoes">
@@ -79,11 +79,11 @@ function VisualizarSenha() {
             <div id="numSenha">{senha}</div>
           </div>
 
-          <button id="verHorario" onClick={handleIncreaseHorarios}>
+          <button className="botao-navegacao verde agendamento" onClick={handleIncreaseHorarios}>
             Visualizar Horarios
           </button>
           <button
-            id="cancelarAgend"
+            className="botao-navegacao vermelho agendamento"
             onClick={() => handleIncreaseDesagendar(emailUsuario)}
           >
             Cancelar Agendamento

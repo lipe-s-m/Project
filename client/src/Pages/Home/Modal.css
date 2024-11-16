@@ -110,7 +110,6 @@
   background-image: url(./../../UI/Icons/check-mark_1.png);
   background-size: cover;
   background-position: center;
-
 }
 #IMAGEM_USUARIO {
   width: 20px;
@@ -121,9 +120,7 @@
  
   background-image: url(./../../UI/Icons/user.png);
 }
-#LINHA_MODAL {
 
-}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 * {

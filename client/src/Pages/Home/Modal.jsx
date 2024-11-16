@@ -76,7 +76,7 @@ export default function Podal({
         <>
           <div id="BACKGROUND_id">
             <div id="MODAL_id">
-              <p id="TITULO_DISPONIVEL">Disponível</p>
+              <div id="TITULO_DISPONIVEL">Disponível</div>
               <div id="CONTEUDO_MODAL">
 
                 <p id="IMAGEM_DISPONIVEL"></p>
@@ -104,15 +104,11 @@ export default function Podal({
       return (
         <div id="BACKGROUND_id">
           <div id="MODAL_id">
-            <p id="TITULO_INDISPONIVEL">Indisponível</p>
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
 
               <p id="IMAGEM_INDISPONIVEL"></p>
-
               <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
-
-
-
               <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
 
               <hr></hr>

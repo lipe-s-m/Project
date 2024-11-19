@@ -51,8 +51,6 @@ input::placeholder{
   font-size: 25px;
   font-weight: medium;
   font-family: "Montserrat", sans-serif;
-  position: relative;
-  top: 20px;
   margin: 0 auto;
 }
 #IMAGEM_CARDAPIO {
@@ -70,17 +68,13 @@ input::placeholder{
   font-size: 25px;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  position: relative;
   margin: 0 auto;
-  top: 70px;
   text-align: center;
 }
 #resposta-data{
   width: 365px;
   height: 45px;
-  position: relative;
-  top: 50px;
-  left: 80px;
+
 }
 
 #turno{
@@ -88,17 +82,13 @@ input::placeholder{
   font-size: 25px;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  position: relative;
   margin: 0 auto;
-  top: 70px;
   text-align: center;
 }
 #resposta-turno{
   width: 365px;
   height: 45px;
-  position: relative;
-  top: 50px;
-  left: 80px;
+
 }
 
 #OPCAO_PRINCIPAL {
@@ -107,16 +97,12 @@ input::placeholder{
   font-weight: 600;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  position: relative;
   margin: 0 auto;
-  top: 70px;
 }
 #RESPOSTA_PRINCIPAL {
   width: 365px;
   height: 45px;
-  position: relative;
-  top: 50px;
-  left: 80px;
+  
 }
 
 #imagem-data {
@@ -126,9 +112,7 @@ input::placeholder{
   background-image: url(./../../UI/Icons/relogio.png);
   background-size: cover;
   background-position: center;
-  position: relative;
-  top: 100px;
-  left: 40px;
+ 
 }
 
 #LINHA_PRINCIPAL_OPCAO {

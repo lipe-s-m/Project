@@ -79,7 +79,6 @@ function CardapioAluno() {
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <div id="data">Data</div>
-        <div id="imagem-data"></div>
         <div id="RESPOSTA_PRINCIPAL">
           {" "}
           <label htmlFor="date">
@@ -92,35 +91,37 @@ function CardapioAluno() {
           </label>
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr></hr>
 
         <div id="turno">Turno</div>
-        <div id="imagem-data"></div>
+
         <div id="resposta-turno">
           {" "}
-          <label htmlFor="turn">
-            <select
-              value={turno}
-              onChange={(e) => handleChangeTurno(e.target.value)}
-            >
-              <option value="">Selecione um Turno</option>
-              <option value="Almoco">Almoço</option>
-              <option value="Janta">Janta</option>
-            </select>{" "}
-          </label>
+          <div id="date">
+            <label htmlFor="turn">
+              <select
+                value={turno}
+                onChange={(e) => handleChangeTurno(e.target.value)}
+              >
+
+                <option value="">Selecione um Turno</option>
+                <option value="Almoco">Almoço</option>
+                <option value="Janta">Janta</option>
+              </select>{" "}
+            </label>
+            <div id="imagem-data"></div>
+          </div>
+
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr id="hr"></hr>
 
-        <button id="visualizar-cardapio" onClick={handleChangeVisualizar}>
+
+        <button className="botao-navegacao verde" onClick={handleChangeVisualizar}>
           Visualizar
         </button>
 
-        <button id="botao-voltar" onClick={voltarLoginPage}>
+        <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>
         <div id="BLOCO_CREDITOS">

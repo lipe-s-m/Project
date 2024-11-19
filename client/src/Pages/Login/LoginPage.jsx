@@ -140,7 +140,7 @@ function Login() {
         {/* Email nao é da UFRRJ */}
         {Object.keys(user).length !== 0 &&
           user.hd !== "ufrrj.br" &&
-          user.email !== "bandejaoadm@gmail.com" && (
+          user.email !== "raulzin09@gmail.com" && (
             <div className="loginResponse">
               <div className="loginNegado">
                 <img src={erro} alt="erroImage"></img> <br></br>
@@ -156,7 +156,7 @@ function Login() {
         {/* Usuario logado com sucesso */}
         {Object.keys(user).length !== 0 &&
           user.hd === "ufrrj.br" &&
-          user.email !== "bandejaoadm@gmail.com" && (
+          user.email !== "raulzin09@gmail.com" && (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
@@ -173,7 +173,7 @@ function Login() {
             </div>
           )}
         {Object.keys(user).length !== 0 &&
-          user.email === "bandejaoadm@gmail.com" && (
+          user.email === "raulzin09@gmail.com" && (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}

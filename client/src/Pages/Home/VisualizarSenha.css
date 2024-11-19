@@ -156,7 +156,6 @@ hr {
     font-size: 24px;
     line-height: 1.4rem;
   }
-
 }
 @media(max-width: 450px){
   #title.titulo-agendamento{
@@ -169,6 +168,16 @@ hr {
     font-size: 24px;
   }
 }
+@media(max-width: 425px){
+  .text{
+    font-size: 22px;
+
+  }
+  .infoUser{
+    font-size: 22px;
+  }
+}
+
 @media(max-width: 400px){
   #title.titulo-agendamento{
     font-size: 44px;
@@ -176,6 +185,13 @@ hr {
   .agendamento{
     font-size: 20px;
     line-height: 1.2rem;
+  }
+  .infoUser{
+    font-size: 20px;
+  }
+  .text{
+    font-size: 21px;
+
   }
 }
 @media(max-width: 375px){
@@ -185,6 +201,13 @@ hr {
   .agendamento{
     font-size: 16px;
     line-height: 1.2rem;
+  }
+  .infoUser{
+    font-size: 18px;
+  }
+  .text{
+    font-size: 19px;
+
   }
 }
 @media(max-width: 335px){

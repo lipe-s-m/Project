@@ -58,7 +58,7 @@ function VisualizarSenha() {
             <div className="text">Nome: </div>
             <div className="textLight">
               <img id="iconUser" src={IconUser} alt="IconeUsuario"></img>
-              <div className="infoUser"> {nomeUsuario} </div>
+              <div className="infoUser"> {nomeUsuario.split(" ")[0]} {nomeUsuario.split(" ")[nomeUsuario.split(" ").length -1]} </div>
             </div>
             <hr></hr>
           </div>
@@ -89,7 +89,7 @@ function VisualizarSenha() {
             Cancelar Agendamento
           </button>
         </div>
-        <p id="lowText">
+        <p className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </p>
       </div>

@@ -107,20 +107,18 @@ export default function ModalAtivo({
       return (
 
         <div id="BACKGROUND_id">
-          <div id="BLOCO_INDISPONÍVEL">
-            <button id="BLOCO_VOLTAR" onClick={setModalOpen}>Voltar</button>
+          <div id="MODAL_id">
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
-              <h3 id="TITULO_INDISPONIVEL">Indisponível</h3>
+
               <p id="IMAGEM_INDISPONIVEL"></p>
-              <p id="VAGAS_INDISPONIVEL">Vagas Preenchidas / Total</p>
-              <p id="PESSOAS_INDISPONIVEL">{integer} / 50</p>
-              <p id="img-indisponivel"></p>
-              <p id="LINHA_INDISPONIVEL">________________________________________________</p>
+              <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
+              <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
 
+              <hr></hr>
             </div>
-
+            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
           </div>
-
         </div>
       )
     }

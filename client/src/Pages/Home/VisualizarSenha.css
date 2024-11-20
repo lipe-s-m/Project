@@ -140,8 +140,8 @@ hr {
   #box-visualizar-senha{
     width: 90vw;
   }
-  .agendamento{
-    font-size: 30px;
+  button.agendamento{
+    font-size: 26px;
     line-height: 1.6rem;
   }
 }
@@ -152,9 +152,9 @@ hr {
     margin-bottom: -1rem;
     padding: 0 1.5rem;
   }
-  .agendamento{
+  button.agendamento{
     font-size: 24px;
-    line-height: 1.4rem;
+    line-height: 1.6rem;
   }
 }
 @media(max-width: 450px){

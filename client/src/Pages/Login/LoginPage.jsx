@@ -56,6 +56,35 @@ function Login() {
 
   //usuario logado com sucesso, prosseguir pra proxima pagina
   function nextPage(event) {
+    // Cria atributos com os valores do objeto
+    const nomeUsuario = user.name;
+    const emailUsuario = user.email;
+  
+    console.log("Verificando agendamento para o usuário:", nomeUsuario);
+  
+    // Verifica se possui agendamento ativo
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamento", {
+      params: { emailUsuario },
+    })
+      .then((response) => {
+        const dados = response.data;
+  
+        if (dados.agendamentoAtivo) {
+          // Se há agendamento ativo, navega para AgendarHorarioAtivo
+          navigate(
+            `/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${dados.horario}/${dados.senha}`
+          );
+        } else {
+          // Se não há agendamento, navega para AgendarHorario
+          navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao verificar agendamento:", error);
+      });
+  }
+  
+  /*function nextPage(event) {
     //cria atributos com os valores do objeto
     const nomeUsuario = user.name;
     const emailUsuario = user.email;
@@ -93,7 +122,7 @@ function Login() {
     //carrega pagina de agendamento
     navigate(`/CardapioAdmin`);
   }
-
+*/
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({

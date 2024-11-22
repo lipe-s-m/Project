@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./CardapioAdmin.css";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Axios from "axios";
 function CardapioAdmin() {
   const navigate = useNavigate();
@@ -14,7 +14,6 @@ function CardapioAdmin() {
   const [sobremesa, setSobremesa] = useState("");
   const [data, setData] = useState("");
   const [turno, setTurno] = useState("");
-  const [enviou, setEnviou] = useState(false);
 
 
   const handleChangePrincipal = (valor) => {

@@ -54,26 +54,32 @@ function AgendarHorario() {
   const [openModal1830, setOpenModal1830] = useState(false);
   //obter as lotacoes
   useEffect(() => {
-    obterLotacao1140();
-    obterLotacao1150();
-    obterLotacao1200();
-    obterLotacao1210();
-    obterLotacao1220();
-    obterLotacao1230();
-    obterLotacao1240();
-    obterLotacao1250();
-    obterLotacao1300();
-    obterLotacao1310();
-    obterLotacao1700();
-    obterLotacao1710();
-    obterLotacao1720();
-    obterLotacao1730();
-    obterLotacao1740();
-    obterLotacao1750();
-    obterLotacao1800();
-    obterLotacao1810();
-    obterLotacao1820();
-    obterLotacao1830();
+    if(horaAtual > 10 && horaAtual < 15){
+      obterLotacao1140();
+      obterLotacao1150();
+      obterLotacao1200();
+      obterLotacao1210();
+      obterLotacao1220();
+      obterLotacao1230();
+      obterLotacao1240();
+      obterLotacao1250();
+      obterLotacao1300();
+      obterLotacao1310();
+    }
+    
+    if(horaAtual > 15 && horaAtual < 20)
+      {
+        obterLotacao1700();
+        obterLotacao1710();
+        obterLotacao1720();
+        obterLotacao1730();
+        obterLotacao1740();
+        obterLotacao1750();
+        obterLotacao1800();
+        obterLotacao1810();
+        obterLotacao1820();
+        obterLotacao1830();
+      }
   }, []);
   //define cor do botao conforme lotacao
   function definirCorBotao(lotacao) {

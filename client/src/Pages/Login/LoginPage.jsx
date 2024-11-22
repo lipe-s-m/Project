@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import "./LoginPage.css";
 import Axios from "axios";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import Icon from "../../UI/Icons/1144760.png";
 import erro from "../../UI/Icons/erro.png";
@@ -10,8 +12,6 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
-  const [senha, setSenha] = useState("");
-  const [hora, setHora] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,32 +54,40 @@ function Login() {
     document.getElementById("signInDiv").hidden = false;
   }
 
+  const [loading, setLoading] = useState(null);
   //usuario logado com sucesso, prosseguir pra proxima pagina
   async function nextPage(event) {
     const nomeUsuario = user.name;
     const emailUsuario = user.email;
-    navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
-    // try {
-    //   console.log("Enviando dados:", { email: emailUsuario, name: nomeUsuario });
+    setLoading(true)
+    try {
+      console.log("Enviando dados:", { email: emailUsuario, name: nomeUsuario });
 
-    //   // Verifica se possui agendamento ativo
-      
-    //   const response = await Axios.get(
-    //     "https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamento",
-    //     { params: { emailUsuario: emailUsuario } } // Aqui, o nome do parâmetro precisa ser igual ao esperado no backend
-    //   );
-      
-    //   // Redireciona para a página de visualização de senha
-    //   const { senha, horario } = response.data;
-    //   navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${horario}/${senha}`);
-    // } catch (error) {
-    //   // Caso não tenha agendamento ativo, redireciona para a página de agendamento
-    //   if (error.response && error.response.status === 500) {
-    //     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
-    //   } else {
-    //     console.error("Erro na verificação de agendamento:", error);
-    //   }
-    // }
+      // Verifica se possui agendamento ativo    
+      const response = await Axios.get(
+        "https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamento",
+        { params: { emailUsuario: emailUsuario } } // Aqui, o nome do parâmetro precisa ser igual ao esperado no backend
+      );
+      const dados = response.data;
+      setLoading(dados)
+      console.log(dados);
+      if (dados === null) {
+        // alert("nao tem agendamento ativo")
+        navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+      }
+      else {
+        const { senha, horario } = dados;
+        // alert("Voce tem um agendamento ativo com a senha: ", senha);
+        navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${horario}/${senha}`);
+      }
+    } catch (error) {
+      // Caso não tenha agendamento ativo, redireciona para a página de agendamento
+      console.error("Erro na verificação de agendamento:", error);
+
+    } finally {
+      // Indica que o carregamento terminou
+      setLoading(false);
+    }
   }
   function nextPageCardapio(event) {
     //cria atributos com os valores do objeto
@@ -121,19 +129,13 @@ function Login() {
             <h3>
               <img src={Icon} alt="Icon"></img> <br></br>{" "}
               <div className="title">Login</div>
+
             </h3>
           )}
         </div>
-
         {/* carrega o botao de login google*/}
         <div id="signInDiv"></div>
-        {/* Botao de Log Out */}
-        {/* {Object.keys(user).length !== 0 && user.hd === "ufrrj.br" && (
-          <button id="desconect" onClick={(e) => handleSignOut(e)}>
-            Desconectar
-          </button>
-        )} */}
-        {/* Email nao é da UFRRJ */}
+
         {Object.keys(user).length !== 0 &&
           user.hd !== "ufrrj.br" &&
           user.email !== "charlie.prince20045@gmail.com" && (
@@ -151,7 +153,7 @@ function Login() {
 
         {/* Usuario logado com sucesso */}
         {Object.keys(user).length !== 0 &&
-          user.hd === "ufrrj.br" && 
+          user.hd === "ufrrj.br" &&
           user.email !== "charlie.prince20045@gmail.com" && (
             <div className="loginResponse">
               <div className="saudacao">
@@ -164,10 +166,17 @@ function Login() {
                 Prosseguir
               </button>
               <button id="desconect" onClick={(e) => handleSignOut(e)}>
-            Desconectar
-          </button>
+                Desconectar
+              </button>
             </div>
           )}
+        {loading && <div className="loading"> <Backdrop
+          sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+          open
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop></div>} {/* Mostra o carregamento */}
+
         {Object.keys(user).length !== 0 &&
           user.email === "charlie.prince20045@gmail.com" && (
             <div className="loginResponse">

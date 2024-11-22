@@ -123,7 +123,10 @@ hr {
 }
 
 
-
+button.agendamento{
+  font-size: 28px;
+  line-height: 1.6rem;
+}
  button:hover,
  #rodape .bold:hover{
   transition: 0.5s;
@@ -133,6 +136,13 @@ hr {
 }
 
 
+@media(max-width: 800px){
+
+  button.agendamento{
+    font-size: 26px;
+    line-height: 1.6rem;
+  }
+}
 @media(max-width: 580px){
   #title.titulo-agendamento{
     font-size: 50px;
@@ -191,7 +201,10 @@ hr {
   }
   .text{
     font-size: 21px;
-
+  }
+  button.agendamento{
+    font-size: 18px;
+    line-height: 1.2rem;
   }
 }
 @media(max-width: 375px){
@@ -207,7 +220,9 @@ hr {
   }
   .text{
     font-size: 19px;
-
+  }
+  #numSenha{
+    font-size: 80px;
   }
 }
 @media(max-width: 335px){
@@ -217,5 +232,9 @@ hr {
   .agendamento{
     font-size: 14px;
     line-height: 1.2rem;
+  }
+  button.agendamento{
+    font-size: 14px;
+    line-height: 1rem;
   }
 }

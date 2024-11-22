@@ -1,6 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import "./ModalCardapioAluno.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function ModalCardapioAluno({
   principal,

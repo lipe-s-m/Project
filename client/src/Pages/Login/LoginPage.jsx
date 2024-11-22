@@ -55,64 +55,31 @@ function Login() {
   }
 
   //usuario logado com sucesso, prosseguir pra proxima pagina
-  function nextPage(event) {
-    // Cria atributos com os valores do objeto
+  async function nextPage(event) {
     const nomeUsuario = user.name;
     const emailUsuario = user.email;
-  
-    console.log("Verificando agendamento para o usuário:", nomeUsuario);
-  
-    // Verifica se possui agendamento ativo
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamento", {
-      params: { emailUsuario },
-    })
-      .then((response) => {
-        const dados = response.data;
-  
-        if (dados.agendamentoAtivo) {
-          // Se há agendamento ativo, navega para AgendarHorarioAtivo
-          navigate(
-            `/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${dados.horario}/${dados.senha}`
-          );
-        } else {
-          // Se não há agendamento, navega para AgendarHorario
-          navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
-        }
-      })
-      .catch((error) => {
-        console.error("Erro ao verificar agendamento:", error);
-      });
-  }
-  
-  /*function nextPage(event) {
-    //cria atributos com os valores do objeto
-    const nomeUsuario = user.name;
-    const emailUsuario = user.email;
-    console.log("ir para próxima página, %s", nomeUsuario);
-
-    //cadastro provisorio
-    Axios.post("https://www.dcc.ufrrj.br/filaruservicos//register", {
-      email: emailUsuario,
-      name: nomeUsuario,
-    }).then((response) => {
-      console.log(response);
-    });
-
-    //verifica se possui agendamento ativo
-    // Axios.get("https://www.dcc.ufrrj.br/filaruservicos//verificarAgendamento", {
-    //   params: {emailUsuario: emailUsuario}
-    // }).then((response) => {
-    //   console.log(response.data)
-    //   const dados = response.data;
-    //   setSenha(dados.senha);
-    //   setHora(dados.horario);
-    //   navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
-    // }).catch((error) => {
-    //   console.log("erro na requisicao: ", error)
-    // });
-
-    // se não possui agendamento ativo, carrega pagina de agendamento
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+    // try {
+    //   console.log("Enviando dados:", { email: emailUsuario, name: nomeUsuario });
+
+    //   // Verifica se possui agendamento ativo
+      
+    //   const response = await Axios.get(
+    //     "https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamento",
+    //     { params: { emailUsuario: emailUsuario } } // Aqui, o nome do parâmetro precisa ser igual ao esperado no backend
+    //   );
+      
+    //   // Redireciona para a página de visualização de senha
+    //   const { senha, horario } = response.data;
+    //   navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${horario}/${senha}`);
+    // } catch (error) {
+    //   // Caso não tenha agendamento ativo, redireciona para a página de agendamento
+    //   if (error.response && error.response.status === 500) {
+    //     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+    //   } else {
+    //     console.error("Erro na verificação de agendamento:", error);
+    //   }
+    // }
   }
   function nextPageCardapio(event) {
     //cria atributos com os valores do objeto
@@ -122,7 +89,7 @@ function Login() {
     //carrega pagina de agendamento
     navigate(`/CardapioAdmin`);
   }
-*/
+
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
@@ -169,7 +136,7 @@ function Login() {
         {/* Email nao é da UFRRJ */}
         {Object.keys(user).length !== 0 &&
           user.hd !== "ufrrj.br" &&
-          user.email !== "raulzin09@gmail.com" && (
+          user.email !== "charlie.prince20045@gmail.com" && (
             <div className="loginResponse">
               <div className="loginNegado">
                 <img src={erro} alt="erroImage"></img> <br></br>
@@ -184,8 +151,8 @@ function Login() {
 
         {/* Usuario logado com sucesso */}
         {Object.keys(user).length !== 0 &&
-          user.hd === "ufrrj.br" &&
-          user.email !== "raulzin09@gmail.com" && (
+          user.hd === "ufrrj.br" && 
+          user.email !== "charlie.prince20045@gmail.com" && (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
@@ -202,7 +169,7 @@ function Login() {
             </div>
           )}
         {Object.keys(user).length !== 0 &&
-          user.email === "raulzin09@gmail.com" && (
+          user.email === "charlie.prince20045@gmail.com" && (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}

@@ -75,11 +75,11 @@ function CardapioAluno() {
 
       <div id="CAIXA_PRINCIPAL">
         <div id="IMAGEM_CARDAPIO"></div>
-        <div id="TEXTO_CARDAPIO">Cardápio</div>
+        <div id="title">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <div id="data">Data</div>
-        <div id="RESPOSTA_PRINCIPAL">
+        <div>
           {" "}
           <label htmlFor="date">
             <input
@@ -91,13 +91,13 @@ function CardapioAluno() {
           </label>
         </div>
 
-        <hr></hr>
+        <hr id="hr"></hr>
 
         <div id="turno">Turno</div>
 
-        <div id="resposta-turno">
+        <div id="select-turno">
           {" "}
-          <div id="date">
+          <div id="date" >
             <label htmlFor="turn">
               <select
                 value={turno}
@@ -109,7 +109,6 @@ function CardapioAluno() {
                 <option value="Janta">Janta</option>
               </select>{" "}
             </label>
-            <div id="imagem-data"></div>
           </div>
 
         </div>
@@ -124,7 +123,7 @@ function CardapioAluno() {
         <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>
-        <div id="BLOCO_CREDITOS">
+        <div className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
       </div>

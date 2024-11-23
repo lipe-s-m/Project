@@ -121,7 +121,7 @@ app.get("/verificarAgendamento", (req, res) => {
       return console.error("Erro ao realizar a consulta:", err);
     }
     if (result.length === 0) {
-      console.log("Este Usuário não possui Agendamento ativaaao!");
+      console.log("Este Usuário não possui Agendamento ativo!");
       return res.status(200).json(null); // Retorna null com status 200 (OK)
     }
     if (result.length > 0) {

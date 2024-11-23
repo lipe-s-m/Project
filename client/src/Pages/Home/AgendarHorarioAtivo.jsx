@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./AgendarHorario.css";
 import ModalAtivo from "./ModalAtivo";
 import Axios from "axios";
+import IconRelogioIndisponivel from "../../UI/Icons/relogio-indisponivel.png";
 
 function AgendarHorarioAtivo() {
   const { nomeUsuario } = useParams();
@@ -605,11 +606,8 @@ const obterLotacao1830 = () => {
       >
         {/* children*/}
       </ModalAtivo>
-      {horaAtual < 15 && (
+      {horaAtual > 10 && horaAtual < 15 && (
         <div className="box-agendar">
-          
-
-
           {/* titulo da pagina */}
           
             <h3>
@@ -706,7 +704,7 @@ const obterLotacao1830 = () => {
 
       {/* Se esta no turno do almoço */}
 
-      {horaAtual >= 15 && (
+      {horaAtual > 15 && horaAtual < 20 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
           
@@ -802,6 +800,25 @@ const obterLotacao1830 = () => {
           </p>
         </div>
       )}
+      {(horaAtual > 20 || horaAtual < 10 || horaAtual === 15) && (
+        <div className="box-agendar time-out">
+          <h3 id="title">Agendar Horário</h3>
+          <img id="iconAgend" src={IconRelogioIndisponivel} alt="IconeAgendamento"></img>
+          <h4>Não esta no periodo de agendamento</h4>
+          <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
+            Ver Cardápio
+          </button>
+
+          <button className="botao-navegacao vermelho" onClick={(e) => navigate(`/`)}>
+            Desconectar
+          </button>
+
+          <p className="lowText">
+            Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
+          </p>
+        </div>
+      )}
+
 
     </>
   );

@@ -1,0 +1,77 @@
+input{
+  width: 120%;
+  height: 100%;
+  margin-left: 3%;
+  margin-top: 2%;
+  background-color: #e8e8e8;
+  border-style: none;
+  text-align: center;
+  font-weight: normal;
+  font-size: 19px;
+}
+select{
+  width: 120%;
+  height: 100%;
+  margin-left: 3%;
+  margin-top: 2%;
+  background-color: #e8e8e8;
+  border-width: 3px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 19px;
+}
+
+input::placeholder{
+  opacity: 0.7;
+  font-size: 18px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#CAIXA_PRINCIPAL {
+  margin: 0 auto;
+  margin-top: 5%;
+    padding-top: 5%;
+  width: 650px;
+  background-color: #e8e8e8;
+  border-radius: 30px;
+}
+
+
+
+#botao-voltar {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e8e8e8;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 389px;
+  height: 69px;
+  background-color: #a60808;
+   margin-bottom: 5%; 
+   margin-left: 20%;
+   margin-top: 5%;
+}  
+
+#BLOCO_CREDITOS {
+  font-family: "Montserrat";
+  color: rgba(00, 00, 00, 0.7);
+  font-weight: normal;
+  font-size: 17px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
+  margin-top: -1%;
+  top: -10px;
+}
+
+button:hover,
+ #BLOCO_CREDITOS .bold:hover{
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.7;
+}

@@ -6,6 +6,7 @@ import VisualizarSenha from "../Pages/Home/VisualizarSenha";
 import AgendarHorarioAtivo from "../Pages/Home/AgendarHorarioAtivo";
 import CardapioAluno from "../Pages/Cardapio/CardapioAluno";
 import CardapioAlunoAtivo from "../Pages/Cardapio/CardapioAlunoAtivo";
+import LerQRCode from "../Pages/Admin/LerQRCode";
 
 function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ function AppRoutes() {
 
         <Route path="/CardapioAluno/:nomeUsuario/:emailUsuario" element={<CardapioAluno />} />
         <Route path="/CardapioAlunoAtivo/:nomeUsuario/:emailUsuario/:hora/:senha" element={<CardapioAlunoAtivo />} />
+        <Route path = "/LerQRCode" element = {< LerQRCode />} />
 
       </Routes>
     </Router>

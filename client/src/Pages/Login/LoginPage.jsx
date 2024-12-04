@@ -138,7 +138,7 @@ function Login() {
 
         {Object.keys(user).length !== 0 &&
           user.hd !== "ufrrj.br" &&
-          user.email !== "charlie.prince20045@gmail.com" && (
+          (user.email !== "filadobandejao@gmail.com" && user.email !== "raulzin09@gmail.com") && (
             <div className="loginResponse">
               <div className="loginNegado">
                 <img src={erro} alt="erroImage"></img> <br></br>
@@ -154,12 +154,13 @@ function Login() {
         {/* Usuario logado com sucesso */}
         {Object.keys(user).length !== 0 &&
           user.hd === "ufrrj.br" &&
-          user.email !== "charlie.prince20045@gmail.com" && (
+        //  ( user.email !== "filadobandejao@gmail.com" && user.email !== "raulzin09@gmail.com")
+           (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
                 <br></br>
-                Ola, {user.name}!
+                Ola, {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length -1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length -1].substring(1).toLowerCase()}!
               </div>
 
               <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
@@ -170,33 +171,33 @@ function Login() {
               </button>
             </div>
           )}
-        {loading && <div className="loading"> <Backdrop
+  {/* //emailcardapio : filadobandejao@gmail.com   //// raulzin09@gmail.com*/}
+        {Object.keys(user).length !== 0 &&
+          (user.email === "filadobandejao@gmail.com" || user.email === "raulzin09@gmail.com") && (
+            <div className="loginResponse">
+              <div className="saudacao">
+                <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
+                <br></br>
+                Ola, Admin {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length -1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length -1].substring(1).toLowerCase()}!
+              </div>
+
+              <button
+                id="prosseguirLog"
+                onClick={(e) => nextPageCardapio(e)}
+              >
+                Prosseguir
+              </button>
+              <button id="desconect" onClick={(e) => handleSignOut(e)}>
+                Desconectar
+              </button>
+            </div>
+          )}
+          {loading && <div className="loading"> <Backdrop
           sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
           open
         >
           <CircularProgress color="inherit" />
         </Backdrop></div>} {/* Mostra o carregamento */}
-
-        {Object.keys(user).length !== 0 &&
-          user.email === "charlie.prince20045@gmail.com" && (
-            <div className="loginResponse">
-              <div className="saudacao">
-                <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
-                <br></br>
-                Ola, Admin {user.name}!
-              </div>
-
-              <button
-                id="admin-prosseguirLog"
-                onClick={(e) => nextPageCardapio(e)}
-              >
-                Prosseguir
-              </button>
-              <button id="desconect-admin" onClick={(e) => handleSignOut(e)}>
-                Desconectar
-              </button>
-            </div>
-          )}
         <p className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </p>

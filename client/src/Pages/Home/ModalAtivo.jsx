@@ -3,6 +3,7 @@ import "./ModalAtivo.css";
 import Axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { horaMinutoAtual } from "./AgendarHorario";
 
 export default function ModalAtivo({
   hora,
@@ -69,8 +70,29 @@ export default function ModalAtivo({
     setModalOpen();
   };
 
+  const horaMinutoModal = +hora.replace(":", "");
   if (isOpen) {
-    if (integer < 50) {
+    if (horaMinutoAtual > horaMinutoModal + 9) {
+      return (
+        <div id="BACKGROUND_id">
+          <div id="MODAL_id">
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
+            <div id="CONTEUDO_MODAL">
+
+              <p id="IMAGEM_INDISPONIVEL"></p>
+              <p id="desc-fora-horario">Fora de Horário</p>
+              {/* <p id="PESSOAS_MODAL">mod: {horaMinutoModal + 9} atu: {horaMinutoAtual}</p> */}
+
+              <hr></hr>
+            </div>
+            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
+          </div>
+        </div>
+
+      )
+    }
+
+    else if (integer < 50) {
       return (
         <>
 
@@ -83,6 +105,7 @@ export default function ModalAtivo({
                 <p id="IMAGEM"></p>
                 <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
                 <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
+
 
                 <p id="aviso-modal">Você já possui um outro agendamento, deseja trocá-lo por este?</p>
 

@@ -79,6 +79,24 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  font-family: "Montserrat";
+  font-size: 23px;
+  font-weight: medium;
+  color: rgba(0, 0, 0, 0.6);
+}
+#desc-fora-horario {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 600;
+  font-family: "Montserrat";
+  font-size: 23px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 1rem;
+  padding: 0 2rem;
 }
 
 #TITULO_DISPONIVEL {
@@ -89,13 +107,7 @@
   text-align: center;
 
 }
-#PESSOAS_MODAL {
-  font-family: "Montserrat";
-  font-size: 23px;
-  font-weight: medium;
-  color: rgba(0, 0, 0, 0.6);
 
-}
 #VAGAS_MODAL {
   font-family: "Montserrat";
   font-weight: medium;
@@ -208,6 +220,9 @@ display: block;
     height: 14vw;
     font-size: 28px;
   }
+  #desc-fora-horario {
+    margin-top: 0.5rem;
+    }
 }
 @media(max-width: 400px){
   #MODAL_id{
@@ -236,7 +251,9 @@ display: block;
   #BLOCO_CANCELAR{
     font-size: 24px;
   }
-
+  #desc-fora-horario {
+    margin-top: 0.3rem;
+    }
 }
 @media(max-width: 335px){
   #MODAL_id{

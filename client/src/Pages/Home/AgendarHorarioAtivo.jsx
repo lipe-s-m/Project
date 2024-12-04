@@ -4,6 +4,7 @@ import "./AgendarHorario.css";
 import ModalAtivo from "./ModalAtivo";
 import Axios from "axios";
 import IconRelogioIndisponivel from "../../UI/Icons/relogio-indisponivel.png";
+import { horaMinutoAtual } from "./AgendarHorario";
 
 function AgendarHorarioAtivo() {
   const { nomeUsuario } = useParams();
@@ -58,8 +59,12 @@ function AgendarHorarioAtivo() {
   const [openModal1830, setOpenModal1830] = useState(false);
 
   //define cor do botao conforme lotacao
-  function definirCorBotao(lotacao) {
-    if (lotacao >= 0 && lotacao < 10) {
+  function definirCorBotao(lotacao, horaBotao) {
+    if (horaMinutoAtual > horaBotao + 9) {
+      console.log(horaMinutoAtual);
+      return "button-gray";
+    }
+    else if (lotacao >= 0 && lotacao < 10) {
       return "button-green";
     } else if (lotacao >= 10 && lotacao < 20) {
       return "button-green-light";
@@ -618,35 +623,35 @@ const obterLotacao1830 = () => {
             <div id="botoes">
               <div className="coluna">
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao1)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao1, 1140)}`}
                   onClick={() => setOpenModal1140(true)}
                 >
                   11:40
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao2)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao2, 1200)}`}
                   onClick={() => setOpenModal1200(true)}
                 >
                   12:00
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao3)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao3, 1220)}`}
                   onClick={() => setOpenModal1220(true)}
                 >
                   12:20
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao4)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao4, 1240)}`}
                   onClick={() => setOpenModal1240(true)}
                 >
                   12:40
                 </button>
 
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao10)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao10, 1300)}`}
                   onClick={() => setOpenModal1300(true)}
                 >
                   13:00
@@ -654,31 +659,31 @@ const obterLotacao1830 = () => {
               </div>
               <div className="coluna">
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao5)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao5, 1150)}`}
                   onClick={() => setOpenModal1150(true)}
                 >
                   11:50
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao6)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao6, 1210)}`}
                   onClick={() => setOpenModal1210(true)}
                 >
                   12:10
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao7)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao7, 1230)}`}
                   onClick={() => setOpenModal1230(true)}
                 >
                   12:30
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao8)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao8, 1250)}`}
                   onClick={() => setOpenModal1250(true)}
                 >
                   12:50
                 </button>
                 <button
-                  className={`button ${definirCorBotao(lotacaoBotao9)}`}
+                  className={`button ${definirCorBotao(lotacaoBotao9, 1310)}`}
                   onClick={() => setOpenModal1310(true)}
                 >
                   13:10

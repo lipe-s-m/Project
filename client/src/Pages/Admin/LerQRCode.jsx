@@ -83,7 +83,7 @@ function CardapioAdmin() {
 
   return (
     <>
-      <div className="box-agendar cardapio-admin">
+      <div id="CAIXA_PRINCIPAL">
         <div id="IMAGEM_CARDAPIO"></div>
         <div id="TEXTO_CARDAPIO">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>

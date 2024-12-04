@@ -55,6 +55,8 @@ function AgendarHorario() {
   const [openModal1830, setOpenModal1830] = useState(false);
   //obter as lotacoes
   useEffect(() => {
+    // if (horaAtual > 10 && horaAtual < 15) {
+
     if (horaAtual > 10 && horaAtual < 15) {
       obterLotacao1140();
       obterLotacao1150();
@@ -82,8 +84,12 @@ function AgendarHorario() {
     }
   }, []);
   //define cor do botao conforme lotacao
-  function definirCorBotao(lotacao) {
-    if (lotacao >= 0 && lotacao < 10) {
+  function definirCorBotao(lotacao, horaBotao) {
+    if (horaMinutoAtual > horaBotao + 9) {
+      console.log(horaMinutoAtual);
+      return "button-gray";
+    }
+    else if (lotacao >= 0 && lotacao < 10) {
       return "button-green";
     } else if (lotacao >= 10 && lotacao < 20) {
       return "button-green-light";
@@ -98,10 +104,7 @@ function AgendarHorario() {
     }
   }
 
-  const agora = new Date();
-  const horaAtual = agora.getHours();
   const navigate = useNavigate();
-
 
 
   //obter lotacao
@@ -580,6 +583,8 @@ function AgendarHorario() {
         {/* children*/}
       </Modal>
       {/* Se esta no turno do almoço */}
+      {/* {horaAtual > 10 && horaAtual < 15 && ( */}
+
       {horaAtual > 10 && horaAtual < 15 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
@@ -592,35 +597,35 @@ function AgendarHorario() {
           <div id="botoes">
             <div className="coluna">
               <button
-                className={`button ${definirCorBotao(lotacaoBotao1)}`}
+                className={`button ${definirCorBotao(lotacaoBotao1, 1140)}`}
                 onClick={() => setOpenModal1140(true)}
               >
                 11:40
               </button>
 
               <button
-                className={`button ${definirCorBotao(lotacaoBotao2)}`}
+                className={`button ${definirCorBotao(lotacaoBotao2, 1200)}`}
                 onClick={() => setOpenModal1200(true)}
               >
                 12:00
               </button>
 
               <button
-                className={`button ${definirCorBotao(lotacaoBotao3)}`}
+                className={`button ${definirCorBotao(lotacaoBotao3, 1220)}`}
                 onClick={() => setOpenModal1220(true)}
               >
                 12:20
               </button>
 
               <button
-                className={`button ${definirCorBotao(lotacaoBotao4)}`}
+                className={`button ${definirCorBotao(lotacaoBotao4, 1240)}`}
                 onClick={() => setOpenModal1240(true)}
               >
                 12:40
               </button>
 
               <button
-                className={`button ${definirCorBotao(lotacaoBotao10)}`}
+                className={`button ${definirCorBotao(lotacaoBotao10, 1300)}`}
                 onClick={() => setOpenModal1300(true)}
               >
                 13:00
@@ -628,31 +633,31 @@ function AgendarHorario() {
             </div>
             <div className="coluna">
               <button
-                className={`button ${definirCorBotao(lotacaoBotao5)}`}
+                className={`button ${definirCorBotao(lotacaoBotao5, 1150)}`}
                 onClick={() => setOpenModal1150(true)}
               >
                 11:50
               </button>
               <button
-                className={`button ${definirCorBotao(lotacaoBotao6)}`}
+                className={`button ${definirCorBotao(lotacaoBotao6, 1210)}`}
                 onClick={() => setOpenModal1210(true)}
               >
                 12:10
               </button>
               <button
-                className={`button ${definirCorBotao(lotacaoBotao7)}`}
+                className={`button ${definirCorBotao(lotacaoBotao7, 1230)}`}
                 onClick={() => setOpenModal1230(true)}
               >
                 12:30
               </button>
               <button
-                className={`button ${definirCorBotao(lotacaoBotao8)}`}
+                className={`button ${definirCorBotao(lotacaoBotao8, 1250)}`}
                 onClick={() => setOpenModal1250(true)}
               >
                 12:50
               </button>
               <button
-                className={`button ${definirCorBotao(lotacaoBotao9)}`}
+                className={`button ${definirCorBotao(lotacaoBotao9, 1310)}`}
                 onClick={() => setOpenModal1310(true)}
               >
                 13:10
@@ -771,11 +776,12 @@ function AgendarHorario() {
           </p>
         </div>
       )}
+      {/* {(horaAtual > 20 || horaAtual < 10 || horaAtual === 15) && ( */}
       {(horaAtual > 20 || horaAtual < 10 || horaAtual === 15) && (
         <div className="box-agendar time-out">
           <h3 id="title">Agendar Horário</h3>
           <img id="iconAgend" src={IconRelogioIndisponivel} alt="IconeAgendamento"></img>
-          <h4>Não esta no periodo de agendamento</h4>
+          <h4>Não está no período de agendamento</h4>
           <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAluno/${nomeUsuario}/${emailUsuario}`)}>
             Ver Cardápio
           </button>
@@ -795,3 +801,8 @@ function AgendarHorario() {
 }
 
 export default AgendarHorario;
+
+const agora = new Date();
+export const horaAtual = agora.getHours();
+const minutoAtual = agora.getMinutes();
+export const horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');

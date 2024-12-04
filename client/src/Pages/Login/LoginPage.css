@@ -168,9 +168,7 @@ button {
 }
 
 #admin-prosseguirLog:hover,
-#prosseguirLog:hover,
-#limparEmail:hover,
-#desconect:hover {
+#limparEmail:hover{
   background-color: #dad5d5;
   transition: 0.5s;
 

@@ -3,6 +3,7 @@ import "./Modal.css";
 import Axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { horaMinutoAtual } from "./AgendarHorario";
 
 export default function Podal({
   hora,
@@ -40,7 +41,6 @@ export default function Podal({
   const handleIncreaseLotacaoBotao = () => {
     if (integer < 50) {
       setLotacaoBotao((prevLotacao) => prevLotacao + 1);
-      console.log("cheguei na funcao");
       //pega data atual
       const dataAtual = new Date();
       const dataFormatada = dataAtual.toISOString().split("T")[0]; // Formata a data como YYYY-MM-DD
@@ -69,8 +69,31 @@ export default function Podal({
     }
     setModalOpen();
   };
+  const horaMinutoModal = +hora.replace(":", "");
+  if(isOpen)
+  {
+    if(horaMinutoAtual > horaMinutoModal + 9){
+      return (
+        <div id="BACKGROUND_id">
+          <div id="MODAL_id">
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
+            <div id="CONTEUDO_MODAL">
 
-  if (isOpen) {
+              <p id="IMAGEM_INDISPONIVEL"></p>
+              <p id="desc-fora-horario">Fora de Horário</p>
+              {/* <p id="PESSOAS_MODAL">mod: {horaMinutoModal + 9} atu: {horaMinutoAtual}</p> */}
+
+              <hr></hr>
+            </div>
+            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
+          </div>
+        </div>
+
+      )
+    }
+
+  }
+  else if (isOpen) {
     if (integer < 50) {
       return (
         <>
@@ -85,7 +108,7 @@ export default function Podal({
 
 
 
-                <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
+                <p id="PESSOAS_MODAL"><span id="IMAGEM_USUARIO"></span>{integer} / 50</p>
 
                 <hr></hr>
               </div>
@@ -116,8 +139,6 @@ export default function Podal({
             <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
           </div>
         </div>
-
-
 
       )
     }

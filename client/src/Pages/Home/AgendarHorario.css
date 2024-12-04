@@ -65,6 +65,11 @@ body {
   opacity: 0.9;
 }
 /* Classes de cores */
+.button-gray {
+  background-color: grey;
+  color: black;
+}
+
 .button-green {
   background-color: #3f9317;
   color: black;

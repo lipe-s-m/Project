@@ -29,13 +29,9 @@ input::placeholder{
   font-weight: lighter;
 }
 
-#CAIXA_PRINCIPAL {
-  margin: 0 auto;
-  margin-top: 5%;
-    padding-top: 5%;
+.box-agendar.cardapio-admin{
   width: 650px;
-  background-color: #e8e8e8;
-  border-radius: 30px;
+  margin-top: 190%;
 }
 
 
@@ -393,4 +389,10 @@ button:hover,
   transition: 0.5s;
   cursor: pointer;
   opacity: 0.7;
+}
+
+@media(max-width: 680px){
+  .box-agendar.cardapio-admin{
+    width: 95vw;
+  }
 }

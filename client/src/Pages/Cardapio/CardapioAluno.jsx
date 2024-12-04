@@ -93,7 +93,7 @@ function CardapioAluno() {
 
         <hr id="hr"></hr>
 
-        <div id="turno">Turno</div>
+        <div id="data">Turno</div>
 
         <div id="select-turno">
           {" "}

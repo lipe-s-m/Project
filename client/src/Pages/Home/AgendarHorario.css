@@ -137,64 +137,6 @@ body {
   font-weight: bold;
   color: rgba(28, 76, 46, 0.7);
 }
-#Desconect {
-  font-size: 28px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #e8e8e8;
-  width: 330px;
-  height: 70px;
-  position: relative;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #a60808;
-  border-radius: 30px;
-  z-index: 1;
-}
-#limparEmail {
-  font-size: 28px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #e8e8e8;
-  width: 330px;
-  height: 70px;
-  position: relative;
-  top: 80%;
-  left: 27.5%;
-  transform: translate(-50%, -50%);
-  background-color: #1a4d2e;
-  border-radius: 30px;
-  z-index: 1;
-}
-#prosseguir {
-  font-size: 28px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #e8e8e8;
-  width: 330px;
-  height: 70px;
-  position: relative;
-  top: 60%;
-  left: 27.5%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  background-color: #1a4d2e;
-  border-radius: 30px;
-}
-#prosseguir:hover,
-#limparEmail:hover{
-  background-color: #dad5d5;
-  transition: 0.5s;
-  opacity: 0.9;
-  color: rgba(28, 76, 46, 1);
-}
-#Desconect:hover {
-  background-color: rgb(231, 194, 194);
-  transition: 0.5s;
-  opacity: 0.9;
-  color: #a60808;
-}
 
 @media(max-width: 580px){
   .box-agendar{

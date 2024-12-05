@@ -3,6 +3,8 @@ import "./CardapioAluno.css";
 import { useState } from "react";
 import Axios from "axios";
 import ModalCardapioAluno from "./ModalCardapioAluno";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function CardapioAluno() {
   const [principal, setPrincipal] = useState("");
@@ -17,6 +19,9 @@ function CardapioAluno() {
 
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
+
+  const [loading, setLoading] = useState(null);
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -34,25 +39,30 @@ function CardapioAluno() {
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
   };
 
-  const handleChangeVisualizar = () => {
-    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
-      params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
-    })
-      .then((response) => {
-        const cardapio = response.data;
-        setPrincipal(cardapio.principal);
-        setOpcao(cardapio.opcao);
-        setVegetariana(cardapio.vegetariana);
-        setAcompanhamentos(cardapio.acompanhamentos);
-        setGuarnicao(cardapio.guarnicao);
-        setSalada(cardapio.salada);
-        setSobremesa(cardapio.sobremesa);
-        setOpenModal(!openModal);
+  async function handleChangeVisualizar()  {
+    try {
+      setLoading(true)
+      const response = await Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
+        params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
       })
-      .catch((error) => {
-        console.error("Erro na requisição:", error);
-        alert("O Cardápio desse dia ainda não foi feito");
-      });
+        .then((response) => {
+          const cardapio = response.data;
+          setPrincipal(cardapio.principal);
+          setOpcao(cardapio.opcao);
+          setVegetariana(cardapio.vegetariana);
+          setAcompanhamentos(cardapio.acompanhamentos);
+          setGuarnicao(cardapio.guarnicao);
+          setSalada(cardapio.salada);
+          setSobremesa(cardapio.sobremesa);
+          setOpenModal(!openModal);
+        })
+    }
+    catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("O Cardápio desse dia ainda não foi feito");
+    } finally {
+      setLoading(false)
+    }
   };
 
   return (
@@ -127,6 +137,14 @@ function CardapioAluno() {
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
       </div>
+
+      {loading && <div className="loading"> <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop></div>} {/* Mostra o carregamento */}
+
     </>
   );
 }

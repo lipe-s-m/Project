@@ -57,8 +57,9 @@ export default function ModalAtivo({
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          const hash = response.data.hash;
           navigate(
-            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+            `/VisualizarSenha/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
           );
         })
         .catch((error) => {

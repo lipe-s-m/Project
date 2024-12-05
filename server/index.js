@@ -3,6 +3,8 @@ const app = express();
 const mysql = require("mysql2");
 const cors = require("cors");
 const e = require("cors");
+const crypto = require('crypto');
+
 
 //conectando banco
 const db = mysql.createPool({
@@ -48,11 +50,14 @@ app.post("/register", (req, res) => {
 
 //criando agendamento
 app.post("/agendar", (req, res) => {
-  res.send("Requisição recebida com sucesso");
   //pegando parametros
   const { senha, data, hora, email, ativo } = req.body;
+
+  const dataQrCode = email + " " + hora + " " + data;
+  const hash = crypto.createHash('sha256').update(dataQrCode).digest('hex');
+
   let insertAgend =
-    "INSERT INTO agendamento (senha, data, horario, email, ativo) VALUES (?, ?,  ?, ?, ?)"; //string insert
+    "INSERT INTO agendamento (senha, data, horario, email, ativo, idhash) VALUES (?, ?,  ?, ?, ?, ?)"; //string insert
 
   //verifica se aluno ja tem agendamento
   db.query(
@@ -73,7 +78,7 @@ app.post("/agendar", (req, res) => {
       //se poder fazer
       db.query(
         insertAgend,
-        [senha, data, hora, email, ativo],
+        [senha, data, hora, email, ativo, hash],
         (err, result) => {
           //se der erro
           if (err) {
@@ -81,6 +86,12 @@ app.post("/agendar", (req, res) => {
             return console.log("pai fez besteiraKKK");
           }
           //se der certo
+          res.json({
+            success: true,
+            message: "Agendamento feito com sucesso!",
+            email: email,
+            hash: hash, // Retornando o hash gerado
+          });
           return console.log("Agendamento feito com sucesso, %s!", email);
         }
       );
@@ -113,7 +124,7 @@ app.get("/verificarAgendamento", (req, res) => {
   console.log("Verificando se possui agendamento Ativo");
   const { emailUsuario } = req.query;
   const query =
-    "SELECT senha, data, horario, email FROM agendamento WHERE email = ? AND ativo = true;";
+    "SELECT senha, data, horario, email, idhash FROM agendamento WHERE email = ? AND ativo = true;";
 
   db.query(query, [emailUsuario], (err, result) => {
     if (err) {
@@ -241,6 +252,9 @@ app.post("/criarCardapio", (req, res) => {
     }
   );
 });
+
+
+
 
 app.listen(3001, () => {
   console.log("Rodando servidor");

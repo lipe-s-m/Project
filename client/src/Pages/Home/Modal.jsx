@@ -57,8 +57,9 @@ export default function Podal({
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          const hash = response.data.hash;
           navigate(
-            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+            `/VisualizarSenha/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
           );
         })
         .catch((error) => {
@@ -92,9 +93,9 @@ export default function Podal({
       )
     }
 
-  }
-  else if (isOpen) {
-    if (integer < 50) {
+  
+  
+    else if (integer < 50) {
       return (
         <>
           <div id="BACKGROUND_id">

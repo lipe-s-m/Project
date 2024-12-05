@@ -76,9 +76,10 @@ function Login() {
         navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
       }
       else {
-        const { senha, horario } = dados;
+        const { senha, horario, idhash } = dados;
         // alert("Voce tem um agendamento ativo com a senha: ", senha);
-        navigate(`/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${horario}/${senha}`);
+        console.log(dados)
+        navigate(`/VisualizarSenha/${idhash}/${nomeUsuario}/${emailUsuario}/${horario}/${senha}`);
       }
     } catch (error) {
       // Caso não tenha agendamento ativo, redireciona para a página de agendamento
@@ -99,6 +100,7 @@ function Login() {
   }
 
   useEffect(() => {
+    
     /* global google */
     google.accounts.id.initialize({
       client_id:

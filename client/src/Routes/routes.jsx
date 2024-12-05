@@ -23,7 +23,7 @@ function AppRoutes() {
           element={<AgendarHorarioAtivo />}
         />
         <Route
-          path="/VisualizarSenha/:nomeUsuario/:emailUsuario/:hora/:senha"
+          path="/VisualizarSenha/:hash/:nomeUsuario/:emailUsuario/:hora/:senha"
           element={<VisualizarSenha />}
         />
         <Route path="/CardapioAdmin" element={<CardapioAdmin />} />

@@ -66,7 +66,7 @@ body {
 }
 /* Classes de cores */
 .button-gray {
-  background-color: grey;
+  background-color: rgb(141, 141, 141);
   color: black;
 }
 

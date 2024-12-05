@@ -95,12 +95,18 @@ function Login() {
     const nomeUsuario = user.name;
     console.log("ir para próxima página, %s", nomeUsuario);
 
-    //carrega pagina de agendamento
-    navigate(`/CardapioAdmin`);
+    if (user.email === "filabandejao@gmail.com") {
+      //carrega pagina de agendamento
+      navigate(`/CardapioAdmin`);
+    }
+    else{
+      navigate(`/LerQrCode`)
+    }
+
   }
 
   useEffect(() => {
-    
+
     /* global google */
     google.accounts.id.initialize({
       client_id:
@@ -140,7 +146,7 @@ function Login() {
 
         {Object.keys(user).length !== 0 &&
           user.hd !== "ufrrj.br" &&
-          (user.email !== "filadobandejao@gmail.com" && user.email !== "raulzin09@gmail.com") && (
+          (user.email !== "filadobandejao@gmail.com" && user.email !== "bandejaoadmexterno@gmail.com") && (
             <div className="loginResponse">
               <div className="loginNegado">
                 <img src={erro} alt="erroImage"></img> <br></br>
@@ -156,13 +162,13 @@ function Login() {
         {/* Usuario logado com sucesso */}
         {Object.keys(user).length !== 0 &&
           user.hd === "ufrrj.br" &&
-        //  ( user.email !== "filadobandejao@gmail.com" && user.email !== "raulzin09@gmail.com")
-           (
+          //  ( user.email !== "filadobandejao@gmail.com" && user.email !== "raulzin09@gmail.com")
+          (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="userPic" src={user.picture} alt="PicImage"></img>{" "}
                 <br></br>
-                Ola, {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length -1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length -1].substring(1).toLowerCase()}!
+                Ola, {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length - 1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length - 1].substring(1).toLowerCase()}!
               </div>
 
               <button id="prosseguirLog" onClick={(e) => nextPage(e)}>
@@ -173,14 +179,14 @@ function Login() {
               </button>
             </div>
           )}
-  {/* //emailcardapio : filadobandejao@gmail.com   //// raulzin09@gmail.com*/}
+        {/* //emailcardapio : filadobandejao@gmail.com   //// raulzin09@gmail.com*/}
         {Object.keys(user).length !== 0 &&
-          (user.email === "filadobandejao@gmail.com" || user.email === "raulzin09@gmail.com") && (
+          (user.email === "filadobandejao@gmail.com" || user.email === "bandejaoadmexterno@gmail.com") && (
             <div className="loginResponse">
               <div className="saudacao">
                 <img id="admin-pic" src={user.picture} alt="PicImage"></img>{" "}
                 <br></br>
-                Ola, Admin {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length -1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length -1].substring(1).toLowerCase()}!
+                Ola, Admin {user.name[0].toUpperCase() + user.name.substring(1).toLowerCase().split(" ")[0]} {user.name.split(" ")[user.name.split(" ").length - 1][0].toUpperCase() + user.name.split(" ")[user.name.split(" ").length - 1].substring(1).toLowerCase()}!
               </div>
 
               <button
@@ -194,7 +200,7 @@ function Login() {
               </button>
             </div>
           )}
-          {loading && <div className="loading"> <Backdrop
+        {loading && <div className="loading"> <Backdrop
           sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
           open
         >

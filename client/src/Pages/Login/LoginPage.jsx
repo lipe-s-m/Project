@@ -7,13 +7,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import Icon from "../../UI/Icons/1144760.png";
 import erro from "../../UI/Icons/erro.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
 
   const navigate = useNavigate();
+  const hash = useParams();
+  const encodedHash = encodeURIComponent(hash.hash);
 
   function handleCallbackResponse(response) {
     //imprime o id do email
@@ -93,6 +95,7 @@ function Login() {
   function nextPageCardapio(event) {
     //cria atributos com os valores do objeto
     const nomeUsuario = user.name;
+
     console.log("ir para próxima página, %s", nomeUsuario);
 
     if (user.email === "filabandejao@gmail.com") {
@@ -100,32 +103,67 @@ function Login() {
       navigate(`/CardapioAdmin`);
     }
     else{
-      navigate(`/LerQrCode`)
+      localStorage.setItem('emailUsuario', user.email);
+      navigate(`/LerQrCode/${encodedHash}`)
     }
 
   }
 
+  function verificarLogin(){
+    try{
+      const emailUsuario = localStorage.getItem('emailUsuario');
+      if(emailUsuario === "bandejaoadmexterno@gmail.com"){
+        navigate(`/LerQrCode/${encodedHash}`)
+      }
+      else{
+
+      }
+
+    }
+    catch(err){
+      console.log(err)
+    }
+    finally{
+      setLoading(false);
+
+    }
+  }
+
   useEffect(() => {
 
-    /* global google */
-    google.accounts.id.initialize({
-      client_id:
-        "853325995754-9pe7828a2ma28l8teelef548n3dljfj2.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
+    setLoading(true)
+    verificarLogin()
 
-    //botao de login
-    //se Não tiver usuario logado: mostrar botão de Login;
-    //se tiver usuario logado: mostrar botão de Log out;
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-      type: "standard",
-      shape: "pill",
-      text: "continue_with",
-      logo_alignment: "left",
-      width: "300",
-    });
+    try{
+      google.accounts.id.initialize({
+        client_id:
+          "853325995754-9pe7828a2ma28l8teelef548n3dljfj2.apps.googleusercontent.com",
+        callback: handleCallbackResponse,
+      });
+  
+      //botao de login
+      //se Não tiver usuario logado: mostrar botão de Login;
+      //se tiver usuario logado: mostrar botão de Log out;
+      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+        theme: "outline",
+        size: "large",
+        type: "standard",
+        shape: "pill",
+        text: "continue_with",
+        logo_alignment: "left",
+        width: "300",
+      });
+      document.getElementById("signInDiv").hidden = false;
+    }
+    /* global google */
+    catch(err){
+      console.log(err)
+    }
+    finally{
+      setLoading(false)
+    }
+   
+
   }, []);
 
   return (

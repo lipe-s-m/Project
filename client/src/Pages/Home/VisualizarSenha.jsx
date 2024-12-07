@@ -16,6 +16,7 @@ import Axios from "axios";
 function VisualizarSenha() {
   //pegando dados do usuario
 
+  const {hash} = useParams();
   const { emailUsuario } = useParams();
   const { nomeUsuario } = useParams();
   const { senha } = useParams();
@@ -25,7 +26,7 @@ function VisualizarSenha() {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
-  });  
+  });
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(null);
@@ -33,7 +34,7 @@ function VisualizarSenha() {
   //carrega pagina de agendamento
   function handleIncreaseHorarios() {
     navigate(
-      `/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+      `/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
     );
   }
   function handleIncreaseDesagendar(emailUsuario) {
@@ -47,6 +48,8 @@ function VisualizarSenha() {
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
           navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
+        }).catch((err) =>{
+          console.log(err)
         })
     }
     catch (error) {
@@ -89,7 +92,8 @@ function VisualizarSenha() {
             {/* {" "}
             Senha:
             <div id="numSenha">{senha}</div> */}
-                      <QRCode value="www.google.com"/>
+
+            <QRCode value={`http://localhost:3007/filaru/#/${hash}`} />
 
           </div>
 

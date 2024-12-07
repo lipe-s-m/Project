@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import QRCode from 'react-qr-code';
-import {Html5QrcodeScanner} from 'html5-qrcode'
 import "../../App.css";
 import Axios from "axios";
 
@@ -16,45 +15,22 @@ import Axios from "axios";
 function LerQrCode() {
   //pegando dados do usuario
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(null);
-  const [scanResult, setScanResult] = useState(null);
+  const { hash } = useParams();
 
-  useEffect( () => {
-    const scanner = new Html5QrcodeScanner('reader', {
-      qrbox: {
-        width: 250,
-        heigth: 250,
-      },
-      fps: 5,
-    })
+  useEffect(() => {
 
-    scanner.render(success, error);
-    function success(result){
-      scanner.clear();
-      setScanResult(result);
-    }
-
-    function error(err){
-      console.warn(err)
-    }
   }, [])
-  
+
   function handleLerQrCode() {
 
   }
 
-  function handleIncreaseDesagendar(emailUsuario) {
+  function handleDesconectar() {
     try {
-      setLoading(true)
-      //apagando agendamento no banco
-      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//cancelarAgendamento", {
-        email: emailUsuario,
-      })
-        .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-          // navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
-        })
+      localStorage.setItem('emailUsuario', null);
+      navigate('/');
     }
     catch (error) {
       console.error("Erro na requisição:", error);
@@ -74,18 +50,18 @@ function LerQrCode() {
         {/* informacoes do agendamento */}
         <div id="informacoes">
           <div className="info">
-            <div id="reader"></div>
+            
             <hr></hr>
           </div>
-         
 
 
-          <button className="botao-navegacao verde agendamento" onClick={handleLerQrCode}>
+
+          {/* <button className="botao-navegacao verde agendamento" onClick={handleLerQrCode}>
             Ler Qr Code
-          </button>
+          </button> */}
           <button
             className="botao-navegacao vermelho agendamento"
-            // onClick={() => handleIncreaseDesagendar(emailUsuario)}
+          onClick={() => handleDesconectar()}
           >
             Desconectar
           </button>

@@ -13,13 +13,13 @@ function AppRoutes() {
     <Router>
       <Routes>
         {/* As Rotas do Sistema */}
-        <Route path="/" element={<Login />} />
+        <Route path="/:hash?" element={<Login />} />
         <Route
           path="/AgendarHorario/:nomeUsuario/:emailUsuario"
           element={<AgendarHorario />}
         />
          <Route
-          path="/AgendarHorarioAtivo/:nomeUsuario/:emailUsuario/:hora/:senha"
+          path="/AgendarHorarioAtivo/:hash/:nomeUsuario/:emailUsuario/:hora/:senha"
           element={<AgendarHorarioAtivo />}
         />
         <Route
@@ -30,7 +30,7 @@ function AppRoutes() {
 
         <Route path="/CardapioAluno/:nomeUsuario/:emailUsuario" element={<CardapioAluno />} />
         <Route path="/CardapioAlunoAtivo/:nomeUsuario/:emailUsuario/:hora/:senha" element={<CardapioAlunoAtivo />} />
-        <Route path = "/LerQRCode" element = {< LerQRCode />} />
+        <Route path = "/LerQRCode/:hash" element = {< LerQRCode />} />
 
       </Routes>
     </Router>

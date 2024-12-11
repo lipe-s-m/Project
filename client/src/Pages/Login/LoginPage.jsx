@@ -98,32 +98,32 @@ function Login() {
 
     console.log("ir para próxima página, %s", nomeUsuario);
 
-    if (user.email === "filabandejao@gmail.com") {
+    if (user.email === "filadobandejao@gmail.com") {
       //carrega pagina de agendamento
       navigate(`/CardapioAdmin`);
     }
-    else{
+    else {
       localStorage.setItem('emailUsuario', user.email);
       navigate(`/LerQrCode/${encodedHash}`)
     }
 
   }
 
-  function verificarLogin(){
-    try{
+  function verificarLogin() {
+    try {
       const emailUsuario = localStorage.getItem('emailUsuario');
-      if(emailUsuario === "bandejaoadmexterno@gmail.com"){
+      if (emailUsuario === "bandejaoadmexterno@gmail.com") {
         navigate(`/LerQrCode/${encodedHash}`)
       }
-      else{
+      else {
 
       }
 
     }
-    catch(err){
+    catch (err) {
       console.log(err)
     }
-    finally{
+    finally {
       setLoading(false);
 
     }
@@ -131,39 +131,53 @@ function Login() {
 
   useEffect(() => {
 
-    setLoading(true)
-    verificarLogin()
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
 
-    try{
-      google.accounts.id.initialize({
-        client_id:
-          "853325995754-9pe7828a2ma28l8teelef548n3dljfj2.apps.googleusercontent.com",
-        callback: handleCallbackResponse,
-      });
-  
-      //botao de login
-      //se Não tiver usuario logado: mostrar botão de Login;
-      //se tiver usuario logado: mostrar botão de Log out;
-      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-        theme: "outline",
-        size: "large",
-        type: "standard",
-        shape: "pill",
-        text: "continue_with",
-        logo_alignment: "left",
-        width: "300",
-      });
-      document.getElementById("signInDiv").hidden = false;
-    }
-    /* global google */
-    catch(err){
-      console.log(err)
-    }
-    finally{
-      setLoading(false)
-    }
-   
+    script.onload = () => {
 
+
+      setLoading(true)
+
+      try {
+        google.accounts.id.initialize({
+          client_id:
+            "853325995754-9pe7828a2ma28l8teelef548n3dljfj2.apps.googleusercontent.com",
+          callback: handleCallbackResponse,
+        });
+
+        //botao de login
+        //se Não tiver usuario logado: mostrar botão de Login;
+        //se tiver usuario logado: mostrar botão de Log out;
+        google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+          theme: "outline",
+          size: "large",
+          type: "standard",
+          shape: "pill",
+          text: "continue_with",
+          logo_alignment: "left",
+          width: "300",
+        });
+        document.getElementById("signInDiv").hidden = false;
+      }
+      /* global google */
+      catch (err) {
+        console.log(err)
+      }
+      finally {
+        setLoading(false)
+      }
+      verificarLogin()
+    }
+     // Adiciona o script à página
+     document.body.appendChild(script);
+
+     // Limpeza: remover o script quando o componente for desmontado
+     return () => {
+       document.body.removeChild(script);
+     };
   }, []);
 
   return (

@@ -16,7 +16,7 @@ import Axios from "axios";
 function VisualizarSenha() {
   //pegando dados do usuario
 
-  const {hash} = useParams();
+  const { hash } = useParams();
   const { emailUsuario } = useParams();
   const { nomeUsuario } = useParams();
   const { senha } = useParams();
@@ -48,7 +48,7 @@ function VisualizarSenha() {
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
           navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
-        }).catch((err) =>{
+        }).catch((err) => {
           console.log(err)
         })
     }
@@ -93,7 +93,7 @@ function VisualizarSenha() {
             Senha:
             <div id="numSenha">{senha}</div> */}
 
-            <QRCode value={`http://localhost:3007/filaru/#/${hash}`} />
+            <QRCode id="qr-code" value={`www.dcc.ufrrj.br/filaru/#/${hash}`} />
 
           </div>
 

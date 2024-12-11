@@ -40,12 +40,13 @@ input::placeholder{
 }
 
 .box-agendar.cardapio-admin{
-  width: 650px;
-  margin-top: 56rem;
+  width: 640px;
+  margin-top: 60rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 2rem;
   
 }
 
@@ -255,6 +256,10 @@ button:hover,
     margin: 0 auto;
     width: auto;
   }
+  .box-agendar.cardapio-admin #IMAGEM_CARDAPIO{
+    height: 110px;
+    width: 110px;
+  }
   .box-agendar.cardapio-admin #TEXTO_BANDEJAO{
     font-size: 22px;
     margin: 1rem auto 0;
@@ -262,6 +267,7 @@ button:hover,
   }
   .box-agendar.cardapio-admin{
     width: 95vw;
+    margin-top: 54rem;
   }
   #resposta-input-admin ::placeholder,  #resposta-input-admin input{
     font-size: 14px;

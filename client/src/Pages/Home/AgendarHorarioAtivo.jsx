@@ -11,6 +11,11 @@ function AgendarHorarioAtivo() {
   const { emailUsuario } = useParams();
   const { hora } = useParams();
   const { senha } = useParams();
+  const { hash } = useParams();
+  const [horaMinutoAtual, setHoraMinutoAtual] = useState('');
+  const [horaAtual, setHoraAtual] = useState(null); // Estado para horaAtual
+
+
 
   const navigate = useNavigate();
 
@@ -78,20 +83,23 @@ function AgendarHorarioAtivo() {
       return "button-red-strong";
     }
   }
-
-  const agora = new Date();
-  const horaAtual = agora.getHours();
-
   const visualizarSenha = () => {
     navigate(
-      `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+      `/VisualizarSenha/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
     );
   };
 
   //obter as lotacoes
   useEffect(() => {
 
-    if(horaAtual > 10 && horaAtual < 14){
+    const agora = new Date();
+    const horaAtual = agora.getHours();
+    const minutoAtual = agora.getMinutes();
+    const horaMinuto = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+    setHoraMinutoAtual(horaMinuto); // Atualiza o estado com a hora atual formatada
+    setHoraAtual(horaAtual)
+
+    if (horaAtual > 10 && horaAtual < 14) {
       obterLotacao1140();
       obterLotacao1150();
       obterLotacao1200();
@@ -104,19 +112,18 @@ function AgendarHorarioAtivo() {
       obterLotacao1310();
     }
 
-    if(horaAtual > 15 && horaAtual < 19)
-      {
-        obterLotacao1700();
-        obterLotacao1710();
-        obterLotacao1720();
-        obterLotacao1730();
-        obterLotacao1740();
-        obterLotacao1750();
-        obterLotacao1800();
-        obterLotacao1810();
-        obterLotacao1820();
-        obterLotacao1830();
-      }
+    if (horaAtual > 15 && horaAtual < 19) {
+      obterLotacao1700();
+      obterLotacao1710();
+      obterLotacao1720();
+      obterLotacao1730();
+      obterLotacao1740();
+      obterLotacao1750();
+      obterLotacao1800();
+      obterLotacao1810();
+      obterLotacao1820();
+      obterLotacao1830();
+    }
   }, []);
 
   //obter lotacao
@@ -132,7 +139,7 @@ function AgendarHorarioAtivo() {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1150 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -145,7 +152,7 @@ function AgendarHorarioAtivo() {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1200 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -158,7 +165,7 @@ function AgendarHorarioAtivo() {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1210 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -171,20 +178,20 @@ function AgendarHorarioAtivo() {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   ///obter lotacao
   const obterLotacao1220 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
       params: { horario: "12:20" }, // Note que o horário é passado como parâmetro
     })
       .then((response) => {
-        console.log( response.data); // Mostrar a resposta do servidor
+        console.log(response.data); // Mostrar a resposta do servidor
         setLotacaoBotao3(response.data.count);
       })
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1230 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -199,61 +206,61 @@ function AgendarHorarioAtivo() {
       });
   };
 
-    //obter lotacao
-    const obterLotacao1240 = () => {
-      Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-        params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
+  //obter lotacao
+  const obterLotacao1240 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "12:40" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao4(response.data.count);
       })
-        .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-          setLotacaoBotao4(response.data.count);
-        })
-        .catch((error) => {
-          console.log("erro na requisicao: ", error);
-        });
-    };
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1250 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao8(response.data.count);
+  //obter lotacao
+  const obterLotacao1250 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "12:50" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao8(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1300 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao9(response.data.count);
+  //obter lotacao
+  const obterLotacao1300 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "13:00" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao9(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1310 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao10(response.data.count);
+  //obter lotacao
+  const obterLotacao1310 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "13:10" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao10(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
   const obterLotacao1700 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -266,7 +273,7 @@ const obterLotacao1310 = () => {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1710 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -279,7 +286,7 @@ const obterLotacao1310 = () => {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1720 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -292,7 +299,7 @@ const obterLotacao1310 = () => {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1730 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -305,7 +312,7 @@ const obterLotacao1310 = () => {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   ///obter lotacao
   const obterLotacao1740 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -318,7 +325,7 @@ const obterLotacao1310 = () => {
       .catch((error) => {
         console.log("erro na requisicao: ", error);
       });
-  }; 
+  };
   //obter lotacao
   const obterLotacao1750 = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
@@ -333,62 +340,62 @@ const obterLotacao1310 = () => {
       });
   };
 
-    //obter lotacao
-    const obterLotacao1800 = () => {
-      Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-        params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
+  //obter lotacao
+  const obterLotacao1800 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "18:00" }, // Note que o horário é passado como parâmetro
+    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao14(response.data.count);
       })
-        .then((response) => {
-          console.log(response.data); // Mostrar a resposta do servidor
-          setLotacaoBotao14(response.data.count);
-        })
-        .catch((error) => {
-          console.log("erro na requisicao: ", error);
-        });
-    };
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1810 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao18(response.data.count);
+  //obter lotacao
+  const obterLotacao1810 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "18:10" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao18(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1820 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao19(response.data.count);
+  //obter lotacao
+  const obterLotacao1820 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "18:20" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao19(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
 
-//obter lotacao
-const obterLotacao1830 = () => {
-  Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
-    params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
-  })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao20(response.data.count);
+  //obter lotacao
+  const obterLotacao1830 = () => {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos/contarVagas", {
+      params: { horario: "18:30" }, // Note que o horário é passado como parâmetro
     })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error);
-    });
-};
-  
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao20(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error);
+      });
+  };
+
   return (
     <>
       {/* chamar os pop ups de cada botao */}
@@ -615,87 +622,87 @@ const obterLotacao1830 = () => {
       {horaAtual > 10 && horaAtual < 14 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
-          
-            <h3>
-              <div id="title">Agendar Horário</div>
-            </h3>
 
-            {/* mostrar botoes */}
-            <div id="botoes">
-              <div className="coluna">
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao1, 1140)}`}
-                  onClick={() => setOpenModal1140(true)}
-                >
-                  11:40
-                </button>
+          <h3>
+            <div id="title">Agendar Horário</div>
+          </h3>
 
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao2, 1200)}`}
-                  onClick={() => setOpenModal1200(true)}
-                >
-                  12:00
-                </button>
+          {/* mostrar botoes */}
+          <div id="botoes">
+            <div className="coluna">
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao1, 1140)}`}
+                onClick={() => setOpenModal1140(true)}
+              >
+                11:40
+              </button>
 
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao3, 1220)}`}
-                  onClick={() => setOpenModal1220(true)}
-                >
-                  12:20
-                </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao2, 1200)}`}
+                onClick={() => setOpenModal1200(true)}
+              >
+                12:00
+              </button>
 
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao4, 1240)}`}
-                  onClick={() => setOpenModal1240(true)}
-                >
-                  12:40
-                </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao3, 1220)}`}
+                onClick={() => setOpenModal1220(true)}
+              >
+                12:20
+              </button>
 
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao10, 1300)}`}
-                  onClick={() => setOpenModal1300(true)}
-                >
-                  13:00
-                </button>
-              </div>
-              <div className="coluna">
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao5, 1150)}`}
-                  onClick={() => setOpenModal1150(true)}
-                >
-                  11:50
-                </button>
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao6, 1210)}`}
-                  onClick={() => setOpenModal1210(true)}
-                >
-                  12:10
-                </button>
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao7, 1230)}`}
-                  onClick={() => setOpenModal1230(true)}
-                >
-                  12:30
-                </button>
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao8, 1250)}`}
-                  onClick={() => setOpenModal1250(true)}
-                >
-                  12:50
-                </button>
-                <button
-                  className={`button ${definirCorBotao(lotacaoBotao9, 1310)}`}
-                  onClick={() => setOpenModal1310(true)}
-                >
-                  13:10
-                </button>
-              </div>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao4, 1240)}`}
+                onClick={() => setOpenModal1240(true)}
+              >
+                12:40
+              </button>
+
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao10, 1300)}`}
+                onClick={() => setOpenModal1300(true)}
+              >
+                13:00
+              </button>
             </div>
-          
+            <div className="coluna">
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao5, 1150)}`}
+                onClick={() => setOpenModal1150(true)}
+              >
+                11:50
+              </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao6, 1210)}`}
+                onClick={() => setOpenModal1210(true)}
+              >
+                12:10
+              </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao7, 1230)}`}
+                onClick={() => setOpenModal1230(true)}
+              >
+                12:30
+              </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao8, 1250)}`}
+                onClick={() => setOpenModal1250(true)}
+              >
+                12:50
+              </button>
+              <button
+                className={`button ${definirCorBotao(lotacaoBotao9, 1310)}`}
+                onClick={() => setOpenModal1310(true)}
+              >
+                13:10
+              </button>
+            </div>
+          </div>
+
 
           {/* Cardapio */}
           {/* Rodapé */}
-          
+
           <button className="botao-navegacao verde" onClick={(event) => navigate(`/CardapioAlunoAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`)}>
             Ver Cardápio
           </button>
@@ -713,14 +720,14 @@ const obterLotacao1830 = () => {
       {horaAtual > 15 && horaAtual < 19 && (
         <div className="box-agendar">
           {/* titulo da pagina */}
-          
-            <h3>
-              <div id="title">Agendar Horário</div>
-            </h3>
 
-            {/* mostrar botoes */}
-            <div id="botoes">
-              <div className="coluna">
+          <h3>
+            <div id="title">Agendar Horário</div>
+          </h3>
+
+          {/* mostrar botoes */}
+          <div id="botoes">
+            <div className="coluna">
               <button
                 className={`button ${definirCorBotao(lotacaoBotao11, 1700)}`}
                 onClick={() => setOpenModal1700(true)}
@@ -787,9 +794,9 @@ const obterLotacao1830 = () => {
               >
                 18:30
               </button>
-              </div>
             </div>
-          
+          </div>
+
 
           {/* Cardapio */}
           {/* Rodapé */}
@@ -800,7 +807,7 @@ const obterLotacao1830 = () => {
           <button className="botao-navegacao vermelho ativo" onClick={visualizarSenha}>
             Voltar ao Agendamento
           </button>
-         
+
           <p className="lowText">
             Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
           </p>

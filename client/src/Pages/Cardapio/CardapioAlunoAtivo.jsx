@@ -19,6 +19,8 @@ function CardapioAlunoAtivo() {
   const { emailUsuario } = useParams();
   const { hora } = useParams();
   const { senha } = useParams();
+  const hash = localStorage.getItem('hashUser');
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -33,7 +35,8 @@ function CardapioAlunoAtivo() {
   const navigate = useNavigate();
 
   const voltarLoginPage = () => {
-    navigate(`/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
+    alert(hash)
+    navigate(`/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
   };
 
   const handleChangeVisualizar = () => {
@@ -75,7 +78,7 @@ function CardapioAlunoAtivo() {
         setOpenModal={() => setOpenModal(!openModal)}
       ></ModalCardapioAluno>
 
-<div id="CAIXA_PRINCIPAL">
+      <div id="CAIXA_PRINCIPAL">
         <div id="IMAGEM_CARDAPIO"></div>
         <div id="title">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>
@@ -121,7 +124,7 @@ function CardapioAlunoAtivo() {
         <button className="botao-navegacao verde" onClick={handleChangeVisualizar}>
           Visualizar
         </button>
-        
+
         <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>

@@ -71,9 +71,8 @@ export default function Podal({
     setModalOpen();
   };
   const horaMinutoModal = +hora.replace(":", "");
-  if(isOpen)
-  {
-    if(horaMinutoAtual > horaMinutoModal + 9){
+  if (isOpen) {
+    if (horaMinutoAtual > horaMinutoModal + 9) {
       return (
         <div id="BACKGROUND_id">
           <div id="MODAL_id">
@@ -93,8 +92,6 @@ export default function Podal({
       )
     }
 
-  
-  
     else if (integer < 50) {
       return (
         <>

@@ -24,6 +24,7 @@ function LerQrCode() {
 
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [hora, setHora] = useState([]);
+  const [horaSemPonto, setHoraSemPonto] = useState(null);
   const [data, setData] = useState([]);
   const [email, setEmail] = useState([]);
   const [idHash, setIdHash] = useState([]);
@@ -36,11 +37,26 @@ function LerQrCode() {
   });
 
   useEffect(() => {
+
+    horaAtual = agora.getHours();
+    minutoAtual = agora.getMinutes();
+    horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
     setLoading(true)
 
     handleLerQrCode()
 
-  }, [])
+    if (horaSemPonto !== undefined) {
+      if (horaMinutoAtual > horaSemPonto + 10) {
+        console.log(`Seu agendamento passou da hora, não é mais válido ${horaMinutoAtual} + ${horaSemPonto}`);
+        setAgendamentoAtivo(false);
+      } else {
+        console.log(`Seu agendamento está no horario, é válido ${horaMinutoAtual} + ${horaSemPonto}`);
+        setAgendamentoAtivo(true);
+      }
+    }
+
+
+  }, [horaSemPonto, horaMinutoAtual]);
 
   async function handleLerQrCode() {
     console.log(hash)
@@ -63,6 +79,8 @@ function LerQrCode() {
         const { horario, idhash, email, nome, data } = dados;
         setData(data);
         setHora(horario)
+        setHoraSemPonto(parseInt(horario.replace(":", "")));
+        console.log(horaSemPonto);  // Verifique se o valor está correto
         setIdHash(idhash)
         setNomeUsuario(nome)
         setEmail(email)
@@ -73,14 +91,6 @@ function LerQrCode() {
       console.log(error.message);
     }
     finally {
-      if (horaMinutoAtual > hora + 10) {
-        console.log("Seu agendamento passou da hora, não é mais válido")
-        setAgendamentoAtivo(false)
-      }
-      else {
-        console.log("Seu agendamento está no horario, é válido")
-        setAgendamentoAtivo(true)
-      }
       setLoading(false)
     }
 
@@ -103,16 +113,17 @@ function LerQrCode() {
   async function handleValidarAgendamento(email) {
     setLoading(true)
     try {
-      const response = await axios.post("https://www.dcc.ufrrj.br/filaruservicos/verificarAgendamentoHash", {
-        params: { email: email }
-      });
-      const data = response.data;
-      console.log(data)
+      const response = await Axios.post("https://www.dcc.ufrrj.br/filaruservicos/cancelarAgendamento", {
+        email: email
+      }).then((response) => {
+        console.log(response.data);
+      })
       console.log("apagando agendamento")
+      setNomeUsuario("");
 
     }
-    catch (err) {
-      console.log(err)
+    catch (error) {
+      console.error("Erro na requisição:", error);
     }
     finally {
       setLoading(false);
@@ -130,34 +141,47 @@ function LerQrCode() {
           <p className="text" id="aviso-qrcode">Scanneie o QrCode com sua câmera do celular</p>
           <div id="info-aluno" >
 
-            <div className="info">
+            {nomeUsuario && nomeUsuario.length > 0
+              ? < div >
+                <div className="info">
+                  <div className="text">Nome: </div>
+                  <div className="textLight">
+                    <img id="iconUser" src={IconUser} alt="IconeUsuario"></img>
+                    {/* <div className="infoUser"> {nomeUsuario[0].toUpperCase() + nomeUsuario.substring(1).split(" ")[0].toLowerCase()} {nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1][0].toUpperCase() + nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1].substring(1).toLowerCase()} </div> */}
+                    <div className="infoUser">
+                      {nomeUsuario[0].toUpperCase() + nomeUsuario.substring(1).split(" ")[0].toLowerCase() + " " +
+                        nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1][0].toUpperCase() +
+                        nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1].substring(1).toLowerCase()}
+                    </div>
+                  </div>
+                  <hr></hr>
+                </div>
 
-              <div className="text">Nome: </div>
-              <div className="textLight">
-                <img id="iconUser" src={IconUser} alt="IconeUsuario"></img>
-                {/* <div className="infoUser"> {nomeUsuario[0].toUpperCase() + nomeUsuario.substring(1).split(" ")[0].toLowerCase()} {nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1][0].toUpperCase() + nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1].substring(1).toLowerCase()} </div> */}
-                <div className="infoUser">
+                <div className="info">
+                  <div className="text">Data / Hora: </div>
+                  <div className="textLight">
+                    <img id="iconUser" src={IconClock} alt="IconeUsuario"></img>
+                    <div className="infoUser">
+                      {" "}
+                      {dataFormatada} - {hora}
+                    </div>
+                  </div>
+                  <hr></hr>
+
                   {nomeUsuario && nomeUsuario.length > 0
-                    ? nomeUsuario[0].toUpperCase() + nomeUsuario.substring(1).split(" ")[0].toLowerCase() + " " +
-                    nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1][0].toUpperCase() +
-                    nomeUsuario.split(" ")[nomeUsuario.split(" ").length - 1].substring(1).toLowerCase()
-                    : "Nome não disponível"}
+                    && agendamentoAtivo && agendamentoAtivo === true
+                    ?
+                    <p className="lowText">
+                      <strong className="bold">Agendamento Válido</strong>
+                    </p>
+                    : <p className="lowText">
+                      <strong className="bold texto-vermelho">Agendamento Inválido</strong>
+                    </p>}
                 </div>
+              </div>
+              : <div></div>}
 
-              </div>
-              <hr></hr>
-            </div>
-            <div className="info">
-              <div className="text">Data / Hora: </div>
-              <div className="textLight">
-                <img id="iconUser" src={IconClock} alt="IconeUsuario"></img>
-                <div className="infoUser">
-                  {" "}
-                  {dataFormatada} - {hora}
-                </div>
-              </div>
-              <hr></hr>
-            </div>
+
           </div>
 
 
@@ -194,7 +218,7 @@ function LerQrCode() {
 }
 export default LerQrCode;
 
-const agora = new Date();
-export const horaAtual = agora.getHours();
-const minutoAtual = agora.getMinutes();
-export const horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+let agora = new Date();
+export let horaAtual = agora.getHours();
+let minutoAtual = agora.getMinutes();
+export let horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');

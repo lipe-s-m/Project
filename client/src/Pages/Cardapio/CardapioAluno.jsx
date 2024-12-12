@@ -39,7 +39,7 @@ function CardapioAluno() {
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
   };
 
-  async function handleChangeVisualizar()  {
+  async function handleChangeVisualizar() {
     try {
       setLoading(true)
       const response = await Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {

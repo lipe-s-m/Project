@@ -9,6 +9,7 @@ import Icon from "../../UI/Icons/1144760.png";
 import erro from "../../UI/Icons/erro.png";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 function Login() {
   //obtendo dados do usuario
   var [user, setUser] = useState({});
@@ -171,14 +172,17 @@ function Login() {
       }
       verificarLogin()
     }
-     // Adiciona o script à página
-     document.body.appendChild(script);
+    // Adiciona o script à página
+    document.body.appendChild(script);
 
-     // Limpeza: remover o script quando o componente for desmontado
-     return () => {
-       document.body.removeChild(script);
-     };
+    // Limpeza: remover o script quando o componente for desmontado
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
+
+
+
 
   return (
     <>

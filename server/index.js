@@ -4,6 +4,8 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const e = require("cors");
 const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const cron = require('node-cron');
 
 
 //conectando banco
@@ -16,6 +18,65 @@ const db = mysql.createPool({
 
 app.use(cors());
 app.use(express.json());
+
+const transporter = nodemailer.createTransport(
+  {
+    secure: true,
+    host: 'smtp.gmail.com',
+    port: 465,
+    auth: {
+      user: 'filadobandejao@gmail.com',
+      pass: 'gosppbcwrzzpfeaa'
+    }
+  }
+)
+
+function sendMail(to, sub, msg) {
+  const mailOptions = {
+    // from: 'filadobandejao@gmail.com', // Remetente
+    to: to,
+    subject: sub,
+    html: msg
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Erro ao enviar o e-mail', error);
+    }
+    else {
+      console.log('E-mail enviado com sucesso: ', info.response);
+    }
+  });
+}
+
+function verificarHorarioAgendamentos() {
+  const agora = new Date();
+
+  db.query("SELECT email, horario FROM agendamento WHERE ativo = 1", (err, result) => {
+    if (err) {
+      console.log("Erro ao buscar agendamentos: ", err);
+      return;
+    }
+
+    result.forEach(agendamento => {
+      const horarioAgendado = new Date(agendamento.horario);
+      const diferenca = horarioAgendado - agora; // Diferença entre o horário agendado e o horário atual
+      // Se faltarem 10 minutos (600.000 ms) ou menos, enviaremos o e-mail
+      if (diferenca <= 60000 && diferenca >= 0) {
+        sendMail(
+          agendamento.email, // Enviar para o e-mail do agendamento
+          "Lembrete do Agendamento no RU", // Assunto
+          "Lembre-se que seu agendamento está chegando! Você tem até 10 minutos para chegar no RU. Não se atrase!" // Corpo do e-mail
+        );
+        console.log(`E-mail de lembrete enviado para: ${agendamento.email}`);
+      }
+    })
+  })
+}
+cron.schedule('* * * * *', () => {
+  console.log("Verificando agendamentos...");
+  verificarAgendamentos();
+});
 
 //BANCO
 // criando instancias no banco
@@ -88,10 +149,11 @@ app.post("/agendar", (req, res) => {
           //se der certo
           res.json({
             success: true,
-            message: "Agendamento feito com sucesso!",
+            message: "Agendamento feito com sucesso!!!",
             email: email,
             hash: hash, // Retornando o hash gerado
           });
+          sendMail(email, "Lembrete do Agendamento no RU", "Esta mensagem é para te lembrar que está no horário do seu Agendamento! Você tem até 10 minutos para chegar no RU, não se atrase. Obrigado!")
           return console.log("Agendamento feito com sucesso, %s!", email);
         }
       );
@@ -142,6 +204,29 @@ app.get("/verificarAgendamento", (req, res) => {
   });
 });
 
+app.get("/verificarAgendamentoHash", (req, res) => {
+  console.log("Verificando se possui agendamento Ativo");
+  const { idhash } = req.query;
+  const query =
+    "SELECT agendamento.senha, agendamento.data, agendamento.horario, agendamento.email, agendamento.idhash, aluno.nome FROM agendamento JOIN aluno ON agendamento.email = aluno.email WHERE agendamento.idhash = ? AND agendamento.ativo = true;";
+
+  db.query(query, [idhash], (err, result) => {
+    if (err) {
+      res.status(500).send("Erro ao realizar a consulta");
+      return console.error("Erro ao realizar a consulta:", err);
+    }
+    if (result.length === 0) {
+      console.log("Agendamento não foi encontrado");
+      return res.status(200).json(null); // Retorna null com status 200 (OK)
+    }
+    if (result.length > 0) {
+      console.log("Agendamento Encontrado");
+      res.json(result[0]);
+    }
+  });
+});
+
+
 app.get("/contarVagas", (req, res) => {
   const { horario } = req.query;
   const query =
@@ -157,13 +242,15 @@ app.get("/contarVagas", (req, res) => {
 });
 
 app.post("/trocarAgendamento", (req, res) => {
-  res.send("Requisição recebida com sucesso");
 
   //pegando parâmetros
   const { senha, data, hora, email, ativo } = req.body;
+  const dataQrCode = email + " " + hora + " " + data;
+  const hash = crypto.createHash('sha256').update(dataQrCode).digest('hex');
+
   let deleteAgend = "UPDATE agendamento SET ativo = FALSE WHERE email = ?"; // string para cancelar agendamento
   let insertAgend =
-    "INSERT INTO agendamento (senha, data, horario, email, ativo) VALUES (?, ?,  ?, ?, ?)"; // string para agendar novo horário
+    "INSERT INTO agendamento (senha, data, horario, email, ativo, idhash) VALUES (?, ?,  ?, ?, ?, ?)"; //string insert
 
   // cancela o agendamento do aluno
   db.query(deleteAgend, [email], (err, deleteResult) => {
@@ -178,15 +265,22 @@ app.post("/trocarAgendamento", (req, res) => {
     // agora, agendar o novo horário
     db.query(
       insertAgend,
-      [senha, data, hora, email, ativo],
+      [senha, data, hora, email, ativo, hash],
       (err, insertResult) => {
+        //se der erro
         // se der erro
         if (err) {
           console.error(err);
           return console.log("Erro ao agendar novo horário:", err);
         }
-        // se o agendamento for bem-sucedido
-        console.log("Novo agendamento feito com sucesso para o email:", email);
+        //se der certo
+        res.json({
+          success: true,
+          message: "Agendamento feito com sucesso!",
+          email: email,
+          hash: hash, // Retornando o hash gerado
+        });
+        return console.log("Agendamento feito com sucesso, %s!", email);
       }
     );
   });

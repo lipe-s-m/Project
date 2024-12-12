@@ -1,4 +1,4 @@
-input{
+input {
   width: 120%;
   height: 100%;
   margin-left: 3%;
@@ -9,11 +9,13 @@ input{
   font-weight: normal;
   font-size: 19px;
 }
-select{
+
+select {
   width: 120%;
   height: 100%;
-  margin-left: 3%;
+
   margin-top: 2%;
+
   background-color: #e8e8e8;
   border-width: 3px;
   border-radius: 15px;
@@ -22,23 +24,26 @@ select{
   font-size: 19px;
 }
 
-input::placeholder{
+
+
+input::placeholder {
   opacity: 0.7;
   font-size: 18px;
   text-align: center;
   font-weight: lighter;
 }
 
+/* 
 #CAIXA_PRINCIPAL {
   margin: 0 auto;
   margin-top: 5%;
-    padding-top: 5%;
+  padding-top: 5%;
   width: 650px;
   background-color: #e8e8e8;
   border-radius: 30px;
-}
+} */
 
-#aviso-qrcode{
+#aviso-qrcode {
   color: #021208;
   font-size: 24px;
   font-weight: 600;
@@ -46,6 +51,11 @@ input::placeholder{
   padding-top: 3px;
   text-align: center;
   width: 100%;
+  color: #960707;
+  margin-bottom: 1rem;
+}
+
+.lowText .texto-vermelho {
   color: #960707;
 }
 
@@ -59,10 +69,10 @@ input::placeholder{
   width: 389px;
   height: 69px;
   background-color: #a60808;
-   margin-bottom: 5%; 
-   margin-left: 20%;
-   margin-top: 5%;
-}  
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-top: 5%;
+}
 
 #BLOCO_CREDITOS {
   font-family: "Montserrat";
@@ -79,23 +89,23 @@ input::placeholder{
 }
 
 button:hover,
- #BLOCO_CREDITOS .bold:hover{
+#BLOCO_CREDITOS .bold:hover {
   transition: 0.5s;
   cursor: pointer;
   opacity: 0.7;
 }
 
 @media (max-width: 400px) {
-  #aviso-qrcode{
+  #aviso-qrcode {
     font-size: 18px;
     width: 90%;
-    margin: 0 auto;
+    margin: 0.2rem auto 0.4rem;
     text-align: center;
   }
 }
 
 @media (max-width: 350px) {
-  #aviso-qrcode{
+  #aviso-qrcode {
     font-size: 14px;
     width: 70%;
 

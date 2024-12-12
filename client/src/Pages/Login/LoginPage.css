@@ -3,9 +3,10 @@
   margin: 0;
   font-family: Montserrat;
 }
+
 html,
 body {
-  width: 100%; 
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -20,11 +21,15 @@ body {
   padding: 5%;
   width: 30rem;
 }
-.Login, body, html {
+
+.Login,
+body,
+html {
   align-items: center;
   display: flex;
   justify-content: center;
 }
+
 #Login {
   align-items: center;
   display: flex;
@@ -32,9 +37,11 @@ body {
   padding-bottom: 15px;
   text-align: center;
 }
+
 #Login img {
   width: 150px;
 }
+
 .title {
   font-family: "Montserrat";
   font-size: 62px;
@@ -45,9 +52,11 @@ body {
 .S9gUrf-YoZ4jf {
   justify-content: center;
 }
+
 #signInDiv {
   margin: 5rem 0 4rem;
 }
+
 .loginResponse {
   display: flex;
   flex-direction: column;
@@ -56,6 +65,7 @@ body {
   align-items: center;
   margin: -1rem 0 4rem;
 }
+
 .loginNegado {
   display: flex;
   flex-direction: column;
@@ -63,12 +73,13 @@ body {
   font-family: "Montserrat";
   font-size: 42px;
   font-weight: bold;
-  margin-bottom: 4rem;
 }
+
 .loginNegado img {
   width: 200px;
   height: 200px;
 }
+
 button {
   font-size: 28px;
   font-family: "Montserrat";
@@ -79,14 +90,17 @@ button {
   width: 330px;
   height: 70px;
 }
+
 #desconect {
   background-color: #a60808;
   margin: 3rem 0 -3rem;
 }
+
 #prosseguirLog {
   background-color: #1a4d2e;
   margin: 2rem 0 -2rem;
 }
+
 .saudacao {
   font-family: "Montserrat";
   font-size: 42px;
@@ -97,6 +111,7 @@ button {
   align-items: center;
   justify-content: center;
 }
+
 .saudacao img {
   width: 200px;
   height: 200px;
@@ -104,16 +119,18 @@ button {
 }
 
 .lowText {
- color: #000000b3;
-    font-family: Montserrat;
-    font-size: 17px;
-    font-weight: 400;
-    text-align: center;
+  color: #000000b3;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
 }
+
 .bold {
   font-weight: bold;
   color: rgba(28, 76, 46, 0.7);
 }
+
 .lowText .bold:hover {
   transition: 0.5s;
   cursor: pointer;
@@ -168,7 +185,7 @@ button {
 }
 
 #admin-prosseguirLog:hover,
-#limparEmail:hover{
+#limparEmail:hover {
   background-color: #dad5d5;
   transition: 0.5s;
 
@@ -184,18 +201,23 @@ button {
     margin: 0 auto;
   }
 }
+
 @media (max-width: 470px) {
-  .saudacao {
+
+  .saudacao,
+  .loginNegado {
     width: 21rem;
     font-size: 32px;
   }
-  button{
+
+  button {
     width: 270px;
     height: 60px;
   }
 }
-@media(max-width: 350px){
-  .Login{
+
+@media(max-width: 350px) {
+  .Login {
     min-width: 20rem;
 
   }

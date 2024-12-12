@@ -33,6 +33,7 @@ function VisualizarSenha() {
 
   //carrega pagina de agendamento
   function handleIncreaseHorarios() {
+    localStorage.setItem('hashUser', hash);
     navigate(
       `/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
     );
@@ -47,6 +48,7 @@ function VisualizarSenha() {
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          localStorage.setItem('hashUser', null);
           navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
         }).catch((err) => {
           console.log(err)

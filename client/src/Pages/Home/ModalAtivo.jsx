@@ -1,9 +1,8 @@
 import "./ModalAtivo.css";
 
 import Axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { horaMinutoAtual } from "./AgendarHorario";
 
 export default function ModalAtivo({
   hora,
@@ -16,9 +15,16 @@ export default function ModalAtivo({
   children,
 }) {
   const navigate = useNavigate();
+  const [horaMinutoAtual, setHoraMinutoAtual] = useState(0);
+
 
   // eslint-disable-next-line
   useEffect(() => {
+    let agora = new Date();
+    let horaAtual = agora.getHours();
+    let minutoAtual = agora.getMinutes();
+    let horaMinAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+    setHoraMinutoAtual(horaMinAtual)
     if (isOpen) {
       obterLotacao();
     }

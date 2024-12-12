@@ -55,6 +55,12 @@ function AgendarHorario() {
   const [openModal1830, setOpenModal1830] = useState(false);
   //obter as lotacoes
   useEffect(() => {
+
+    agora = new Date();
+    horaAtual = agora.getHours();
+    minutoAtual = agora.getMinutes();
+    horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+
     // if (horaAtual > 10 && horaAtual < 15) {
 
     if (horaAtual > 10 && horaAtual < 14) {
@@ -802,7 +808,7 @@ function AgendarHorario() {
 
 export default AgendarHorario;
 
-const agora = new Date();
-export const horaAtual = agora.getHours();
-const minutoAtual = agora.getMinutes();
-export const horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+export let agora = new Date();
+export let horaAtual = agora.getHours();
+export let minutoAtual = agora.getMinutes();
+export let horaMinutoAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');

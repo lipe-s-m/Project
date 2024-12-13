@@ -35,13 +35,12 @@ function CardapioAlunoAtivo() {
   const navigate = useNavigate();
 
   const voltarLoginPage = () => {
-    alert(hash)
     navigate(`/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
   };
 
   const handleChangeVisualizar = () => {
     Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
-      params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
+      params: { data: data, turno: turno },
     })
       .then((response) => {
         const cardapio = response.data;
@@ -98,7 +97,7 @@ function CardapioAlunoAtivo() {
 
         <hr id="hr"></hr>
 
-        <div id="turno">Turno</div>
+        <div id="data">Turno</div>
 
         <div id="select-turno">
           {" "}

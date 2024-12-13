@@ -104,7 +104,7 @@ function CardapioAdmin() {
 
           <p>Turno *</p>
           <div id="resposta-turno">
-            
+
             <label htmlFor="turn">
               <select
                 value={turno}
@@ -170,7 +170,7 @@ function CardapioAdmin() {
 
           {/* <div id="IMAGEM_VEGETARIANA"></div> */}
 
- <p>Guarnição</p>
+          <p>Guarnição</p>
           <div id="resposta-input-admin">
             {" "}
             <label htmlFor="guarnicao">
@@ -184,8 +184,8 @@ function CardapioAdmin() {
             </label>
           </div>
 
- {/* <div id="IMAGEM_ACOMPANHAMENTOS"></div> */}
-          <p>Acompanhamentos</p>
+          {/* <div id="IMAGEM_ACOMPANHAMENTOS"></div> */}
+          <p>Acompanhamentos *</p>
           <div id="resposta-input-admin">
             {" "}
             <label htmlFor="acompanhamento">

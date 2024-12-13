@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./VisualizarSenha.css";
 import Iconagend from "../../UI/Icons/agend3.png";
 import IconUser from "../../UI/Icons/homem-usuario.png";
@@ -32,23 +32,29 @@ function VisualizarSenha() {
   const [loading, setLoading] = useState(null);
 
   //carrega pagina de agendamento
-  function handleIncreaseHorarios() {
-    localStorage.setItem('hashUser', hash);
-    navigate(
-      `/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
-    );
+  async function handleIncreaseHorarios() {
+    setLoading(true)
+    try {
+      await navigate(
+        `/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+      )
+    } finally {
+      setLoading(false)
+    }
   }
-  function handleIncreaseDesagendar(emailUsuario) {
+  async function handleIncreaseDesagendar(emailUsuario) {
 
     try {
       setLoading(true)
       //apagando agendamento no banco
-      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//cancelarAgendamento", {
+      await Axios.post("https://www.dcc.ufrrj.br/filaruservicos//cancelarAgendamento", {
         email: emailUsuario,
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
           localStorage.setItem('hashUser', null);
+          localStorage.setItem('horaUser', null);
+          localStorage.setItem('dataUser', null);
           navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
         }).catch((err) => {
           console.log(err)
@@ -62,6 +68,12 @@ function VisualizarSenha() {
     };
     console.log("apagando");
   }
+
+  useEffect(() => {
+    localStorage.setItem('hashUser', hash);
+    localStorage.setItem('horaUser', hora);
+    localStorage.setItem('dataUser', data);
+  }, []);
 
   return (
     <>

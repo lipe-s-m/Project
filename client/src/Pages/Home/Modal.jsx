@@ -1,9 +1,11 @@
 import "./Modal.css";
 
 import Axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { horaMinutoAtual } from "./AgendarHorario";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Podal({
   hora,
@@ -16,6 +18,7 @@ export default function Podal({
   children,
 }) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(null);
 
   // eslint-disable-next-line
   useEffect(() => {
@@ -38,8 +41,9 @@ export default function Podal({
       })
   }
 
-  const handleIncreaseLotacaoBotao = () => {
+  async function handleIncreaseLotacaoBotao() {
     if (integer < 50) {
+      setLoading(true);
       setLotacaoBotao((prevLotacao) => prevLotacao + 1);
       //pega data atual
       const dataAtual = new Date();
@@ -48,7 +52,7 @@ export default function Podal({
       const senha = integer + 1;
 
       //agendando no banco
-      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//agendar", {
+      await Axios.post("https://www.dcc.ufrrj.br/filaruservicos//agendar", {
         senha: integer + 1,
         data: dataFormatada,
         hora: hora,
@@ -64,6 +68,8 @@ export default function Podal({
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
+        }).finally(() => {
+          setLoading(false);
         });
     } else {
       console.log("Lotação maxima ");
@@ -75,6 +81,12 @@ export default function Podal({
     if (horaMinutoAtual > horaMinutoModal + 9) {
       return (
         <div id="BACKGROUND_id">
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
           <div id="MODAL_id">
             <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
@@ -96,6 +108,12 @@ export default function Podal({
       return (
         <>
           <div id="BACKGROUND_id">
+            {loading && <div className="loading"> <Backdrop
+              sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+              open
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop></div>} {/* Mostra o carregamento */}
             <div id="MODAL_id">
               <div id="TITULO_DISPONIVEL">Disponível</div>
               <div id="CONTEUDO_MODAL">
@@ -124,6 +142,12 @@ export default function Podal({
     else {
       return (
         <div id="BACKGROUND_id">
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
           <div id="MODAL_id">
             <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
@@ -136,6 +160,8 @@ export default function Podal({
             </div>
             <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
           </div>
+
+
         </div>
 
       )

@@ -56,6 +56,10 @@ function AgendarHorario() {
   //obter as lotacoes
   useEffect(() => {
 
+    if (localStorage.getItem('hashUser').length > 5) {
+      navigate(`/AgendarHorarioAtivo/${localStorage.getItem('hashUser')}/${nomeUsuario}/${emailUsuario}/${localStorage.getItem('horaUser')}/${localStorage.getItem('dataUser')}`);
+    }
+
     agora = new Date();
     horaAtual = agora.getHours();
     minutoAtual = agora.getMinutes();

@@ -1,5 +1,4 @@
-
-input{
+input {
   width: 120%;
   height: 100%;
   background-color: #e8e8e8;
@@ -8,7 +7,8 @@ input{
   font-weight: normal;
   font-size: 19px;
 }
-.cardapio-admin select{
+
+.cardapio-admin select {
   height: 100%;
   margin: 0 auto;
   background-color: #e8e8e8;
@@ -19,7 +19,8 @@ input{
   font-size: 19px;
 
 }
-select{
+
+select {
   width: 120%;
   height: 100%;
   margin-left: 3%;
@@ -32,22 +33,22 @@ select{
   font-size: 19px;
 }
 
-input::placeholder{
+input::placeholder {
   opacity: 0.7;
   font-size: 18px;
   text-align: center;
   font-weight: lighter;
 }
 
-.box-agendar.cardapio-admin{
+.box-agendar.cardapio-admin {
   width: 640px;
-  margin-top: 60rem;
+  margin-top: 65rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 2rem;
-  
+
 }
 
 
@@ -57,12 +58,14 @@ input::placeholder{
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
+
 #TEXTO_BANDEJAO {
   font-size: 25px;
   font-weight: medium;
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
+
 #IMAGEM_CARDAPIO {
   width: 135px;
   height: 135px;
@@ -72,14 +75,16 @@ input::placeholder{
   margin: 0 auto;
   margin-bottom: 15px;
 }
-.box-agendar.cardapio-admin p{
+
+.box-agendar.cardapio-admin p {
   font-size: 25px;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   margin: 2rem auto 1rem;
   text-align: center;
 }
-#RESPOSTA_DATA>label>input{
+
+#RESPOSTA_DATA>label>input {
   border: 3px, solid, rgba(00, 00, 00, 0.5);
   border-radius: 12px;
   padding: 0.5rem 1.6rem;
@@ -87,11 +92,12 @@ input::placeholder{
   margin-bottom: 0.6rem;
   width: 100%;
 }
-#RESPOSTA_DATA{
+
+#RESPOSTA_DATA {
   width: 90%;
 }
 
-#data{
+#data {
   width: 200px;
   font-size: 25px;
   font-weight: 600;
@@ -102,7 +108,7 @@ input::placeholder{
 
 
 
-#resposta-turno{
+#resposta-turno {
   width: 100%;
   height: 45px;
   margin-bottom: 0.6rem;
@@ -110,11 +116,12 @@ input::placeholder{
   align-items: center;
   justify-content: center;
 }
-#resposta-turno select{
+
+#resposta-turno select {
   width: 100%;
   height: 45px;
-  
-} 
+
+}
 
 #OPCAO_PRINCIPAL {
   width: 100%;
@@ -124,6 +131,7 @@ input::placeholder{
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
+
 #resposta-input-admin {
   width: 70%;
   height: 45px;
@@ -137,7 +145,9 @@ input::placeholder{
   border-radius: 6px;
   margin-bottom: 0.6rem;
 }
-#resposta-input-admin label, #resposta-input-admin input {
+
+#resposta-input-admin label,
+#resposta-input-admin input {
   width: 95%;
 }
 
@@ -148,10 +158,10 @@ input::placeholder{
   background-image: url(./../../UI/Icons/relogio.png);
   background-size: cover;
   background-position: center;
- 
+
 }
 
-form{
+form {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -180,10 +190,11 @@ form{
   width: 389px;
   height: 69px;
   background-color: #a60808;
-   margin-bottom: 5%; 
-   margin-left: 20%;
-   margin-top: 5%;
-}  
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+
 #botao-enviar {
   font-size: 28px;
   font-weight: bold;
@@ -196,7 +207,8 @@ form{
   background-color: rgba(28, 76, 46, 1);
   margin-top: 30%;
   margin-left: 20%;
-}  
+}
+
 #BLOCO_CREDITOS {
   font-family: "Montserrat";
   color: rgba(00, 00, 00, 0.7);
@@ -212,79 +224,98 @@ form{
 }
 
 button:hover,
- #BLOCO_CREDITOS .bold:hover{
+#BLOCO_CREDITOS .bold:hover {
   transition: 0.5s;
   cursor: pointer;
   opacity: 0.7;
 }
-.box-agendar.cardapio-admin .botao-navegacao.verde{
-  margin-top: 2rem;  
-}
-.box-agendar.cardapio-admin .botao-navegacao.vermelho{
-  margin-bottom: 2rem;  
+
+.box-agendar.cardapio-admin .botao-navegacao.verde {
+  margin-top: 2rem;
 }
 
-@media(max-width: 680px){
-  .box-agendar.cardapio-admin{
+.box-agendar.cardapio-admin .botao-navegacao.vermelho {
+  margin-bottom: 2rem;
+}
+
+@media(max-width: 680px) {
+  .box-agendar.cardapio-admin {
     width: 95vw;
   }
 }
-@media(max-width: 600px){
+
+@media(max-width: 600px) {
   #resposta-input-admin {
     width: 80%;
 
   }
 }
-@media(max-width: 470px){
-  #resposta-input-admin ::placeholder,  #resposta-input-admin input{
+
+@media(max-width: 470px) {
+
+  #resposta-input-admin ::placeholder,
+  #resposta-input-admin input {
     font-size: 16px;
   }
-  .box-agendar.cardapio-admin p{
+
+  .box-agendar.cardapio-admin p {
     font-size: 22px;
   }
-  .box-agendar.cardapio-admin .botao-navegacao.verde{
-    margin-top: 1.6rem;  
+
+  .box-agendar.cardapio-admin .botao-navegacao.verde {
+    margin-top: 1.6rem;
   }
-  .box-agendar.cardapio-admin .botao-navegacao.vermelho{
-    margin-bottom: 1.6rem;  
+
+  .box-agendar.cardapio-admin .botao-navegacao.vermelho {
+    margin-bottom: 1.6rem;
   }
 }
 
-@media(max-width: 400px){
-  .box-agendar.cardapio-admin #TEXTO_CARDAPIO{
+@media(max-width: 400px) {
+  .box-agendar.cardapio-admin #TEXTO_CARDAPIO {
     font-size: 36px;
     margin: 0 auto;
     width: auto;
   }
-  .box-agendar.cardapio-admin #IMAGEM_CARDAPIO{
+
+  .box-agendar.cardapio-admin #IMAGEM_CARDAPIO {
     height: 110px;
     width: 110px;
   }
-  .box-agendar.cardapio-admin #TEXTO_BANDEJAO{
+
+  .box-agendar.cardapio-admin #TEXTO_BANDEJAO {
     font-size: 22px;
     margin: 1rem auto 0;
     width: auto;
   }
-  .box-agendar.cardapio-admin{
+
+  .box-agendar.cardapio-admin {
     width: 95vw;
     margin-top: 54rem;
   }
-  #resposta-input-admin ::placeholder,  #resposta-input-admin input{
+
+  #resposta-input-admin ::placeholder,
+  #resposta-input-admin input {
     font-size: 14px;
-   }
-   .box-agendar.cardapio-admin p{
-     font-size: 20px;
-   }
-   #resposta-input-admin {
+  }
+
+  .box-agendar.cardapio-admin p {
+    font-size: 20px;
+  }
+
+  #resposta-input-admin {
     width: 88%;
   }
-  .box-agendar.cardapio-admin .botao-navegacao.verde{
-    margin-top: 1rem;  
+
+  .box-agendar.cardapio-admin .botao-navegacao.verde {
+    margin-top: 1rem;
   }
-  .box-agendar.cardapio-admin .botao-navegacao.vermelho{
-    margin-bottom: 1rem;  
+
+  .box-agendar.cardapio-admin .botao-navegacao.vermelho {
+    margin-bottom: 1rem;
   }
-  .box-agendar.cardapio-admin #lowtext{
+
+  .box-agendar.cardapio-admin #lowtext {
     font-size: 13px;
   }
 }

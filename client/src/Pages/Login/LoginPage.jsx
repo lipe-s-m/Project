@@ -76,6 +76,9 @@ function Login() {
       console.log(dados);
       if (dados === null) {
         // alert("nao tem agendamento ativo")
+        localStorage.setItem('hashUser', null);
+        localStorage.setItem('horaUser', null);
+        localStorage.setItem('dataUser', null);
         navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
       }
       else {

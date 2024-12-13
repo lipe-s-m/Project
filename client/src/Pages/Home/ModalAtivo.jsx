@@ -3,6 +3,8 @@ import "./ModalAtivo.css";
 import Axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function ModalAtivo({
   hora,
@@ -16,6 +18,7 @@ export default function ModalAtivo({
 }) {
   const navigate = useNavigate();
   const [horaMinutoAtual, setHoraMinutoAtual] = useState(0);
+  const [loading, setLoading] = useState(null);
 
 
   // eslint-disable-next-line
@@ -44,8 +47,9 @@ export default function ModalAtivo({
       })
   }
 
-  const handleIncreaseLotacaoBotao = () => {
+  async function handleIncreaseLotacaoBotao() {
     if (integer < 50) {
+      setLoading(true);
       setLotacaoBotao((prevLotacao) => prevLotacao + 1);
       //pega data atual
       const dataAtual = new Date();
@@ -54,7 +58,7 @@ export default function ModalAtivo({
       const senha = integer + 1;
 
       //agendando no banco
-      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//trocarAgendamento", {
+      await Axios.post("https://www.dcc.ufrrj.br/filaruservicos//trocarAgendamento", {
         senha: integer + 1,
         data: dataFormatada,
         hora: hora,
@@ -70,6 +74,8 @@ export default function ModalAtivo({
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
+        }).finally(() => {
+          setLoading(false)
         });
     } else {
       console.log("Lotação maxima ");
@@ -82,6 +88,12 @@ export default function ModalAtivo({
     if (horaMinutoAtual > horaMinutoModal + 9) {
       return (
         <div id="BACKGROUND_id">
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
           <div id="MODAL_id">
             <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
@@ -102,8 +114,13 @@ export default function ModalAtivo({
     else if (integer < 50) {
       return (
         <>
-
           <div id="BACKGROUND_id">
+            {loading && <div className="loading"> <Backdrop
+              sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+              open
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop></div>} {/* Mostra o carregamento */}
             <div id="MODAL_id">
               <div id="CONTEUDO_MODAL">
                 <h3 id="TITULO_DISPONIVEL" className="ativo">Atenção</h3>
@@ -112,22 +129,15 @@ export default function ModalAtivo({
                 <p id="IMAGEM"></p>
                 <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
                 <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
-
-
                 <p id="aviso-modal">Você já possui um outro agendamento, deseja trocá-lo por este?</p>
-
                 <hr></hr>
-
               </div>
-
               <button id="BLOCO_CONFIRMAR" onClick={handleIncreaseLotacaoBotao}>
                 Trocar Agendamento
               </button>
               <button id="BLOCO_CANCELAR" onClick={setModalOpen}>
                 Voltar
               </button>
-
-
             </div>
           </div>
         </>
@@ -135,8 +145,13 @@ export default function ModalAtivo({
     }
     else {
       return (
-
         <div id="BACKGROUND_id">
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
           <div id="MODAL_id">
             <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">

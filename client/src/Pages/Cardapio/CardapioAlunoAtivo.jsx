@@ -19,6 +19,8 @@ function CardapioAlunoAtivo() {
   const { emailUsuario } = useParams();
   const { hora } = useParams();
   const { senha } = useParams();
+  const hash = localStorage.getItem('hashUser');
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -33,12 +35,12 @@ function CardapioAlunoAtivo() {
   const navigate = useNavigate();
 
   const voltarLoginPage = () => {
-    navigate(`/AgendarHorarioAtivo/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
+    navigate(`/AgendarHorarioAtivo/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`);
   };
 
   const handleChangeVisualizar = () => {
-    Axios.get("http://localhost:3001/obterCardapio", {
-      params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
+      params: { data: data, turno: turno },
     })
       .then((response) => {
         const cardapio = response.data;
@@ -77,12 +79,11 @@ function CardapioAlunoAtivo() {
 
       <div id="CAIXA_PRINCIPAL">
         <div id="IMAGEM_CARDAPIO"></div>
-        <div id="TEXTO_CARDAPIO">Cardápio</div>
+        <div id="title">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <div id="data">Data</div>
-        <div id="imagem-data"></div>
-        <div id="RESPOSTA_PRINCIPAL">
+        <div>
           {" "}
           <label htmlFor="date">
             <input
@@ -94,38 +95,39 @@ function CardapioAlunoAtivo() {
           </label>
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr id="hr"></hr>
 
-        <div id="turno">Turno</div>
-        <div id="imagem-data"></div>
-        <div id="resposta-turno">
+        <div id="data">Turno</div>
+
+        <div id="select-turno">
           {" "}
-          <label htmlFor="turn">
-            <select
-              value={turno}
-              onChange={(e) => handleChangeTurno(e.target.value)}
-            >
-              <option value="">Selecione um Turno</option>
-              <option value="Almoco">Almoço</option>
-              <option value="Janta">Janta</option>
-            </select>{" "}
-          </label>
+          <div id="date" >
+            <label htmlFor="turn">
+              <select
+                value={turno}
+                onChange={(e) => handleChangeTurno(e.target.value)}
+              >
+
+                <option value="">Selecione um Turno</option>
+                <option value="Almoco">Almoço</option>
+                <option value="Janta">Janta</option>
+              </select>{" "}
+            </label>
+          </div>
+
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr id="hr"></hr>
 
-        <button id="visualizar-cardapio" onClick={handleChangeVisualizar}>
+
+        <button className="botao-navegacao verde" onClick={handleChangeVisualizar}>
           Visualizar
         </button>
 
-        <button id="botao-voltar" onClick={voltarLoginPage}>
+        <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>
-        <div id="BLOCO_CREDITOS">
+        <div className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
       </div>

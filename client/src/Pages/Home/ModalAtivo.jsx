@@ -1,8 +1,10 @@
 import "./ModalAtivo.css";
 
 import Axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function ModalAtivo({
   hora,
@@ -15,30 +17,39 @@ export default function ModalAtivo({
   children,
 }) {
   const navigate = useNavigate();
+  const [horaMinutoAtual, setHoraMinutoAtual] = useState(0);
+  const [loading, setLoading] = useState(null);
+
 
   // eslint-disable-next-line
   useEffect(() => {
+    let agora = new Date();
+    let horaAtual = agora.getHours();
+    let minutoAtual = agora.getMinutes();
+    let horaMinAtual = horaAtual.toString().padStart(2, '0') + minutoAtual.toString().padStart(2, '0');
+    setHoraMinutoAtual(horaMinAtual)
     if (isOpen) {
       obterLotacao();
     }
   }, [isOpen]);
-  
+
   //obter lotacao
   const obterLotacao = () => {
-    Axios.get("http://localhost:3001/contarVagas", {
+    Axios.get("https://www.dcc.ufrrj.br/filaruservicos//contarVagas", {
       params: { horario: hora } // Note que o horário é passado como parâmetro
     })
-    .then((response) => {
-      console.log(response.data); // Mostrar a resposta do servidor
-      setLotacaoBotao(response.data.count);
-    })
-    .catch((error) => {
-      console.log("erro na requisicao: ", error)
-    })
+      .then((response) => {
+        console.log(response.data); // Mostrar a resposta do servidor
+        setLotacaoBotao(response.data.count);
+      })
+      .catch((error) => {
+        console.log("erro na requisicao: ", error)
+      })
   }
 
-  const handleIncreaseLotacaoBotao = () => {
+  async function handleIncreaseLotacaoBotao() {
     if (integer < 50) {
+      setLoading(true);
       setLotacaoBotao((prevLotacao) => prevLotacao + 1);
       //pega data atual
       const dataAtual = new Date();
@@ -47,7 +58,7 @@ export default function ModalAtivo({
       const senha = integer + 1;
 
       //agendando no banco
-      Axios.post("http://localhost:3001/trocarAgendamento", {
+      await Axios.post("https://www.dcc.ufrrj.br/filaruservicos//trocarAgendamento", {
         senha: integer + 1,
         data: dataFormatada,
         hora: hora,
@@ -56,12 +67,15 @@ export default function ModalAtivo({
       })
         .then((response) => {
           console.log(response.data); // Mostrar a resposta do servidor
+          const hash = response.data.hash;
           navigate(
-            `/VisualizarSenha/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
+            `/VisualizarSenha/${hash}/${nomeUsuario}/${emailUsuario}/${hora}/${senha}`
           );
         })
         .catch((error) => {
           console.error("Erro na requisição:", error);
+        }).finally(() => {
+          setLoading(false)
         });
     } else {
       console.log("Lotação maxima ");
@@ -69,72 +83,90 @@ export default function ModalAtivo({
     setModalOpen();
   };
 
+  const horaMinutoModal = +hora.replace(":", "");
   if (isOpen) {
-    if(integer < 50){
-    return (
-      <>
-
+    if (horaMinutoAtual > horaMinutoModal + 9) {
+      return (
         <div id="BACKGROUND_id">
-          <div id="MODAL_id_ATIVO">
-            <button id="BLOCO_CANCELAR_ATIVO" onClick={setModalOpen}>
-              Voltar
-            </button>
-
-            <button id="BLOCO_CONFIRMAR_ATIVO" onClick={handleIncreaseLotacaoBotao}>
-              Trocar Agendamento
-            </button>
-
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
+          <div id="MODAL_id">
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
             <div id="CONTEUDO_MODAL">
-              <p id="TITULO_ATIVO">Atenção</p>
 
-              <p id="IMAGEM_ATIVO"></p>
+              <p id="IMAGEM_INDISPONIVEL"></p>
+              <p id="desc-fora-horario">Fora de Horário</p>
+              {/* <p id="PESSOAS_MODAL">mod: {horaMinutoModal + 9} atu: {horaMinutoAtual}</p> */}
 
-              <p id="VAGAS_MODAL_ATIVO">Vagas Preenchidas / Total</p>
-
-              <p id="IMAGEM_USUARIO_ATIVO"></p>
-
-              <p id="PESSOAS_MODAL_ATIVO">{integer} / 50</p>
-              <p id="AVISO_MODAL_ATIVO">Você já possui um outro agendamento, deseja trocá-lo por este?</p>
-
-              <p id="LINHA_MODAL_ATIVO">
-                ________________________________________________
-              </p>
+              <hr></hr>
             </div>
+            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
           </div>
         </div>
-      </>
-    );
-  }
-  else{
-    return(
 
-      <div id="BACKGROUND_id">
+      )
+    }
 
-          <div id="BLOCO_INDISPONÍVEL">
+    else if (integer < 50) {
+      return (
+        <>
+          <div id="BACKGROUND_id">
+            {loading && <div className="loading"> <Backdrop
+              sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+              open
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop></div>} {/* Mostra o carregamento */}
+            <div id="MODAL_id">
+              <div id="CONTEUDO_MODAL">
+                <h3 id="TITULO_DISPONIVEL" className="ativo">Atenção</h3>
+                <p id="IMAGEM_INDISPONIVEL" className="imagem-ativo"></p>
 
-          <button id = "BLOCO_VOLTAR" onClick={setModalOpen}>Voltar</button>
-
-          <div id = "CONTEUDO_MODAL">
-
-              <p id = "TITULO_INDISPONIVEL">Indisponível</p>
-
-              <p id = "IMAGEM_INDISPONIVEL"></p>
-
-              <p id = "VAGAS_INDISPONIVEL">Vagas Preenchidas / Total</p>
-              
-              <p id = "PESSOAS_INDISPONIVEL">{integer} / 50</p>
-
-              <p id = "img-indisponivel"></p>
-
-              <p id = "LINHA_INDISPONIVEL">________________________________________________</p>
-
+                <p id="IMAGEM"></p>
+                <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
+                <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
+                <p id="aviso-modal">Você já possui um outro agendamento, deseja trocá-lo por este?</p>
+                <hr></hr>
+              </div>
+              <button id="BLOCO_CONFIRMAR" onClick={handleIncreaseLotacaoBotao}>
+                Trocar Agendamento
+              </button>
+              <button id="BLOCO_CANCELAR" onClick={setModalOpen}>
+                Voltar
+              </button>
+            </div>
           </div>
+        </>
+      );
+    }
+    else {
+      return (
+        <div id="BACKGROUND_id">
+          {loading && <div className="loading"> <Backdrop
+            sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+            open
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop></div>} {/* Mostra o carregamento */}
+          <div id="MODAL_id">
+            <div id="TITULO_INDISPONIVEL">Indisponível</div>
+            <div id="CONTEUDO_MODAL">
 
+              <p id="IMAGEM_INDISPONIVEL"></p>
+              <p id="VAGAS_MODAL">Vagas Preenchidas / Total</p>
+              <p id="PESSOAS_MODAL"><p id="IMAGEM_USUARIO"></p>{integer} / 50</p>
+
+              <hr></hr>
+            </div>
+            <button id="BLOCO_CANCELAR" onClick={setModalOpen}>Voltar</button>
           </div>
-
-      </div>
-  )
+        </div>
+      )
+    }
   }
-}
   return null;
 }

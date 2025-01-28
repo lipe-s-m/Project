@@ -1,10 +1,7 @@
-#CAIXA_PRINCIPAL {
-  margin: 0 auto;
-  margin-top: 5%;
-  padding-top: 5%;
-  width: 650px;
-  background-color: #e8e8e8;
-  border-radius: 30px;
+.box-agendar.cardapio-admin.modal-aluno{
+  margin-top: 34rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 #BLOCO_VOLTAR_CARDAPIO {
@@ -28,16 +25,7 @@
   font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
-#subtitulo {
-  width: 320px;
-  font-size: 26px;
-  font-weight: medium;
-  font-family: "Montserrat", sans-serif;
-  position: relative;
-  top: 25px;
-  margin: 0 auto;
-  text-align: center;
-}
+
 #IMAGEM_CARDAPIO {
   width: 135px;
   height: 135px;
@@ -57,39 +45,24 @@
   top: 70px;
   
 }
-#resposta_PRINCIPAL {
+.modal-aluno hr{
+  width: 80%;
+  
+}
+.resposta-modal-aluno{
   font-size: 22px;
   font-weight: 550;
   opacity: 0.6;
-  position: relative;
-  top: 50px;
-  left: 80px;
-  width: 70%;
-  height: 45px;
-  margin-top: 1.5%;
-  margin-left: 2%;
+  width: 90%;
+  margin-bottom: 0.1rem;
+  height: auto;
   text-align: center;
   line-height: 45px; /* Alinha verticalmente */
+  word-wrap: break-word;
 }
 
-#LINHA_PRINCIPAL {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 50px;
-  left: 9%;
-}
-#IMAGEM_GARFO_FACA {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 100px;
-  left: 40px;
-}
+
+
 #OPCAO {
   width: 100%;
   font-size: 27px;
@@ -100,38 +73,9 @@
   margin: 0 auto;
   top: 80px;
 }
-#resposta_SECUNDARIA {
-  font-size: 22px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 45px;
-  position: relative;
-  top: 100px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_OPCAO {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 100px;
-  left: 9%;
-}
-#IMG_OPCAO {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 43px;
-  left: 40px;
-}
+
+
 #VEGETARIANA {
   width: 100%;
   font-size: 27px;
@@ -142,38 +86,8 @@
   margin: 0 auto;
   top: 110px;
 }
-#resposta_VEGETARIANA {
-  font-size: 22px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 45px;
-  position: relative;
-  top: 135px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_VEGETARIANA_OPCAO {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 135px;
-  left: 9%;
-}
-#IMG_VEGETARIANA {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 77px;
-  left: 40px;
-}
+
 #modal-acompanhamento {
   width: 100%;
   font-size: 27px;
@@ -186,38 +100,9 @@
   top: 125px;
   margin-bottom: -1.5%;
 }
-#resposta_ACOMPANHAMENTOS {
-  font-size: 19px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 66px;
-  position: relative;
-  top: 156px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_ACOMPANHAMENTOS_OPCAO {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 155px;
-  left: 9%;
-}
-#IMG_ACOMPANHAMENTOS {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 78px;
-  left: 40px;
-}
+
+
 #modal-guarnicao {
   width: 100%;
   font-size: 27px;
@@ -231,38 +116,7 @@
   margin-top: 2%;
 
 }
-#resposta_GUARNICOES {
-  font-size: 22px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 45px;
-  position: relative;
-  top: 166px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_GUARNICAO {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 165px;
-  left: 9%;
-}
-#IMG_GUARNICAO {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 109px;
-  left: 40px;
-}
 #modal-salada {
   width: 100%;
   font-size: 27px;
@@ -275,38 +129,7 @@
   top: 150px;
   margin-top: 2.5%;
 }
-#resposta_SALADA {
-  font-size: 22px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 45px;
-  position: relative;
-  top: 166px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_SALADA {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 165px;
-  left: 9%;
-}
-#IMG_SALADA {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 109px;
-  left: 40px;
-}
 #modal-sobremesa {
   width: 100%;
   font-size: 27px;
@@ -319,37 +142,10 @@
   top: 150px;
   margin-top: 1.9%;
 }
-#resposta_SOBREMESA {
-  font-size: 22px;
-  font-weight: 550;
-  opacity: 0.6;
-  width: 70%;
-  height: 45px;
-  position: relative;
-  top: 163px;
-  left: 80px;
-  margin-left: 2%;
-  text-align: center;
-  line-height: 45px; /* Alinha verticalmente */
-}
-#LINHA_SOBREMESA {
-  color: black;
-  opacity: 25%;
-  position: relative;
-  top: 160px;
-  left: 9%;
-}
-#IMG_SOBREMESA {
-  opacity: 30%;
-  width: 30px;
-  height: 30px;
-  background-image: url(./../../UI/Icons/colher-e-garfo-cruzadosIcon.png);
 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 104px;
-  left: 40px;
+.modal-aluno #BLOCO_CANCELAR{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 #BLOCO_CREDITOS {
   font-family: "Montserrat";

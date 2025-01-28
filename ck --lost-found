@@ -1,0 +1,43 @@
+[33mf451a6b[m[33m ([m[1;36mHEAD -> [m[1;32m2periodo[m[33m)[m feat: add initial responsive login page
+client/src/Pages/Login/LoginPage.css
+client/src/Pages/Login/LoginPage.jsx
+[33m59bfa6a[m feat: adjust responsive login page
+client/src/Pages/Home/AgendarHorario.jsx
+client/src/Pages/Login/LoginPage.css
+client/src/UI/Icons/diagramaER2_page-0001.jpg
+[33m997e368[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m adicionado  o.gitignore
+.gitignore
+client/src/Pages/Home/AgendarHorario.jsx
+[33m83d4b34[m Versão Final
+client/src/Pages/Home/AgendarHorario.jsx
+client/src/Pages/Login/LoginPage.jsx
+server/index.js
+[33m697f461[m Beta Apresentavel - 3.0
+client/public/index.html
+client/src/Pages/Admin/CardapioAdmin.css
+client/src/Pages/Admin/CardapioAdmin.jsx
+client/src/Pages/Cardapio/CardapioAluno.css
+client/src/Pages/Cardapio/CardapioAluno.jsx
+client/src/Pages/Cardapio/CardapioAlunoAtivo.jsx
+client/src/Pages/Cardapio/ModalCardapioAluno copy.jsx
+client/src/Pages/Cardapio/ModalCardapioAluno.css
+client/src/Pages/Cardapio/ModalCardapioAluno.jsx
+client/src/Pages/Home/AgendarHorario.css
+client/src/Pages/Home/AgendarHorario.jsx
+client/src/Pages/Home/AgendarHorarioAtivo.jsx
+client/src/Pages/Home/Modal.css
+client/src/Pages/Home/VisualizarSenha.css
+client/src/Pages/Login/LoginPage.css
+client/src/Pages/Login/LoginPage.jsx
+client/src/Routes/routes.jsx
+server/index.js
+[33ma18c4c9[m começando o cardapio pro aluno
+client/src/Pages/Admin/CardapioAdmin.css
+client/src/Pages/Admin/CardapioAdmin.jsx
+client/src/Pages/Cardapio/CardapioAluno.css
+client/src/Pages/Cardapio/CardapioAluno.jsx
+client/src/Pages/Cardapio/ModalCardapioAluno copy.css
+client/src/Pages/Cardapio/ModalCardapioAluno copy.jsx
+client/src/Pages/Home/AgendarHorario.jsx
+client/src/Pages/Home/AgendarHorarioAtivo.jsx
+server/index.js

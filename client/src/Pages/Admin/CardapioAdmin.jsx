@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./CardapioAdmin.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Axios from "axios";
 function CardapioAdmin() {
   const navigate = useNavigate();
@@ -14,7 +14,6 @@ function CardapioAdmin() {
   const [sobremesa, setSobremesa] = useState("");
   const [data, setData] = useState("");
   const [turno, setTurno] = useState("");
-  const [enviou, setEnviou] = useState(false);
 
 
   const handleChangePrincipal = (valor) => {
@@ -49,19 +48,18 @@ function CardapioAdmin() {
   const voltarLoginPage = () => {
     navigate(`/`);
   };
-  
+
   const handleChangeEnviar = (event) => {
     if (
       data.length > 0 &&
       turno.length > 0 &&
       principal.length > 0 &&
-      acompanhamento.length > 0 
-    ) 
-    {
+      acompanhamento.length > 0
+    ) {
       alert(
         `Refeição do dia ${data}: \n${turno} \n${principal} \n${opcao} \n${vegetariana} \n${acompanhamento} \n${guarnicao} \n${salada} \n${sobremesa}`
       );
-      Axios.post("http://localhost:3001/criarCardapio", {
+      Axios.post("https://www.dcc.ufrrj.br/filaruservicos//criarCardapio", {
         principal: principal,
         opcao: opcao,
         vegetariana: vegetariana,
@@ -84,15 +82,14 @@ function CardapioAdmin() {
 
   return (
     <>
-      <div id="CAIXA_PRINCIPAL">
+      <div className="box-agendar cardapio-admin">
         <div id="IMAGEM_CARDAPIO"></div>
         <div id="TEXTO_CARDAPIO">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <form>
-          <div id="data">Data *</div>
-          <div id="imagem-data"></div>
-          <div id="RESPOSTA_PRINCIPAL">
+          <p>Data *</p>
+          <div id="RESPOSTA_DATA">
             {" "}
             <label htmlFor="date">
               <input
@@ -104,14 +101,10 @@ function CardapioAdmin() {
             </label>
           </div>
 
-          <div id="LINHA_PRINCIPAL_OPCAO">
-            _________________________________________________________________
-          </div>
 
-          <div id="turno">Turno *</div>
-          <div id="imagem-data"></div>
+          <p>Turno *</p>
           <div id="resposta-turno">
-            {" "}
+
             <label htmlFor="turn">
               <select
                 value={turno}
@@ -122,15 +115,14 @@ function CardapioAdmin() {
                 <option value="Janta">Janta</option>
               </select>{" "}
             </label>
+            {/* {" "} */}
+            {/* <div id="imagem-data"></div> */}
           </div>
 
-          <div id="LINHA_PRINCIPAL_OPCAO">
-            _________________________________________________________________
-          </div>
 
-          <div id="OPCAO_PRINCIPAL">Prato Principal *</div>
-          <div id="IMAGEM_GARFO_FACA"></div>
-          <div id="RESPOSTA_PRINCIPAL">
+          <p>Prato Principal *</p>
+          {/* <div id="IMAGEM_GARFO_FACA"></div> */}
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="principal">
               <input
@@ -143,12 +135,9 @@ function CardapioAdmin() {
             </label>
           </div>
 
-          <div id="LINHA_PRINCIPAL_OPCAO">
-            _________________________________________________________________
-          </div>
 
-          <div id="OPCAO_SECUNDARIA">Opção</div>
-          <div id="RESPOSTA_SECUNDARIA">
+          <p>Opção</p>
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="opcao">
               <input
@@ -160,13 +149,12 @@ function CardapioAdmin() {
               />
             </label>
           </div>
-          <div id="LINHA_SECUNDARIA_OPCAO">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_OPCAO"></div>
 
-          <div id="OPCAO_VEGETARIANA">Opção Vegetariana</div>
-          <div id="RESPOSTA_VEGETARIANA">
+          {/* <div id="IMAGEM_OPCAO"></div> */}
+
+          <p>Opção Vegetariana</p>
+
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="vegetariana">
               <input
@@ -178,31 +166,12 @@ function CardapioAdmin() {
               />
             </label>
           </div>
-          <div id="LINHA_VEGETARIANA_OPCAO">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_VEGETARIANA"></div>
 
-          <div id="ACOMPANHAMENTOS">Acompanhamentos *</div>
-          <div id="RESPOSTA_ACOMPANHAMENTOS">
-            {" "}
-            <label htmlFor="acompanhamento">
-              <input
-                type="text"
-                id="acompanhamento"
-                value={acompanhamento}
-                onChange={(e) => handleChangeAcompanhamento(e.target.value)}
-                placeholder="Insira o Acompanhamento aqui..."
-              />
-            </label>
-          </div>
-          <div id="LINHA_ACOMPANHAMENTOS_OPCAO">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_ACOMPANHAMENTOS"></div>
 
-          <div id="GUARNICAO">Guarnição</div>
-          <div id="RESPOSTA_GUARNICOES">
+          {/* <div id="IMAGEM_VEGETARIANA"></div> */}
+
+          <p>Guarnição</p>
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="guarnicao">
               <input
@@ -214,13 +183,25 @@ function CardapioAdmin() {
               />
             </label>
           </div>
-          <div id="LINHA_GUARNICAO">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_GUARNICAO"></div>
 
-          <div id="SALADA">Salada</div>
-          <div id="RESPOSTA_SALADA">
+          {/* <div id="IMAGEM_ACOMPANHAMENTOS"></div> */}
+          <p>Acompanhamentos *</p>
+          <div id="resposta-input-admin">
+            {" "}
+            <label htmlFor="acompanhamento">
+              <input
+                type="text"
+                id="acompanhamento"
+                value={acompanhamento}
+                onChange={(e) => handleChangeAcompanhamento(e.target.value)}
+                placeholder="Insira o Acompanhamento aqui..."
+              />
+            </label>
+          </div>
+
+          {/* <div id="IMAGEM_GUARNICAO"></div> */}
+          <p>Salada</p>
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="salada">
               <input
@@ -232,13 +213,11 @@ function CardapioAdmin() {
               />
             </label>
           </div>
-          <div id="LINHA_SALADA">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_SALADA"></div>
 
-          <div id="SOBREMESA">Sobremesa</div>
-          <div id="RESPOSTA_SOBREMESA">
+
+          {/* <div id="IMAGEM_SALADA"></div> */}
+          <p>Sobremesa</p>
+          <div id="resposta-input-admin">
             {" "}
             <label htmlFor="sobremesa">
               <input
@@ -250,24 +229,23 @@ function CardapioAdmin() {
               />
             </label>
           </div>
-          <div id="LINHA_SOBREMESA">
-            _________________________________________________________________
-          </div>
-          <div id="IMAGEM_SOBREMESA"></div>
+
+
+          {/* <div id="IMAGEM_SOBREMESA"></div> */}
         </form>
 
         {/* Enviar Cardapio */}
-        <button id="botao-enviar" onClick={handleChangeEnviar}>
+        <button className="botao-navegacao verde" onClick={handleChangeEnviar}>
           Enviar
         </button>
 
         {/* voltar ao LoginPage */}
-        <button id="botao-voltar" onClick={voltarLoginPage}>
+        <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>
 
         {/* creditos */}
-        <div id="BLOCO_CREDITOS">
+        <div id="lowtext">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
       </div>

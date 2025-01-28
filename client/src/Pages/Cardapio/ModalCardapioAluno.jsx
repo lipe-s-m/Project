@@ -1,6 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import "./ModalCardapioAluno.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function ModalCardapioAluno({
   principal,
@@ -32,70 +31,53 @@ function ModalCardapioAluno({
     return (
       <>
         <div id="BACKGROUND_id">
-            <div id="CAIXA_PRINCIPAL">
+            <div className="box-agendar cardapio-admin modal-aluno">
               <div id="TEXTO_CARDAPIO">Cardápio</div>
-              <div id="subtitulo">
+              <div id="TEXTO_BANDEJAO">
                 {turno} - {data}
               </div>
 
-              <div id="LINHA_PRINCIPAL_OPCAO">
-                _________________________________________________________________
-              </div>
 
-              <div id="PRINCIPAL">Prato Principal</div>
-              <div id="IMAGEM_GARFO_FACA"></div>
-              <div id="resposta_PRINCIPAL">{principal}</div>
-              <div id="LINHA_PRINCIPAL">
-                _________________________________________________________________
-              </div>
 
-              <div id="OPCAO">Opção</div>
-              <div id="resposta_SECUNDARIA">{opcao}</div>
-              <div id="LINHA_OPCAO">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_OPCAO"></div>
+              <p>Prato Principal</p>
+              <div className="resposta-modal-aluno">{principal}</div>
+              <hr></hr>
 
-              <div id="VEGETARIANA">Opção Vegetariana</div>
-              <div id="resposta_VEGETARIANA">{vegetariana}</div>
-              <div id="LINHA_VEGETARIANA_OPCAO">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_VEGETARIANA"></div>
 
-              <div id="modal-acompanhamento">Acompanhamentos</div>
-              <div id="resposta_ACOMPANHAMENTOS">{acompanhamento}</div>
-              <div id="LINHA_ACOMPANHAMENTOS_OPCAO">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_ACOMPANHAMENTOS"></div>
+              <p>Opção</p>
+              <div className="resposta-modal-aluno">{opcao}</div>
+              <hr></hr>
 
-              <div id="modal-guarnicao">Guarnição</div>
-              <div id="resposta_GUARNICOES">{guarnicao}</div>
-              <div id="LINHA_GUARNICAO">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_GUARNICAO"></div>
 
-              <div id="modal-salada">Salada</div>
-              <div id="resposta_SALADA">{salada}</div>
+              <p>Opção Vegetariana</p>
+              <div className="resposta-modal-aluno">{vegetariana}</div>
+              <hr></hr>
 
-              <div id="LINHA_SALADA">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_SALADA"></div>
 
-              <div id="modal-sobremesa">Sobremesa</div>
-              <div id="resposta_SOBREMESA">{sobremesa}</div>
-              <div id="LINHA_SOBREMESA">
-                _________________________________________________________________
-              </div>
-              <div id="IMG_SOBREMESA"></div>
+              <p>Acompanhamentos</p>
+              <div className="resposta-modal-aluno">{acompanhamento}</div>
+              <hr></hr>
 
-              <button id="BLOCO_VOLTAR_CARDAPIO" onClick={voltarCardapio}>
+
+              <p>Guarnição</p>
+              <div className="resposta-modal-aluno">{guarnicao}</div>
+              <hr></hr>
+
+
+              <p>Salada</p>
+              <div className="resposta-modal-aluno">{salada}</div>
+              <hr></hr>
+
+
+              <p>Sobremesa</p>
+              <div className="resposta-modal-aluno">{sobremesa}</div>
+              <hr></hr>
+
+
+              <button id="BLOCO_CANCELAR" onClick={voltarCardapio}>
                 Voltar
               </button>
-              <div id="BLOCO_CREDITOS">
+              <div id="lowtext">
                 Desenvolvido por
                 <strong className="bold">: Alunos de C.COMP</strong>
               </div>

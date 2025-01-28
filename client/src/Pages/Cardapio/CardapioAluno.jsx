@@ -3,6 +3,8 @@ import "./CardapioAluno.css";
 import { useState } from "react";
 import Axios from "axios";
 import ModalCardapioAluno from "./ModalCardapioAluno";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function CardapioAluno() {
   const [principal, setPrincipal] = useState("");
@@ -17,6 +19,9 @@ function CardapioAluno() {
 
   const { nomeUsuario } = useParams();
   const { emailUsuario } = useParams();
+
+  const [loading, setLoading] = useState(null);
+
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -34,25 +39,30 @@ function CardapioAluno() {
     navigate(`/AgendarHorario/${nomeUsuario}/${emailUsuario}`);
   };
 
-  const handleChangeVisualizar = () => {
-    Axios.get("http://localhost:3001/obterCardapio", {
-      params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
-    })
-      .then((response) => {
-        const cardapio = response.data;
-        setPrincipal(cardapio.principal);
-        setOpcao(cardapio.opcao);
-        setVegetariana(cardapio.vegetariana);
-        setAcompanhamentos(cardapio.acompanhamentos);
-        setGuarnicao(cardapio.guarnicao);
-        setSalada(cardapio.salada);
-        setSobremesa(cardapio.sobremesa);
-        setOpenModal(!openModal);
+  async function handleChangeVisualizar() {
+    try {
+      setLoading(true)
+      const response = await Axios.get("https://www.dcc.ufrrj.br/filaruservicos//obterCardapio", {
+        params: { data: data, turno: turno }, // Note que o horário é passado como parâmetro
       })
-      .catch((error) => {
-        console.error("Erro na requisição:", error);
-        alert("O Cardápio desse dia ainda não foi feito");
-      });
+        .then((response) => {
+          const cardapio = response.data;
+          setPrincipal(cardapio.principal);
+          setOpcao(cardapio.opcao);
+          setVegetariana(cardapio.vegetariana);
+          setAcompanhamentos(cardapio.acompanhamentos);
+          setGuarnicao(cardapio.guarnicao);
+          setSalada(cardapio.salada);
+          setSobremesa(cardapio.sobremesa);
+          setOpenModal(!openModal);
+        })
+    }
+    catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("O Cardápio desse dia ainda não foi feito");
+    } finally {
+      setLoading(false)
+    }
   };
 
   return (
@@ -75,12 +85,11 @@ function CardapioAluno() {
 
       <div id="CAIXA_PRINCIPAL">
         <div id="IMAGEM_CARDAPIO"></div>
-        <div id="TEXTO_CARDAPIO">Cardápio</div>
+        <div id="title">Cardápio</div>
         <div id="TEXTO_BANDEJAO">Bandejão</div>
 
         <div id="data">Data</div>
-        <div id="imagem-data"></div>
-        <div id="RESPOSTA_PRINCIPAL">
+        <div>
           {" "}
           <label htmlFor="date">
             <input
@@ -92,41 +101,50 @@ function CardapioAluno() {
           </label>
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr id="hr"></hr>
 
-        <div id="turno">Turno</div>
-        <div id="imagem-data"></div>
-        <div id="resposta-turno">
+        <div id="data">Turno</div>
+
+        <div id="select-turno">
           {" "}
-          <label htmlFor="turn">
-            <select
-              value={turno}
-              onChange={(e) => handleChangeTurno(e.target.value)}
-            >
-              <option value="">Selecione um Turno</option>
-              <option value="Almoco">Almoço</option>
-              <option value="Janta">Janta</option>
-            </select>{" "}
-          </label>
+          <div id="date" >
+            <label htmlFor="turn">
+              <select
+                value={turno}
+                onChange={(e) => handleChangeTurno(e.target.value)}
+              >
+
+                <option value="">Selecione um Turno</option>
+                <option value="Almoco">Almoço</option>
+                <option value="Janta">Janta</option>
+              </select>{" "}
+            </label>
+          </div>
+
         </div>
 
-        <div id="LINHA_PRINCIPAL_OPCAO">
-          _________________________________________________________________
-        </div>
+        <hr id="hr"></hr>
 
-        <button id="visualizar-cardapio" onClick={handleChangeVisualizar}>
+
+        <button className="botao-navegacao verde" onClick={handleChangeVisualizar}>
           Visualizar
         </button>
 
-        <button id="botao-voltar" onClick={voltarLoginPage}>
+        <button className="botao-navegacao vermelho" onClick={voltarLoginPage}>
           Voltar
         </button>
-        <div id="BLOCO_CREDITOS">
+        <div className="lowText">
           Desenvolvido por<strong className="bold">: Alunos de C.COMP</strong>
         </div>
       </div>
+
+      {loading && <div className="loading"> <Backdrop
+        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop></div>} {/* Mostra o carregamento */}
+
     </>
   );
 }
